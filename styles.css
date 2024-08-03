@@ -54,6 +54,6 @@ body {
   margin: 0 auto;
   margin-top: -2vh;
   box-shadow: 
-    0 0 15px rgba(86,209,208,0.6),
-    inset 0 0 15px rgba(86,209,208,0.6);
+    0 0 15px #f8f8f8,
+    inset 0 0 15px #f8f8f8;
 }
