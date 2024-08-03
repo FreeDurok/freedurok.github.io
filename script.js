@@ -6,6 +6,48 @@ function redirectToSite() {
 // Aggiungere evento al rilascio del click
 document.addEventListener('mouseup', redirectToSite);
 
+// Aggiungere eventi per dispositivi mobili
+document.addEventListener('touchstart', onTouchStart);
+document.addEventListener('touchmove', onTouchMove);
+document.addEventListener('touchend', onTouchEnd);
+
+function onTouchStart(event) {
+  if (event.touches.length === 1) {
+      onMouseDown(event.touches[0]);
+  }
+}
+
+function onTouchMove(event) {
+  if (event.touches.length === 1) {
+      onMouseMove(event.touches[0]);
+  }
+}
+
+function onTouchEnd(event) {
+  if (event.changedTouches.length === 1) {
+      onMouseUp(event.changedTouches[0]);
+      redirectToSite();
+  }
+}
+
+// // Aggiungere eventi per desktop
+// document.addEventListener('mousedown', onMouseDown);
+// document.addEventListener('mousemove', onMouseMove);
+// document.addEventListener('mouseup', onMouseUp);
+
+// // Esempio di implementazione delle funzioni onMouseDown, onMouseMove, onMouseUp
+// function onMouseDown(event) {
+// // Logica per gestione evento
+// }
+
+// function onMouseMove(event) {
+// // Logica per gestione evento
+// }
+
+// function onMouseUp(event) {
+// // Logica per gestione evento
+// }
+
 const preload = () => {
   let manager = new THREE.LoadingManager();
   manager.onLoad = function() { 
@@ -22,8 +64,6 @@ if (document.readyState === "complete" || (document.readyState !== "loading" && 
   preload();
 else
   document.addEventListener("DOMContentLoaded", preload);
-
-// Classe Environment e altre funzioni come nel tuo codice originale
 
 class Environment {
 
