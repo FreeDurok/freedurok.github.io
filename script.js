@@ -97,7 +97,7 @@ class CreateParticles {
 
 		this.data = {
 
-			text: 'FUTURE\nIS NOW',
+			text: ' Discover the real power\nof Bitcoin',
 			amount: 1500,
 			particleSize: 1,
 			particleColor: 0xffffff,

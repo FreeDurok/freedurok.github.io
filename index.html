@@ -15,37 +15,34 @@
     <meta property="og:site_name" content="Bitcoin Power Law">
     </head>
 <body>
-  <script type="x-shader/x-vertex" id="vertexshader">
-    attribute float size;
-    attribute vec3 customColor;
-    varying vec3 vColor;
-
-    void main() {
-      vColor = customColor;
-      vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );
-      gl_PointSize = size * ( 300.0 / -mvPosition.z );
-      gl_Position = projectionMatrix * mvPosition;
-    }
-  </script>
-  <script type="x-shader/x-fragment" id="fragmentshader">
-    uniform vec3 color;
-    uniform sampler2D pointTexture;
-    varying vec3 vColor;
-
-    void main() {
-      gl_FragColor = vec4( color * vColor, 1.0 );
-      gl_FragColor = gl_FragColor * texture2D( pointTexture, gl_PointCoord );
-    }
-  </script>
-
-  <div id="magic"></div>
-  <!-- <div class="playground">
-    <div class="bottomPosition">
-      <h1 class="special">Interactive Blackhole animation text<br><span class="minText">Creative developer && digital designer.</span></h1>
-    </div>
-  </div> -->
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="script.js"></script>
+    <a href="https://bitcoin.powerlaw.live">
+        <script type="x-shader/x-vertex" id="vertexshader">
+            attribute float size;
+            attribute vec3 customColor;
+            varying vec3 vColor;
+            
+            void main() {
+                vColor = customColor;
+                vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );
+                gl_PointSize = size * ( 300.0 / -mvPosition.z );
+                gl_Position = projectionMatrix * mvPosition;
+            }
+        </script>
+        <script type="x-shader/x-fragment" id="fragmentshader">
+            uniform vec3 color;
+            uniform sampler2D pointTexture;
+            varying vec3 vColor;
+            
+            void main() {
+                gl_FragColor = vec4( color * vColor, 1.0 );
+                gl_FragColor = gl_FragColor * texture2D( pointTexture, gl_PointCoord );
+            }
+        </script>
+        
+        <div id="magic"></div>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+        <script src="script.js"></script>
+    </a>
 </body>
 </html>
