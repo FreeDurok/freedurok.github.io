@@ -1,3 +1,4 @@
+/* Stili di base */
 body, html {
   margin: 0;
   padding: 0;
@@ -56,4 +57,49 @@ body {
   box-shadow: 
     0 0 15px #f8f8f8,
     inset 0 0 15px #f8f8f8;
+}
+
+/* Media Queries per dispositivi mobili */
+@media (max-width: 768px) {
+  .hours {
+    width: 40vh;
+    height: 40vh;
+  }
+
+  .minutes {
+    width: 30vh;
+    height: 30vh;
+  }
+
+  .seconds {
+    width: 20vh;
+    height: 20vh;
+  }
+
+  .hand {
+    width: 3vh;
+    height: 3vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .hours {
+    width: 30vh;
+    height: 30vh;
+  }
+
+  .minutes {
+    width: 22.5vh;
+    height: 22.5vh;
+  }
+
+  .seconds {
+    width: 15vh;
+    height: 15vh;
+  }
+
+  .hand {
+    width: 2vh;
+    height: 2vh;
+  }
 }
