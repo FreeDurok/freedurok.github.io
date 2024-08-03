@@ -26,13 +26,9 @@ body {
 .arm {
   border-radius: 50%;
   position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   box-shadow: 
     0 0 15px #f8f8f8,
     inset 0 0 15px #f8f8f8;
-  transform-origin: center center;
 }
 
 .hours {
@@ -59,13 +55,12 @@ body {
   background-color: white;
   border-radius: 50%;
   position: absolute;
-  top: 50%;
+  top: 0;
   left: 50%;
-  transform: translate(-50%, -50%) translateY(-50%);
+  transform: translateX(-50%);
   box-shadow: 
     0 0 15px #f8f8f8,
     inset 0 0 15px #f8f8f8;
-  transform-origin: center center;
 }
 
 /* Media Queries per dispositivi mobili */
