@@ -1,21 +1,29 @@
-const preload = () => {
+// Funzione per il redirect al sito
+function redirectToSite() {
+  window.location.href = "https://bitcoin.powerlaw.live";
+}
 
+// Aggiungere evento al rilascio del click
+document.addEventListener('mouseup', redirectToSite);
+
+const preload = () => {
   let manager = new THREE.LoadingManager();
   manager.onLoad = function() { 
-    const environment = new Environment( typo, particle );
+      const environment = new Environment(typo, particle);
   }
 
   var typo = null;
-  const loader = new THREE.FontLoader( manager );
-  const font = loader.load('https://res.cloudinary.com/dydre7amr/raw/upload/v1612950355/font_zsd4dr.json', function ( font ) { typo = font; });
-  const particle = new THREE.TextureLoader( manager ).load( 'https://res.cloudinary.com/dfvtkoboz/image/upload/v1605013866/particle_a64uzf.png');
-
+  const loader = new THREE.FontLoader(manager);
+  const font = loader.load('https://res.cloudinary.com/dydre7amr/raw/upload/v1612950355/font_zsd4dr.json', function (font) { typo = font; });
+  const particle = new THREE.TextureLoader(manager).load('https://res.cloudinary.com/dfvtkoboz/image/upload/v1605013866/particle_a64uzf.png');
 }
 
-if ( document.readyState === "complete" || (document.readyState !== "loading" && !document.documentElement.doScroll))
-  preload ();
+if (document.readyState === "complete" || (document.readyState !== "loading" && !document.documentElement.doScroll))
+  preload();
 else
-  document.addEventListener("DOMContentLoaded", preload ); 
+  document.addEventListener("DOMContentLoaded", preload);
+
+// Classe Environment e altre funzioni come nel tuo codice originale
 
 class Environment {
 
@@ -97,7 +105,7 @@ class CreateParticles {
 
 		this.data = {
 
-			text: 'ENTER\nNOW',
+			text: 'ENTER\n NOW',
 			amount: 1500,
 			particleSize: 1,
 			particleColor: 0xffffff,
