@@ -105,7 +105,7 @@ class CreateParticles {
 
 		this.data = {
 
-			text: 'ENTER\n NOW',
+			text: 'JOIN\nPOWER',
 			amount: 1500,
 			particleSize: 1,
 			particleColor: 0xffffff,
