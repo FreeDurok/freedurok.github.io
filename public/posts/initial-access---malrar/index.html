@@ -326,13 +326,19 @@ MalRar - Compressing Initial Access | Durok Home
 <p><img src="/images/posts/malrar/02-advanced-setup.png" alt="Archive-3">
 <img src="/images/posts/malrar/03-advanced-modes.png" alt="Archive-4">
 <img src="/images/posts/malrar/04-advanced-update.png" alt="Archive-5"></p>
-<p>4️⃣
-5️⃣ Finalizing the Archive</p>
-<p>✅ After entering the above parameters, click &ldquo;OK&rdquo;, and an archive named Firefox.exe will appear on the desktop with the correct Firefox icon. ✅ Double-clicking on Firefox.exe will execute our malicious executable and also open a browser tab as usual. ⚠️ To bypass Defender when launching our exe alongside another harmless exe, nothing more is required; the job is done.
-🔥 (OPTIONAL) Bypassing Detection for Other File Types (e.g., PDF)</p>
-<p>📌 We will use the Right-To-Left Override (RTLO) character to modify the created archive so that it appears as a PDF on the desktop but executes as an EXE.</p>
+<hr>
+<h3 id="4-finalizing-the-archive">4️⃣ Finalizing the Archive</h3>
+<p>After entering the above parameters, click &ldquo;OK&rdquo;, and an archive named Firefox.exe will appear on the desktop with the correct Firefox icon.</p>
+<p><img src="/images/posts/malrar/07-final-zip.png" alt="Archive-6"></p>
+<p>Double-clicking on Firefox.exe will execute our malicious executable and also open a browser tab as usual.</p>
+<p>To bypass Defender when launching our exe alongside another harmless exe, nothing more is required.</p>
+<p>✅ The job is done.</p>
+<hr>
+<h2 id="-optional-bypassing-detection-for-other-file-types-eg-pdf">🔥 (OPTIONAL) Bypassing Detection for Other File Types (e.g., PDF)</h2>
+<p>We will use the Right-To-Left Override (RTLO) character to modify the created archive so that it appears as a PDF on the desktop but executes as an EXE.</p>
 <p>📌 RTLO is an invisible Unicode character used for writing languages read from right to left. It takes input and literally flips the text backward.</p>
 <p>📌 We will rename the file to something that will look almost normal when flipped, such as Reflexe.pdf. We will insert our Unicode so that on the victim&rsquo;s desktop, it appears as Refl[hidden Unicode]exe.pdf but is actually Refl[hidden Unicode]fdp.exe.</p>
+<p>refl‮fdp.exe</p>
 <p>💡 Steps:</p>
 <pre><code>Open the &quot;Character Map&quot; application in Windows and check the &quot;Advanced View&quot; box.
 
@@ -346,7 +352,8 @@ Enter the file name as Refl[CTRL+V]fdp.exe, then go back and paste the Unicode i
 🎭 Bypassing Windows Defender Using Homoglyphs</p>
 <p>💡 One way to bypass this is to use homoglyphs.</p>
 <p>🎯 After all, we want the file to look like a PDF to the user, so is it likely they will notice that one letter looks slightly different? 🤔</p>
-<p>🔹 I used this resource for manual testing of what Defender might flag: IronGeek Homoglyph Generator</p>
+<p>🔹 I used this resource for manual testing of what Defender might flag: IronGeek Homoglyph Generator
+<a href="https://www.irongeek.com/homoglyph-attack-generator.php">https://www.irongeek.com/homoglyph-attack-generator.php</a></p>
 <p>✅ I focused on the letters p, d, and f to see if I could replace them with ones that wouldn&rsquo;t be noticed and found this variation of the letter &lsquo;f&rsquo; that worked for me. ✅ I replaced the regular &lsquo;f&rsquo; with a homoglyph in the name Reflfdp.exe, then inserted RTLO before it as before to create Reflexe.pdf, which should give Defender a different signature fingerprint.</p>
 <p>🎉 Great, the difference is visually unnoticeable! 🚨 With the new .pdf extension, Windows Defender did start a scan before opening the PDF, then opened it, and after a few seconds quarantined the file. 💀 However, this happened after my malicious executable initiated a reverse connection!</p>
 <p>⚠️ Disclaimer: This guide is for educational and research purposes only! 🛑</p>
@@ -371,8 +378,10 @@ Enter the file name as Refl[CTRL+V]fdp.exe, then go back and paste the Unicode i
         <li><a href="#1-create-ico-file">1️⃣ Create .ico file</a></li>
         <li><a href="#2-create-a-combined-archive">2️⃣ Create a combined archive</a></li>
         <li><a href="#3-configure-the-sfx-archive">3️⃣ Configure the SFX archive</a></li>
+        <li><a href="#4-finalizing-the-archive">4️⃣ Finalizing the Archive</a></li>
       </ul>
     </li>
+    <li><a href="#-optional-bypassing-detection-for-other-file-types-eg-pdf">🔥 (OPTIONAL) Bypassing Detection for Other File Types (e.g., PDF)</a></li>
   </ul>
 </nav>
               </div>

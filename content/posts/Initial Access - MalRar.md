@@ -66,18 +66,30 @@ Click `"Advanced"` > `"SFX options"` > `"Setup"` and enter the following:
 ![Archive-5](/images/posts/malrar/04-advanced-update.png)
 
 
+---
+### 4️⃣ Finalizing the Archive
 
-4️⃣
-5️⃣ Finalizing the Archive
+After entering the above parameters, click "OK", and an archive named Firefox.exe will appear on the desktop with the correct Firefox icon. 
 
-✅ After entering the above parameters, click "OK", and an archive named Firefox.exe will appear on the desktop with the correct Firefox icon. ✅ Double-clicking on Firefox.exe will execute our malicious executable and also open a browser tab as usual. ⚠️ To bypass Defender when launching our exe alongside another harmless exe, nothing more is required; the job is done.
-🔥 (OPTIONAL) Bypassing Detection for Other File Types (e.g., PDF)
+![Archive-6](/images/posts/malrar/07-final-zip.png)
 
-📌 We will use the Right-To-Left Override (RTLO) character to modify the created archive so that it appears as a PDF on the desktop but executes as an EXE.
+Double-clicking on Firefox.exe will execute our malicious executable and also open a browser tab as usual. 
+
+To bypass Defender when launching our exe alongside another harmless exe, nothing more is required.
+
+✅ The job is done.
+
+---
+
+## 🔥 (OPTIONAL) Bypassing Detection for Other File Types (e.g., PDF)
+
+We will use the Right-To-Left Override (RTLO) character to modify the created archive so that it appears as a PDF on the desktop but executes as an EXE.
 
 📌 RTLO is an invisible Unicode character used for writing languages read from right to left. It takes input and literally flips the text backward.
 
 📌 We will rename the file to something that will look almost normal when flipped, such as Reflexe.pdf. We will insert our Unicode so that on the victim's desktop, it appears as Refl[hidden Unicode]exe.pdf but is actually Refl[hidden Unicode]fdp.exe.
+
+refl‮fdp.exe
 
 💡 Steps:
 
@@ -97,6 +109,7 @@ Click `"Advanced"` > `"SFX options"` > `"Setup"` and enter the following:
 🎯 After all, we want the file to look like a PDF to the user, so is it likely they will notice that one letter looks slightly different? 🤔
 
 🔹 I used this resource for manual testing of what Defender might flag: IronGeek Homoglyph Generator
+ https://www.irongeek.com/homoglyph-attack-generator.php
 
 ✅ I focused on the letters p, d, and f to see if I could replace them with ones that wouldn't be noticed and found this variation of the letter 'f' that worked for me. ✅ I replaced the regular 'f' with a homoglyph in the name Reflfdp.exe, then inserted RTLO before it as before to create Reflexe.pdf, which should give Defender a different signature fingerprint.
 
