@@ -64,6 +64,7 @@ Click `"Advanced"` > `"SFX options"` > `"Setup"` and enter the following:
 ![Archive-3](/images/posts/malrar/02-advanced-setup.png)
 ![Archive-4](/images/posts/malrar/03-advanced-modes.png)
 ![Archive-5](/images/posts/malrar/04-advanced-update.png)
+![Archive-6](/images/posts/malrar/06-advanced-icon.png)
 
 
 ---
@@ -71,7 +72,7 @@ Click `"Advanced"` > `"SFX options"` > `"Setup"` and enter the following:
 
 After entering the above parameters, click "OK", and an archive named Firefox.exe will appear on the desktop with the correct Firefox icon. 
 
-![Archive-6](/images/posts/malrar/07-final-zip.png)
+![Archive-7](/images/posts/malrar/07-final-zip.png)
 
 Double-clicking on Firefox.exe will execute our malicious executable and also open a browser tab as usual. 
 
