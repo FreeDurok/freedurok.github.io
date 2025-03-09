@@ -2,9 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/blogs/</loc>
-    <lastmod>2022-12-09T19:53:33+05:30</lastmod>
-  </url><url>
     <loc>http://localhost:1313/</loc>
     <lastmod>2022-12-09T19:53:33+05:30</lastmod>
   </url><url>
@@ -17,7 +14,10 @@
     <loc>http://localhost:1313/tags/mathjax/</loc>
     <lastmod>2022-12-09T19:53:33+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blogs/math/</loc>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2022-12-09T19:53:33+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/math/</loc>
     <lastmod>2022-12-09T19:53:33+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/</loc>
@@ -26,7 +26,7 @@
     <loc>http://localhost:1313/gallery/</loc>
     <lastmod>2022-06-25T18:35:46+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blogs/markdown-syntax/</loc>
+    <loc>http://localhost:1313/posts/markdown-syntax/</loc>
     <lastmod>2021-04-03T23:29:21+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/sample/</loc>
@@ -35,13 +35,13 @@
     <loc>http://localhost:1313/tags/emoji-support/</loc>
     <lastmod>2021-04-03T22:53:58+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blogs/emoji-support/</loc>
+    <loc>http://localhost:1313/posts/emoji-support/</loc>
     <lastmod>2021-04-03T22:53:58+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/placeholder-text/</loc>
     <lastmod>2021-04-03T22:41:10+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blogs/placeholder-text/</loc>
+    <loc>http://localhost:1313/posts/placeholder-text/</loc>
     <lastmod>2021-04-03T22:41:10+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>

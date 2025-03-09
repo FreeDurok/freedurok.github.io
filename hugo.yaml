@@ -33,7 +33,7 @@ Menus:
     - identifier: blog
       name: Blog
       title: Blog posts
-      url: /blogs
+      url: /posts
       weight: 1
     # - identifier: gallery
     #   name: Gallery
