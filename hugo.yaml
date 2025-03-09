@@ -136,7 +136,9 @@ params:
     intro: "Hi, my alias is"
     title: "Durok."
     subtitle: "I like to think laterally."
-    content: "A passionate Cybersec guy. I tend to go into autistic mode when I'm close to a project. Bitcoin MAXIMALIST."
+    content: "A passionate Cybersec guy. 
+      I tend to go into autistic mode when I'm close to a project that I'm passionate about. 
+      Bitcoin MAXI."
     # image: /images/hero.svg
     image: /images/fav.png
     bottomImage:
@@ -366,7 +368,7 @@ params:
     # title: "Custom Name"
     content: My inbox is always open. Whether you have a question or just want to say hi, I’ll try my best to get back to you!
     btnName: Mail me
-    btnLink: mailto:durok@protonmail.com
+    btnLink: mailto:durok_1@protonmail.com
     # formspree:
     #   enable: true # `contact.email` value will be ignored
     #   formId: abcdefgh # Take it from your form's endpoint, like 'https://formspree.io/f/abcdefgh'
