@@ -66,7 +66,6 @@ Click `"Advanced"` > `"SFX options"` > `"Setup"` and enter the following:
 ![Archive-5](/images/posts/malrar/04-advanced-update.png)
 ![Archive-6](/images/posts/malrar/06-advanced-icon.png)
 
-
 ---
 ### 4️⃣ Finalizing the Archive
 
@@ -89,6 +88,8 @@ We will use the Right-To-Left Override (RTLO) character to modify the created ar
 📌 RTLO is an invisible Unicode character used for writing languages read from right to left. It takes input and literally flips the text backward.
 
 📌 We will rename the file to something that will look almost normal when flipped, such as Reflexe.pdf. We will insert our Unicode so that on the victim's desktop, it appears as Refl[hidden Unicode]exe.pdf but is actually Refl[hidden Unicode]fdp.exe.
+
+To further extend this, also look for the Left-to-Right character (U+202D) that might be used to further obfuscate the true filename.
 
 refl‮fdp.exe
 
