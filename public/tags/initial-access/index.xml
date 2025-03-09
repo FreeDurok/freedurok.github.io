@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Initial Access on Durok Home</title>
+    <link>http://localhost:1313/tags/initial-access/</link>
+    <description>Recent content in Initial Access on Durok Home</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 09 Mar 2025 16:20:29 +0530</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/initial-access/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MalRar - Compressing Initial Access</title>
+      <link>http://localhost:1313/posts/initial-access---malrar/</link>
+      <pubDate>Sun, 09 Mar 2025 16:20:29 +0530</pubDate>
+      <guid>http://localhost:1313/posts/initial-access---malrar/</guid>
+      <description>Embedding a Malicious Executable into a Regular PDF or EXE 🛠️ Let&amp;rsquo;s assume we have already created our malicious executable, which will perform certain actions on the victim&amp;rsquo;s host or send us a reverse shell.&#xA;The following steps describe the process of creating our file to make it look legitimate:&#xA;1️⃣ Create .ico file Find a PNG icon that represents how your malicious executable should appear, using Iconfinder.com.&#xA;In this example, we use the Firefox logo, but you can find logos for any file type.</description>
+    </item>
+  </channel>
+</rss>

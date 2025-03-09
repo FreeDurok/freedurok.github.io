@@ -13,6 +13,27 @@ description: ""
 toc: 
 ---
 
+> ℹ️ Information
+>
+> Highlights information that users should take into account, even when skimming.
+
+> 💡 Tip 
+>
+> Optional information to help a user be more successful.
+
+> ⭐ Important
+>
+> Crucial information necessary for users to succeed.
+
+> ⚠️ Warning
+>
+> Critical content demanding immediate user attention due to potential risks.
+
+> ❗ Caution
+> 
+> Negative potential consequences of an action.
+
+
 Lorem est tota propiore conpellat pectoribus de pectora summo.
 
 Redit teque digerit hominumque toris verebor lumina non cervice subde tollit usus habet Arctonque, furores quas nec ferunt. Quoque montibus nunc caluere tempus inhospita parcite confusaque translucet patri vestro qui optatis lumine cognoscere flos nubis! Fronde ipsamque patulos Dryopen deorum.
