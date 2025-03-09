@@ -379,7 +379,7 @@ params:
       title: Recent Posts
       enable: false
       disableFeaturedImage: false
-    socialNetworks:
+    # socialNetworks:
       # github: https://github.com
       # linkedin: https://linkedin.com
       # twitter: https://twitter.com
