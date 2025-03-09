@@ -30,7 +30,7 @@ Click "Download PNG."
 ![Firefox Icon](/images/posts/malrar/05-flaticon-png.png)
 
 
-Now Convert the PNG icon to a .ico file using **_[iconconverter.com](https://iconconverter.com/)_**.
+Now Convert the PNG icon to a .ico file using **_[icoconverter.com](https://icoconverter.com/)_**.
 
 Upload the previously downloaded PNG file and click "Convert".
 
