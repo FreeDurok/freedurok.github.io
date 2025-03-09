@@ -1,13 +1,12 @@
 
 /* Default font for body */
 body {
-    /* font-family: "Lora", serif !important; */
-    font-family: "Consolas", monospace !important
+    font-family: "Consolas", monospace !important;
 }
 
 /* secondary font */
 .secondary-font, #secondary-font {
-    font-family: "Consolas", monospace; 
+    font-family: "Courier New", Courier,;
 }
 
 /* primary font */
