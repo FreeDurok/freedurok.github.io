@@ -388,7 +388,7 @@ params:
 
   # List pages like blogs and posts
   listPages:
-    disableFeaturedImage: true
+    disableFeaturedImage: false
 
   # Single pages like blog and post
   singlePages:
