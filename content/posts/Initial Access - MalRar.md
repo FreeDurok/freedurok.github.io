@@ -81,44 +81,47 @@ To bypass Defender when launching our exe alongside another harmless exe, nothin
 
 ---
 
-## 🔥 (OPTIONAL) Bypassing Detection for Other File Types (e.g., PDF)
+## 🔥 Right-To-Left Override (RTLO) for Other File Types (e.g., PDF)
 
-We will use the Right-To-Left Override (RTLO) character to modify the created archive so that it appears as a PDF on the desktop but executes as an EXE.
+We will use the **Right-To-Left Override (`RTLO`)** character to modify the created archive so that it appears as a PDF on the desktop but executes as an EXE.
 
-📌 RTLO is an invisible Unicode character used for writing languages read from right to left. It takes input and literally flips the text backward.
+RTLO is an invisible Unicode character used for writing languages read from right to left. It takes input and literally flips the text backward.
 
-📌 We will rename the file to something that will look almost normal when flipped, such as Reflexe.pdf. We will insert our Unicode so that on the victim's desktop, it appears as Refl[hidden Unicode]exe.pdf but is actually Refl[hidden Unicode]fdp.exe.
+We will rename the file to something that will look almost normal when flipped, such as Reflexe.pdf. 
 
-To further extend this, also look for the Left-to-Right character (U+202D) that might be used to further obfuscate the true filename.
+We will insert our Unicode (`U+202E`) so that on the victim's desktop, it appears as `Refl[hidden Unicode]exe.pdf` but is actually `Refl[hidden Unicode]fdp.exe`.
 
-refl‮fdp.exe
+> 💡 Tip
+>
+> To further extend this, also look for the Left-to-Right character (U+202D) that might be used to further obfuscate the true filename.
 
-💡 Steps:
+Open the "`Character Map`" application in Windows and check the "`Advanced View`" box
+In the "Go to Unicode" field, enter 202E.
+Click "Select" and "Copy", then edit the name of the WinRAR archive we created.
 
-    Open the "Character Map" application in Windows and check the "Advanced View" box.
+![Archive-8](/images/posts/malrar/08-charmap.png)
 
-    In the "Go to Unicode" field, enter 202E.
+Enter a new pdf incon and the file name as Refl[CTRL+V]fdp.exe, then go back and paste the Unicode in the specified place.
 
-    Click "Select" and "Copy", then edit the name of the WinRAR archive we created.
+![Archive-9](/static/images/posts/malrar/06-advanced-icon.png)
 
-    Enter the file name as Refl[CTRL+V]fdp.exe, then go back and paste the Unicode in the specified place.
+![Archive-10](/static/images/posts/malrar/10-archive-name.png)
 
-✅ The file should change to Reflexe.pdf once you press paste. ⚠️ However, since this is a known file type (.pdf) that initiates the execution of an executable file, Windows Defender will quickly flag it as malicious.
-🎭 Bypassing Windows Defender Using Homoglyphs
+The file should change to Reflexe.pdf once you press paste. 
 
-💡 One way to bypass this is to use homoglyphs.
+![Archive-11](/static/images/posts/malrar/11-archive-name-after.png)
 
-🎯 After all, we want the file to look like a PDF to the user, so is it likely they will notice that one letter looks slightly different? 🤔
+![Archive-12](/static/images/posts/malrar/12-final-file.png)
 
-🔹 I used this resource for manual testing of what Defender might flag: IronGeek Homoglyph Generator
- https://www.irongeek.com/homoglyph-attack-generator.php
+⚠️ However, since this is a known file type (.pdf) that initiates the execution of an executable file, Windows Defender will quickly flag it as malicious.
 
-✅ I focused on the letters p, d, and f to see if I could replace them with ones that wouldn't be noticed and found this variation of the letter 'f' that worked for me. ✅ I replaced the regular 'f' with a homoglyph in the name Reflfdp.exe, then inserted RTLO before it as before to create Reflexe.pdf, which should give Defender a different signature fingerprint.
+Try Bypassing Windows Defender Using Homoglyphs
 
-🎉 Great, the difference is visually unnoticeable! 🚨 With the new .pdf extension, Windows Defender did start a scan before opening the PDF, then opened it, and after a few seconds quarantined the file. 💀 However, this happened after my malicious executable initiated a reverse connection!
+After all, we want the file to look like a PDF to the user, so is it likely they will notice that one letter looks slightly different? 
 
-⚠️ Disclaimer: This guide is for educational and research purposes only! 🛑
+This resource is usefull for manual testing of what Defender might flag: 
+- IronGeek Homoglyph Generator -> https://www.irongeek.com/homoglyph-attack-generator.php
 
-🛠️ In my case, I received a shell via netcat using Villain on the attacker's machine.
-
-🔍 This article is a translation of the original post by Sam Rothlisberger, published on Habr.
+> ⚠️ Disclaimer
+>
+> This guide is for educational and research purposes only! 🛑
