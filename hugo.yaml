@@ -154,11 +154,11 @@ params:
     socialLinks:
       fontAwesomeIcons:
         - icon: fab fa-github
-          url: https://example.com
+          url: https://github.com/FreeDurok
         - icon: fab fa-x-twitter
-          url: https://example.com
+          url: https://x.com/DurokBTC
         - icon: fab fa-linkedin
-          url: https://example.com
+          url: https://www.linkedin.com/in/alessio-c-a13a8b16b
       # customIcons:
       #   - icon: /fav.png
       #     url: "https://example.com"
