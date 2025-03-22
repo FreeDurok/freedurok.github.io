@@ -103,15 +103,15 @@ Click "Select" and "Copy", then edit the name of the WinRAR archive we created.
 
 Enter a new pdf incon and the file name as Refl[CTRL+V]fdp.exe, then go back and paste the Unicode in the specified place.
 
-![Archive-9](/static/images/posts/malrar/06-advanced-icon.png)
+![Archive-9](/images/posts/malrar/06-advanced-icon.png)
 
-![Archive-10](/static/images/posts/malrar/10-archive-name.png)
+![Archive-10](/images/posts/malrar/10-archive-name.png)
 
 The file should change to Reflexe.pdf once you press paste. 
 
-![Archive-11](/static/images/posts/malrar/11-archive-name-after.png)
+![Archive-11](/images/posts/malrar/11-archive-name-after.png)
 
-![Archive-12](/static/images/posts/malrar/12-final-file.png)
+![Archive-12](/images/posts/malrar/12-final-file.png)
 
 ⚠️ However, since this is a known file type (.pdf) that initiates the execution of an executable file, Windows Defender will quickly flag it as malicious.
 
