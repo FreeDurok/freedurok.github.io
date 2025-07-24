@@ -244,7 +244,7 @@ params:
     # title: "Custom Name"
     index: false
     items:
-      - title: "Bachelor of Science in Computer Engineering - L8"
+      - title: "Bachelor of Science in Computer Engineering"
         school:
           name: "Universitas Mercatorum"
           url: "https://www.unimercatorum.it/corsi-di-laurea/ingegneria-informatica"
@@ -269,14 +269,14 @@ params:
     enable: true
     # title: "Custom Name"
     items:
-      - title: SANS SEC 540 Challenge Coin
-        content: I completed the SANS SEC 540 - Cloudwars labs and received the challenge coin, which is awarded to students who demonstrate exceptional skills in the practical lab of the course.
-        url: https://www.sans.org/mlp/challenge-coins/
-        image: /images/achievements/coinSec540.jpg
       - title: HTB DANTE Pro-lab
         content: I tackled the Hack The Box DANTE Pro-lab — a realistic and challenging simulated environment with multiple machines and scenarios focused on advanced penetration testing skills.
         url: https://www.hackthebox.com/hacker/pro-labs#prolabs-scroll
         image: /images/achievements/dante.png
+      - title: SANS SEC 540 Challenge Coin
+        content: I completed the SANS SEC 540 - Cloudwars labs and received the challenge coin, which is awarded to students who demonstrate exceptional skills in the practical lab of the course.
+        url: https://www.sans.org/mlp/challenge-coins/
+        image: /images/achievements/coinSec540.jpg
   
   # projects
   projects:
@@ -304,32 +304,8 @@ params:
           #   url: https://github.com/gurusabarish/hugo-profile
           # - icon: fab fa-twitter
           #   url: https://twitter.com/intent/tweet?text=Check+it+out:&url=https%3A%2F%2Fgithub.com%2Fgurusabarish%2Fhugo-profile     # - title: Image Converter
-      #   content: A web app to convert image to pdf, png to jpg, png to jpg and png to webp without database using django.
-      #   image: /images/projects/converter.jpg
-      #   featured:
-      #     name: Demo
-      #     link: https://django-converter.herokuapp.com
-      #   badges:
-      #     - "Django"
-      #     - "Bootstrap"
-      #   links:
-      #     - icon: fab fa-github
-      #       url: https://github.com/gurusabarish/converter
-
-      # - title: Hugo Profile V2
-      #   content: A clean and simple Hugo template for personal portfolio and blog.
-      #   image: /images/projects/profile2.jpg
-      #   featured:
-      #     name: Demo V2
-      #     link: https://hugo-profile-2.netlify.app
-      #   badges:
-      #     - "Hugo"
-      #     - "Bootstrap"
-      #     - "Javascript"
-      #   links:
-      #     - icon: fab fa-github
-      #       url: https://github.com/gurusabarish/HugoProfileV2
-
+      
+      
   #Contact
   contact:
     enable: true
