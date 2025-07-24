@@ -206,13 +206,13 @@ params:
           
           Key responsibilities:
 
-            - Participation in multinational cyber range exercises (Red, Blue, Green Team roles)
-            - Offensive operations: vulnerability research, exploitation, C2 setup, and adversary emulation
-            - Defensive operations: log analysis, detection engineering, SIEM/EDR tuning, and response
-            - System hardening and secure architecture deployment in realistic operational scenarios
-            - Research & development of custom scripts, tools, and procedures for attack/defense workflows
-            - Contribution to threat intelligence production and use-case development
-            - Documentation of findings, technical reports, and lessons learned
+            - `Participation in multinational cyber range exercises (Red, Blue, Green Team roles)`
+            - `Offensive operations: vulnerability research, exploitation, C2 setup, and adversary emulation`
+            - `Defensive operations: log analysis, detection engineering, SIEM/EDR tuning, and response`
+            - `System hardening and secure architecture deployment in realistic operational scenarios`
+            - `Research & development of custom scripts, tools, and procedures for attack/defense workflows`
+            - `Contribution to threat intelligence production and use-case development`
+            - `Documentation of findings, technical reports, and lessons learned`
 
       - job: "IT / Telcommunications Specialist"
         company: "Undisclosed"
