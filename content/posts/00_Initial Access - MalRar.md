@@ -1,6 +1,6 @@
 ---
 title: "MalRar - Compressing Initial Access"
-date: 2025-03-09T16:20:29+05:30
+date: 2023-03-09T16:20:29+05:30
 draft: false
 github_link: "https://github.com/gurusabarish/hugo-profile"
 author: "Durok"
