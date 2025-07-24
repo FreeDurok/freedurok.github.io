@@ -137,9 +137,7 @@ params:
     intro: "Hi, my alias is"
     title: "Durok."
     subtitle: "I like to think laterally."
-    content: "Cybersecurity operator with a thing for researching/breaking stuff (ethically), digging through digital traces, and automating the boring parts. 
-      I get completely absorbed when a project sparks my curiosity. 
-      Tinkering with code in my spare time, hardcore Bitcoin maxi, and a big fan of working with sharp, collaborative teams && good vibes && good hacks."
+    content: "Fueled by curiosity, compiled with passion, and executed with precision."
     # image: /images/hero.svg
     image: /images/fav.png
     bottomImage:
