@@ -211,7 +211,7 @@ params:
             - System hardening and secure architecture deployment in realistic operational scenarios
             - Research & development of custom scripts, tools, and procedures for attack/defense workflows
             - Contribution to threat intelligence production and use-case development
-            - Documentation of findings, technical reports, and lessons learned after cyber exercises
+            - Documentation of findings, technical reports, and lessons learned
 
       - job: "IT/Telcommunications Specialist"
         company: "Undisclosed Company 1"
