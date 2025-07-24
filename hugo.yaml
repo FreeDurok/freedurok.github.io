@@ -274,9 +274,22 @@ params:
         url: https://www.hackthebox.com/hacker/pro-labs#prolabs-scroll
         image: /images/achievements/dante.png
       - title: SANS SEC 540 Challenge Coin
-        content: I completed the SANS SEC 540 - Cloudwars labs and received the challenge coin, which is awarded to students who demonstrate exceptional skills in the practical lab of the course.
+        content: I completed the SANS SEC 540 (GCSA) - Cloudwars labs and received the challenge coin, which is awarded to students who demonstrate exceptional skills in the practical lab of the course.
         url: https://www.sans.org/mlp/challenge-coins/
         image: /images/achievements/coinSec540.jpg
+      - title: SANS GCSA Certification
+        content: The GIAC Cloud Security Automation (GCSA) certification validates a practitioner's understanding of the cloud native toolchain, DevSecOps methodology, and security controls throughout CI/CD pipelines.
+        url: https://www.credly.com/badges/680deed5-19c5-4821-9c83-24b9688af50b
+        image: /images/achievements/sec540.png
+      - title: SANS GICSP Certification
+        content: The Global Industrial Cyber Security Professional (GICSP) certification is a vendor-neutral, practitioner focused certification that bridges IT, engineering, and cyber security to achieve security throughout the industrial control systems lifecycle.
+        url: https://www.credly.com/badges/085b353d-e8b2-48e7-bb9e-204b3bcfe348
+        image: /images/achievements/gicsp.png
+      - title: GIAC Advisory Board Member
+        content: TThe GIAC Advisory Board is a private forum for top-performing GIAC-certified professionals to share insights and contribute as subject-matter experts. Membership is by invitation only.
+        url: https://www.credly.com/badges/33271adb-f605-4d7d-b6ab-ce9457a60941
+        image: /images/achievements/giac.png
+
   
   # projects
   projects:
