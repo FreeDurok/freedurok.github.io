@@ -198,7 +198,24 @@ params:
           url: "https://example.com"
         info:
           enable: false
-        content: "I am currently working as a software developer at [example org.](https://example.com) in San Francisco, CA. I am currently working on a project that will be used to help people find the best way to get around the city."
+        content: | 
+          Actively involved in both offensive and defensive operations, with participation in international cyber exercises as Red, Blue, and Green Team member. 
+          Work includes advanced threat simulation, incident response, and the research and development of new tools and techniques to support cyber operations and resilience.
+          Key responsibilities:
+
+            Participation in multinational cyber range exercises (Red, Blue, Green Team roles)
+
+            Offensive operations: vulnerability research, exploitation, C2 setup, and adversary emulation
+
+            Defensive operations: log analysis, detection engineering, SIEM/EDR tuning, and response
+
+            System hardening and secure architecture deployment in realistic operational scenarios
+
+            Research & development of custom scripts, tools, and procedures for attack/defense workflows
+
+            Contribution to threat intelligence production and use-case development
+
+            Documentation of findings, technical reports, and lessons learned after cyber exercises
 
       - job: "IT/Telcommunications Specialist"
         company: "Undisclosed Company 1"
@@ -213,14 +230,16 @@ params:
         content: |
           Managed and maintained mission-critical communication infrastructures, including terrestrial, and satellite systems. 
           Delivered end-to-end IT support, from network deployment to domain and system administration, ensuring stable and secure operations.
-            Key responsibilities:
-              Configuration, installation, and alignment of radio and satellite communication links
-              Setup and maintenance of LAN/WAN infrastructures and telephony systems
-              Installation and administration of Windows-based IT systems and services (AD, DNS, DHCP)
-              Troubleshooting and maintaining network connectivity in remote or constrained environments
-              Management of domain controllers and authentication services
-              Integration of communication systems with existing IT infrastructure
-              Documentation of configurations and procedures for operational continuity
+          
+          Key responsibilities:
+
+            - Configuration, installation, and alignment of radio and satellite communication links
+            - Setup and maintenance of LAN/WAN infrastructures and telephony systems
+            - Installation and administration of Windows-based IT systems and services (AD, DNS, DHCP)
+            - Troubleshooting and maintaining network connectivity in remote or constrained environments
+            - Management of domain controllers and authentication services
+            - Integration of communication systems with existing IT infrastructure
+            - Documentation of configurations and procedures for operational continuity
 
       # - job: "Junior Software Developer"
       #   company: "Apple"
