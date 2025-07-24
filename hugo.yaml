@@ -178,12 +178,12 @@ params:
       enable: true
       title: "I like operating across domains, connecting the dots between attack, defense, and automation:"
       items:
-        - "Red/Blue Team Operations"
-        - "DFIR (Digital Forensics and Incident Response)"
-        - "CTI (Cyber Threat Intelligence)"
-        - "Research and Development"
-        - "DevSecOps (Development, Security, and Operations)"
-        - "Scripting, Automation, and Tooling"
+        - "`Red/Blue Team Operations`"
+        - "`DFIR (Digital Forensics and Incident Response)`"
+        - "`CTI (Cyber Threat Intelligence)`"
+        - "`Research and Development`"
+        - "`DevSecOps (Development, Security, and Operations)`"
+        - "`Scripting, Automation, and Tooling`"
 
   # Experience
   experience:
