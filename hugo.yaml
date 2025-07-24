@@ -137,7 +137,7 @@ params:
     intro: "Hi, my alias is"
     title: "Durok."
     subtitle: "I like to think laterally."
-    content: "Fueled by curiosity, compiled with passion, and executed with precision."
+    content: "Fueled by `curiosity`, compiled with `passion`, and executed with `precision`."
     # image: /images/hero.svg
     image: /images/fav.png
     bottomImage:
