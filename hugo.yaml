@@ -174,12 +174,13 @@ params:
       ---
     skills:
       enable: true
-      title: "Here are a few KillChain phase I like working with:"
+      title: "I like operating across domains:"
       items:
-        - "Initial Access"
-        - "Persistence"
-        - "Execution"
-        - "Defense Evasion"
+        - "Red/Blue Team Operations"
+        - "DFIR (Digital Forensics and Incident Response)"
+        - "CTI (Cyber Threat Intelligence)"
+        - "Research and Development"
+        - "DevSecOps (Development, Security, and Operations)"
 
   # Experience
   experience:
