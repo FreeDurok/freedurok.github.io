@@ -276,7 +276,7 @@ params:
       - title: SANS SEC 540 Challenge Coin
         content: I completed the SANS SEC 540 (GCSA) - Cloudwars labs and received the challenge coin, which is awarded to students who demonstrate exceptional skills in the practical lab of the course.
         url: https://www.sans.org/mlp/challenge-coins/
-        image: /images/achievements/coinSec540.jpg
+        image: /images/achievements/Sec540_Coin.webp
       - title: SANS GCSA Certification
         content: The GIAC Cloud Security Automation (GCSA) certification validates a practitioner's understanding of the cloud native toolchain, DevSecOps methodology, and security controls throughout CI/CD pipelines.
         url: https://www.credly.com/badges/680deed5-19c5-4821-9c83-24b9688af50b
