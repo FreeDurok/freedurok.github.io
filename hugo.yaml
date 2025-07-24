@@ -156,7 +156,7 @@ params:
         - icon: fab fa-x-twitter
           url: https://x.com/DurokBTC
         - icon: fab fa-linkedin
-          url: https://www.linkedin.com/in/alessio-c-a13a8b16b
+          url: https://www.linkedin.com/in/alessio-carletti-a13a8b16b/
       # customIcons:
       #   - icon: /fav.png
       #     url: "https://example.com"
@@ -214,19 +214,12 @@ params:
           Managed and maintained mission-critical communication infrastructures, including terrestrial, and satellite systems. 
           Delivered end-to-end IT support, from network deployment to domain and system administration, ensuring stable and secure operations.
             Key responsibilities:
-
               Configuration, installation, and alignment of radio and satellite communication links
-
               Setup and maintenance of LAN/WAN infrastructures and telephony systems
-
               Installation and administration of Windows-based IT systems and services (AD, DNS, DHCP)
-
               Troubleshooting and maintaining network connectivity in remote or constrained environments
-
               Management of domain controllers and authentication services
-
               Integration of communication systems with existing IT infrastructure
-
               Documentation of configurations and procedures for operational continuity
 
       # - job: "Junior Software Developer"
