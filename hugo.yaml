@@ -358,19 +358,17 @@ params:
         links:
           - icon: fa fa-envelope
             url: mailto:durok1@protonmail.com
-      - title: Personal Blog
-        content: |
-          Just my personal blog, where I share my experiences, thoughts, and projects—even if it's not updated very often.
-        image: /images/fav.png
-        featured:
-          name: Blog
-          link: https://freedurok.github.io/posts/
-        badges:
-          - "Blog"                  
-        # links:
-        #   - icon: fa fa-envelope
-        #     url: mailto:durok1@protonmail.com
-      
+      # - title: Personal Blog
+      #   content: |
+      #     Just my personal blog, where I share my experiences, thoughts, and projects—even if it's not updated very often.
+      #   image: /images/fav.png
+      #   featured:
+      #     name: Blog
+      #     link: https://freedurok.github.io/posts/
+      #   badges:
+      #     - "Blog"                  
+        
+        
   #Contact
   contact:
     enable: true
