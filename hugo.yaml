@@ -129,7 +129,7 @@ params:
       disableEducation: false
       disableProjects: false
       disableAchievements: false
-      disableContact: true
+      disableContact: false
 
   # Hero
   hero:
@@ -145,10 +145,11 @@ params:
     # roundImage: true # Make hero image circular | default false
     button:
       enable: true
-      name: "Contact me"
-      url: "#contact"
+      name: "Blog"
+      # url: "#contact"
+      url: "https://freedurok.github.io/posts/"
       download: false
-      newPage: false
+      newPage: true
     socialLinks:
       fontAwesomeIcons:
         - icon: fab fa-github
