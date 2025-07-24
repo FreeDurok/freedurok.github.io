@@ -188,22 +188,22 @@ params:
     enable: true
     # title: "Custom Name"
     items:
-      - job: "Cyber Security Operator"
-        company: "Redacted"
+      - job: "Cyber Security Specialist"
+        company: "Undisclosed"
         companyUrl: ""
         date: "Aug 2018 - present"
         featuredLink:
-          enable: true
+          enable: false
           name: "View the project"
           url: "https://example.com"
         content: "I am currently working as a software developer at [example org.](https://example.com) in San Francisco, CA. I am currently working on a project that will be used to help people find the best way to get around the city."
 
-      - job: "Software Developer"
-        company: "Amazon"
+      - job: "IT/Telcommunications Specialist"
+        company: "Undisclosed"
         companyUrl: "https://example.com"
-        date: "Sep 2020 - Dec 2021"
+        date: "Sep 2009 - Lug 2018"
         featuredLink:
-          enable: true
+          enable: false
           url: "https://example.com"
         info:
           enable: true
