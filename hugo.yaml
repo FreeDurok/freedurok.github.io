@@ -167,9 +167,9 @@ params:
     title: "About Me"
     # image: "/images/me.png"
     content: |-
-      Cybersecurity operator with a thing for researching/breaking stuff (ethically), digging through digital traces, and automating the boring parts. 
-      I get completely absorbed when a project sparks my curiosity. 
-      Tinkering with code in my spare time, hardcore Bitcoin maxi, and a big fan of working with sharp, collaborative teams.
+      Cybersecurity guy with a thing for researching threats, breaking things ethically, and automating whatever feels repetitive.
+      I get completely absorbed when something sparks my curiosity and I enjoy going deep until I figure it out.
+      In my spare time I tinker with code, stay loyal to Bitcoin, and love working with sharp minds in collaborative environments.
       
       `if (vibes == "good" && hacks == "clean") then passion ❤️`
 
