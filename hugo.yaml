@@ -87,7 +87,7 @@ params:
   font:
     fontSize: 1rem # default: 1rem
     fontWeight: 400 # default: 400
-    lineHeight: 1.2 # default: 1.5
+    lineHeight: 1.5 # default: 1.5
     textAlign: left # default: left
 
   # color preference
@@ -169,7 +169,9 @@ params:
     title: "About Me"
     # image: "/images/me.png"
     content: |-
-      I am a cyber security and all-around automation enthusiast, I enjoy doing research especially in red teaming, building cyber ranges where I practice testing various techniques and Evasion of EDR.
+      Cybersecurity operator with a thing for researching/breaking stuff (ethically), digging through digital traces, and automating the boring parts. 
+      I get completely absorbed when a project sparks my curiosity. 
+      Tinkering with code in my spare time, hardcore Bitcoin maxi, and a big fan of working with sharp, collaborative teams && good vibes && good hacks.
 
       ---
     skills:
