@@ -272,11 +272,11 @@ params:
       - title: SANS SEC 540 Challenge Coin
         content: I completed the SANS SEC 540 - Cloudwars labs and received the challenge coin, which is awarded to students who demonstrate exceptional skills in the course.
         url: https://www.sans.org/mlp/challenge-coins/
-        image: /images/coinSec540.jpg
+        image: /images/achievements/coinSec540.jpg
       - title: HTB DANTE Pro-lab
         content: I completed the Hack The Box DANTE Pro-lab, which is a challenging lab that simulates a real-world environment with multiple machines and scenarios.
         url: https://www.hackthebox.com/hacker/pro-labs#prolabs-scroll
-        image: /images/dante.jpg
+        image: /images/achievements/dante.png
   
   # projects
   projects:
