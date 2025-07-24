@@ -170,6 +170,7 @@ params:
       Cybersecurity operator with a thing for researching/breaking stuff (ethically), digging through digital traces, and automating the boring parts. 
       I get completely absorbed when a project sparks my curiosity. 
       Tinkering with code in my spare time, hardcore Bitcoin maxi, and a big fan of working with sharp, collaborative teams.
+      
       `if (vibes == "good" && hacks == "clean") then passion ❤️`.
 
       ---
@@ -190,13 +191,13 @@ params:
     # title: "Custom Name"
     items:
       - job: "Cyber Security Specialist"
-        company: "Undisclosed Company 2"
+        company: "Undisclosed"
         companyUrl: ""
         date: "Aug 2018 - present"
         featuredLink:
           enable: false
           name: "View the project"
-          url: "https://example.com"
+          url: ""
         info:
           enable: false
         content: | 
@@ -213,9 +214,9 @@ params:
             - Contribution to threat intelligence production and use-case development
             - Documentation of findings, technical reports, and lessons learned
 
-      - job: "IT/Telcommunications Specialist"
-        company: "Undisclosed Company 1"
-        companyUrl: "https://example.com"
+      - job: "IT / Telcommunications Specialist"
+        company: "Undisclosed"
+        companyUrl: ""
         date: "Sep 2009 - Lug 2018"
         featuredLink:
           enable: false
