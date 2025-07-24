@@ -294,7 +294,7 @@ params:
           Real-time ransomware monitoring and alerting.
           Ransom Radar tracks public ransomware activity across multiple threat intelligence feeds, including RansomLook, RansomFeed, and Ransomware.live.
           It automatically detects new posts, leaks, and extortion attempts, sending timely alerts directly to a Telegram channel or group.
-        image: /images/projects/newplot.png
+        image: /images/projects/ransom-radar/logo.png
         # featured:
         #   name: Site
         #   link: https://bitcoin.powerlaw.live/
@@ -313,7 +313,7 @@ params:
           The app fetches the latest Bitcoin data and plots it on a graph, updating the graph as new data comes in.         
           The blog section provides detailed articles and analysis on Bitcoin trends and the Power Law Theory.           
           Contact me to get credentials ;).
-        image: /images/projects/newplot.png
+        image: /images/projects/bitcoin-power-law/newplot.png
         featured:
           name: Site
           link: https://bitcoin.powerlaw.live/
