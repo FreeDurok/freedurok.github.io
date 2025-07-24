@@ -244,10 +244,10 @@ params:
     # title: "Custom Name"
     index: false
     items:
-      - title: "Bachelor of Science in Computer Engineering"
+      - title: "Bachelor of Science in Computer Engineering - L8"
         school:
-          name: "Universitas Mercatorum, Rome"
-          url: "https://example.org"
+          name: "Universitas Mercatorum"
+          url: "https://www.unimercatorum.it/corsi-di-laurea/ingegneria-informatica"
         date: "2023 - Present"
         # GPA: "106 out of 110"
         # content: |-
@@ -273,19 +273,11 @@ params:
         content: I completed the SANS SEC 540 - Cloudwars labs and received the challenge coin, which is awarded to students who demonstrate exceptional skills in the course.
         url: https://www.sans.org/mlp/challenge-coins/
         image: /images/coinSec540.jpg
-      # - title: Facebook Hackathon Winner
-      #   content: Developed a product using Artificial Intelligence.
-      #   image: /images/achievement.jpg
-      # - title: Hugo Profile
-      #   content: Developed a theme and getting 1K+ downloads per month.
-      #   url: "https://github.com/gurusabarish/hugo-profile"
-      #   image: /images/achievement.jpg
-      # - title: Microsoft Imagine Runner
-      #   content: We are developed a product which can help others.
-      # - title: Google Summer of Code
-      #   content: Contributed to a open source project.
-      #   url: https://example.com
-
+      - title: HTB DANTE Pro-lab
+        content: I completed the Hack The Box DANTE Pro-lab, which is a challenging lab that simulates a real-world environment with multiple machines and scenarios.
+        url: https://www.hackthebox.com/hacker/pro-labs#prolabs-scroll
+        image: /images/dante.jpg
+  
   # projects
   projects:
     enable: true
@@ -344,7 +336,7 @@ params:
     # title: "Custom Name"
     content: My inbox is always open. Whether you have a question or just want to say hi, I’ll try my best to get back to you!
     btnName: Mail me
-    btnLink: mailto:durok_1@protonmail.com
+    btnLink: mailto:durok1@protonmail.com
     # formspree:
     #   enable: true # `contact.email` value will be ignored
     #   formId: abcdefgh # Take it from your form's endpoint, like 'https://formspree.io/f/abcdefgh'
@@ -357,7 +349,7 @@ params:
       path: "blogs"
       count: 3
       title: Recent Posts
-      enable: false
+      enable: true
       disableFeaturedImage: false
     # socialNetworks:
       # github: https://github.com
