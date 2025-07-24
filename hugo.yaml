@@ -360,7 +360,7 @@ params:
       - title: Personal Blog
         content: |
           Just my personal blog, where I share my experiences, thoughts, and projects—even if it's not updated very often.
-        # image: /images/projects/bitcoin-power-law/plot.png
+        image: /images/fav.png
         featured:
           name: Blog
           link: https://freedurok.github.io/posts/
