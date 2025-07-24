@@ -240,7 +240,7 @@ params:
 
   # Education
   education:
-    enable: false
+    enable: true
     # title: "Custom Name"
     index: false
     items:
