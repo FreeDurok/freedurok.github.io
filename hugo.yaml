@@ -230,13 +230,13 @@ params:
           
           Key responsibilities:
 
-            - Configuration, installation, and alignment of radio and satellite communication links
-            - Setup and maintenance of LAN/WAN infrastructures and telephony systems
-            - Installation and administration of Windows-based IT systems and services (AD, DNS, DHCP)
-            - Troubleshooting and maintaining network connectivity in remote or constrained environments
-            - Management of domain controllers and authentication services
-            - Integration of communication systems with existing IT infrastructure
-            - Documentation of configurations and procedures for operational continuity
+            - `Configuration, installation, and alignment of radio and satellite communication links`
+            - `Setup and maintenance of LAN/WAN infrastructures and telephony systems`
+            - `Installation and administration of Windows-based IT systems and services (AD, DNS, DHCP)`
+            - `Troubleshooting and maintaining network connectivity in remote or constrained environments`
+            - `Management of domain controllers and authentication services`
+            - `Integration of communication systems with existing IT infrastructure`
+            - `Documentation of configurations and procedures for operational continuity`
 
   # Education
   education:
