@@ -270,16 +270,10 @@ params:
     # title: "Custom Name"
     items:
       - title: HTB DANTE Pro-lab
-        badges:
-          - "HTB"
-          - "Penetration Testing"
         content: I tackled the Hack The Box DANTE Pro-lab — a realistic and challenging simulated environment with multiple machines and scenarios focused on advanced penetration testing skills.
         url: https://www.hackthebox.com/hacker/pro-labs#prolabs-scroll
         image: /images/achievements/dante.png
       - title: SANS SEC 540 Challenge Coin
-        badges:
-          - "SANS"
-          - "DevSecOps"
         content: I completed the SANS SEC 540 - Cloudwars labs and received the challenge coin, which is awarded to students who demonstrate exceptional skills in the practical lab of the course.
         url: https://www.sans.org/mlp/challenge-coins/
         image: /images/achievements/coinSec540.jpg
@@ -303,9 +297,9 @@ params:
           - "Telegram Bot"
           - "Ransomware"
         links:
-          - icon: fa fa-github
+          - icon: fab fa-github
             url: https://github.com/FreeDurok/Ransom-Radar
-          - icon: fa fa-telegram
+          - icon: fab fa-telegram
             url: https://t.me/Ransom_Radar
       - title: Bitcoin Power Law
         content: |
