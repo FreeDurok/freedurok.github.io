@@ -169,7 +169,8 @@ params:
     content: |-
       Cybersecurity operator with a thing for researching/breaking stuff (ethically), digging through digital traces, and automating the boring parts. 
       I get completely absorbed when a project sparks my curiosity. 
-      Tinkering with code in my spare time, hardcore Bitcoin maxi, and a big fan of working with sharp, collaborative teams && good vibes && good hacks.
+      Tinkering with code in my spare time, hardcore Bitcoin maxi, and a big fan of working with sharp, collaborative teams.
+      Good vibes && Good hacks && Passionate work ❤️.
 
       ---
     skills:
@@ -201,21 +202,16 @@ params:
         content: | 
           Actively involved in both offensive and defensive operations, with participation in international cyber exercises as Red, Blue, and Green Team member. 
           Work includes advanced threat simulation, incident response, and the research and development of new tools and techniques to support cyber operations and resilience.
+          
           Key responsibilities:
 
-            Participation in multinational cyber range exercises (Red, Blue, Green Team roles)
-
-            Offensive operations: vulnerability research, exploitation, C2 setup, and adversary emulation
-
-            Defensive operations: log analysis, detection engineering, SIEM/EDR tuning, and response
-
-            System hardening and secure architecture deployment in realistic operational scenarios
-
-            Research & development of custom scripts, tools, and procedures for attack/defense workflows
-
-            Contribution to threat intelligence production and use-case development
-
-            Documentation of findings, technical reports, and lessons learned after cyber exercises
+            - Participation in multinational cyber range exercises (Red, Blue, Green Team roles)
+            - Offensive operations: vulnerability research, exploitation, C2 setup, and adversary emulation
+            - Defensive operations: log analysis, detection engineering, SIEM/EDR tuning, and response
+            - System hardening and secure architecture deployment in realistic operational scenarios
+            - Research & development of custom scripts, tools, and procedures for attack/defense workflows
+            - Contribution to threat intelligence production and use-case development
+            - Documentation of findings, technical reports, and lessons learned after cyber exercises
 
       - job: "IT/Telcommunications Specialist"
         company: "Undisclosed Company 1"
@@ -241,82 +237,31 @@ params:
             - Integration of communication systems with existing IT infrastructure
             - Documentation of configurations and procedures for operational continuity
 
-      # - job: "Junior Software Developer"
-      #   company: "Apple"
-      #   companyUrl: "https://example.com"
-      #   date: "Jan 2020 - Aug 2020"
-      #   info:
-      #     enable: false
-      #   featuredLink:
-      #     enable: true
-      #     url: "https://example.com"
-      #   content: |
-      #     I am currently working as a software developer at [example org.](https://example.com) in San Francisco, CA. I am currently working on a project that will be used to help people find the best way to get around the city.
-
-      #     - Lead backend developer for a product.
-      #     - Created a frontend design for a product.
-
-      # - job: "UI/UX Designer"
-      #   company: "Netflix"
-      #   companyUrl: "https://example.com"
-      #   date: "June 2017 - Nov 2019"
-      #   featuredLink:
-      #     enable: true
-      #     url: "https://example.com"
-      #   content: |
-      #     I am currently working as a software developer at [example org.](https://example.com) in San Francisco, CA. I am currently working on a project that will be used to help people find the best way to get around the city.
-
-      #     - Lead backend developer for a product.
-      #     - Created a frontend design for a product.
-
-      # - job: "Product Designer"
-      #   company: "Google"
-      #   companyUrl: "https://example.com"
-      #   date: "Feb 2016 - Mar 2017"
-      #   content: "I am currently working as a software developer at [example org.](https://example.com) in San Francisco, CA. I am currently working on a project that will be used to help people find the best way to get around the city."
-
   # Education
   education:
     enable: false
     # title: "Custom Name"
     index: false
     items:
-      # - title: "Master of Business Administration"
-      #   school:
-      #     name: "University of California, Berkeley"
-      #     url: "https://example.org"
-      #   date: "2013 - 2015"
-      #   GPA: "3.8 out of 5.0"
-      #   content: |-
-      #     Extracurricular Activities
-      #       - Lorem ipsum dolor sit amet consectetur adipisicing elit.
-      #       - Tempora esse, eaque delectus nulla quo doloribus itaque expedita alias natus optio totam maxime nihil excepturi velit a animi laborum hic similique.
-      - title: "Bachelor of Science in Computer Science"
+      - title: "Bachelor of Science in Computer Engineering"
         school:
-          name: "Massachusetts Institute of Technology"
+          name: "Universitas Mercatorum, Rome"
           url: "https://example.org"
-        date: "2009 - 2013"
-        GPA: "3.9 out of 5.0"
-        content: |-
-          I Publiced two papers in the ACM SIGCHI Conference on Artificial Intelligence.
-          - [Fast and Accurate Object Detection with a Single Convolutional Neural Network](https://example.com)
-          - Face mask detection using a single convolutional neural network.
+        date: "2023 - Present"
+        # GPA: "106 out of 110"
+        # content: |-
+        #   I published two papers in the ACM SIGCHI Conference on Artificial Intelligence.
+        #   - [Fast and Accurate Object Detection with a Single Convolutional Neural Network](https://example.com)
+        #   - Face mask detection using a single convolutional neural network.
 
-          Extracurricular Activities
-            - Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            - Tempora esse, eaque delectus nulla quo doloribus itaque expedita alias natus optio totam maxime nihil excepturi velit a animi laborum hic similique.
-        featuredLink:
-          enable: true
-          name: "My academic record"
-          url: "https://example.com"
-      - title: "High School"
-        school:
-          name: "Thomas Jefferson High School for Science and Technology."
-          url: "https://example.org"
-        GPA: "4.2 out of 5.0"
-        featuredLink:
-          enable: true
-          url: "https://example.com"
+        #   Extracurricular Activities
+        #     - Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        #     - Tempora esse, eaque delectus nulla quo doloribus itaque expedita alias natus optio totam maxime nihil excepturi velit a animi laborum hic similique.
+        # featuredLink:
+        #   enable: true
+        #   name: "My academic record"
+        #   url: "https://example.com"
+      
 
   # Achievements
   achievements:
