@@ -276,7 +276,7 @@ params:
       - title: SANS SEC 540 Challenge Coin
         content: I completed the SANS SEC 540 (GCSA) - Cloudwars labs and received the challenge coin, which is awarded to students who demonstrate exceptional skills in the practical lab of the course.
         url: https://www.sans.org/mlp/challenge-coins/
-        image: /images/achievements/Sec540_Coin.webp
+        image: /images/achievements/SEC540_Coin.webp
       - title: SANS GCSA Certification
         content: The GIAC Cloud Security Automation (GCSA) certification validates a practitioner's understanding of the cloud native toolchain, DevSecOps methodology, and security controls throughout CI/CD pipelines.
         url: https://www.credly.com/badges/680deed5-19c5-4821-9c83-24b9688af50b
@@ -286,9 +286,13 @@ params:
         url: https://www.credly.com/badges/085b353d-e8b2-48e7-bb9e-204b3bcfe348
         image: /images/achievements/gicsp.png
       - title: GIAC Advisory Board Member
-        content: TThe GIAC Advisory Board is a private forum for top-performing GIAC-certified professionals to share insights and contribute as subject-matter experts. Membership is by invitation only.
+        content: The GIAC Advisory Board is a private forum for top-performing GIAC-certified professionals to share insights and contribute as subject-matter experts. Membership is by invitation only.
         url: https://www.credly.com/badges/33271adb-f605-4d7d-b6ab-ce9457a60941
         image: /images/achievements/giac.png
+      - title: eCPTXv2 Certification
+        content: The Certified Penetration Tester eXtreme (eCPTXv2) is a red team, offensive cybersecurity certification which allows you to prove your skills in penetration testing.
+        url: https://verified.elearnsecurity.com/certificates/06bee618-1fae-47bc-8ee5-4b9095f0795c
+        image: /images/achievements/eCPTXv2.png
 
   
   # projects
