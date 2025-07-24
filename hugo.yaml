@@ -293,6 +293,12 @@ params:
         content: The Certified Penetration Tester eXtreme (eCPTXv2) is a red team, offensive cybersecurity certification which allows you to prove your skills in penetration testing.
         url: https://verified.elearnsecurity.com/certificates/06bee618-1fae-47bc-8ee5-4b9095f0795c
         image: /images/achievements/eCPTXv2.png
+      - title: CRTE Certification
+        content: The Certified Penetration Tester eXtreme (eCPTXv2) is a red team, offensive cybersecurity certification which allows you to prove your skills in penetration testing.
+        url: https://www.credential.net/20c4fd06-ff97-4725-a655-8550e2e67eee#acc.tmSW6OYf
+        image: https://api.accredible.com/v1/frontend/credential_website_embed_image/certificate/13998146
+        
+        
 
   
   # projects
