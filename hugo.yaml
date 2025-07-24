@@ -301,6 +301,22 @@ params:
             url: https://github.com/FreeDurok/Ransom-Radar
           - icon: fab fa-telegram
             url: https://t.me/Ransom_Radar
+      - title: Filefix Hunter
+        content: |
+          Filefix-Hunter is a forensic tool written in Rust for incident response. 
+          It enumerates TypedPaths entries in Windows registry to detect possible LOLBIN or FileFix exploitation traces.
+          This project was created to experiment and play with Rust, exploring its capabilities for building efficient and reliable forensic tools.
+        image: /images/projects/filefix-hunter/logo.png
+        # featured:
+        #   name: Site
+        #   link: https://bitcoin.powerlaw.live/
+        badges:
+          - "DFIR"
+          - "Filefix"
+          - "Rust"
+        links:
+          - icon: fab fa-github
+            url: https://github.com/FreeDurok/Filefix-Hunter
       - title: Bitcoin Power Law
         content: |
           A web app that calculates and displays the Bitcoin Power Law in real-time. 
