@@ -275,7 +275,7 @@ params:
         image: /images/achievements/dante.png
       - title: SANS SEC 540 Challenge Coin
         content: I completed the SANS SEC 540 (GCSA) - Cloudwars labs and received the challenge coin, which is awarded to students who demonstrate exceptional skills in the practical lab of the course.
-        url: https://www.sans.org/mlp/challenge-coins/
+        url: https://www.sans.org/mlp/challenge-coins/cloud-security
         image: /images/achievements/SEC540_Coin.webp
       - title: SANS GCSA Certification
         content: The GIAC Cloud Security Automation (GCSA) certification validates a practitioner's understanding of the cloud native toolchain, DevSecOps methodology, and security controls throughout CI/CD pipelines.
@@ -296,7 +296,7 @@ params:
       - title: CRTE Certification
         content: The Certified Red Teaming Expert (CRTE) is a completely hands-on certification.  It is one of the most sought after attack certification in the field of Enterprise Security.
         url: https://www.credential.net/20c4fd06-ff97-4725-a655-8550e2e67eee#acc.tmSW6OYf
-        image: https://api.accredible.com/v1/frontend/credential_website_embed_image/certificate/13998146
+        image: /images/achievements/eCPTXv2.png
         
         
 
