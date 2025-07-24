@@ -181,6 +181,7 @@ params:
         - "CTI (Cyber Threat Intelligence)"
         - "Research and Development"
         - "DevSecOps (Development, Security, and Operations)"
+        - "Scripting, Automation, and Tooling"
 
   # Experience
   experience:
