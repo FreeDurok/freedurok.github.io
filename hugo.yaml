@@ -167,7 +167,7 @@ params:
     title: "About Me"
     # image: "/images/me.png"
     content: |-
-      Cybersecurity guy with a thing for researching threats, breaking things ethically, and automating whatever feels repetitive.
+      Cyber Security guy with a thing for researching threats, breaking things ethically, and automating whatever feels repetitive.
       I get completely absorbed when something sparks my curiosity and I enjoy going deep until I figure it out.
       In my spare time I tinker with code, stay loyal to Bitcoin, and love working with sharp minds in collaborative environments.
       
@@ -283,6 +283,24 @@ params:
     enable: true
     # title: "Custom Name"
     items:
+      - title: Ransom Radar
+        content: |
+          Real-time ransomware monitoring and alerting.
+          Ransom Radar tracks public ransomware activity across multiple threat intelligence feeds, including RansomLook, RansomFeed, and Ransomware.live.
+          It automatically detects new posts, leaks, and extortion attempts, sending timely alerts directly to a Telegram channel or group.
+        image: /images/projects/newplot.png
+        # featured:
+        #   name: Site
+        #   link: https://bitcoin.powerlaw.live/
+        badges:
+          - "CTI"
+          - "Telegram Bot"
+          - "Ransomware"
+        links:
+          - icon: fa fa-github
+            url: https://github.com/FreeDurok/Ransom-Radar
+          - icon: fa fa-telegram
+            url: https://t.me/Ransom_Radar
       - title: Bitcoin Power Law
         content: |
           A web app that calculates and displays the Bitcoin Power Law in real-time. 
@@ -300,11 +318,6 @@ params:
         links:
           - icon: fa fa-envelope
             url: mailto:durok1@protonmail.com
-          # - icon: fab fa-github
-          #   url: https://github.com/gurusabarish/hugo-profile
-          # - icon: fab fa-twitter
-          #   url: https://twitter.com/intent/tweet?text=Check+it+out:&url=https%3A%2F%2Fgithub.com%2Fgurusabarish%2Fhugo-profile     # - title: Image Converter
-      
       
   #Contact
   contact:
