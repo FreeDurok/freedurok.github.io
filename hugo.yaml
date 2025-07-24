@@ -307,7 +307,7 @@ params:
           The app fetches the latest Bitcoin data and plots it on a graph, updating the graph as new data comes in.         
           The blog section provides detailed articles and analysis on Bitcoin trends and the Power Law Theory.           
           Contact me to get credentials ;).
-        image: /images/projects/bitcoin-power-law/newplot.png
+        image: /images/projects/bitcoin-power-law/plot.png
         featured:
           name: Site
           link: https://bitcoin.powerlaw.live/
