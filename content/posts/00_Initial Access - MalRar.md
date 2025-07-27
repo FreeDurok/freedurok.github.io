@@ -8,7 +8,7 @@ tags:
   - Initial Access
   - Execution
   - Red Teaming
-image: /images/posts/malrar/00-malrar.webp
+image: /images/posts/00_malrar/99-Cover.png
 description: ""
 toc:
 ---
@@ -27,14 +27,14 @@ In this example, we use the Firefox logo, but you can find logos for any file ty
 
 Click "Download PNG."
 
-![Firefox Icon](/images/posts/malrar/05-flaticon-png.png)
+![Firefox Icon](/images/posts/00_malrar/05-flaticon-png.png)
 
 
 Now Convert the PNG icon to a .ico file using **_[icoconverter.com](https://icoconverter.com/)_**.
 
 Upload the previously downloaded PNG file and click "Convert".
 
-![Iconconverter](/images/posts/malrar/05-Converter.png)
+![Iconconverter](/images/posts/00_malrar/05-Converter.png)
 
 ---
 
@@ -42,7 +42,7 @@ Upload the previously downloaded PNG file and click "Convert".
 
 On the desktop, select the actual Firefox browser executable and your malicious executable (in our case we are using `calc.exe`), right-click them, and choose **`"Add to Archive..."`** to create a combined archive.
 
-![Archive-1](/images/posts/malrar/00-setting.png)
+![Archive-1](/images/posts/00_malrar/00-setting.png)
 
 🔹 Name the archive file simply as Firefox.exe to give it a legitimate appearance. 
 
@@ -57,21 +57,21 @@ On the desktop, select the actual Firefox browser executable and your malicious 
 
 Click `"Advanced"` > `"SFX options"` > `"Setup"` and enter the following:
 
-![Archive-2](/images/posts/malrar/01-advanced.png)
+![Archive-2](/images/posts/00_malrar/01-advanced.png)
 
 🔹 In the `"Run after extraction"` field, input `calc.exe` (your malicious exe file) and the legitimate `Firefox.exe` (the program that will open after the malicious exe runs).
 
-![Archive-3](/images/posts/malrar/02-advanced-setup.png)
-![Archive-4](/images/posts/malrar/03-advanced-modes.png)
-![Archive-5](/images/posts/malrar/04-advanced-update.png)
-![Archive-6](/images/posts/malrar/06-advanced-icon.png)
+![Archive-3](/images/posts/00_malrar/02-advanced-setup.png)
+![Archive-4](/images/posts/00_malrar/03-advanced-modes.png)
+![Archive-5](/images/posts/00_malrar/04-advanced-update.png)
+![Archive-6](/images/posts/00_malrar/06-advanced-icon.png)
 
 ---
 ### 4️⃣ Finalizing the Archive
 
 After entering the above parameters, click "OK", and an archive named Firefox.exe will appear on the desktop with the correct Firefox icon. 
 
-![Archive-7](/images/posts/malrar/07-final-zip.png)
+![Archive-7](/images/posts/00_malrar/07-final-zip.png)
 
 Double-clicking on Firefox.exe will execute our malicious executable and also open a browser tab as usual. 
 
@@ -99,19 +99,19 @@ Open the "`Character Map`" application in Windows and check the "`Advanced View`
 In the "Go to Unicode" field, enter 202E.
 Click "Select" and "Copy", then edit the name of the WinRAR archive we created.
 
-![Archive-8](/images/posts/malrar/08-charmap.png)
+![Archive-8](/images/posts/00_malrar/08-charmap.png)
 
 Enter a new pdf incon and the file name as Refl[CTRL+V]fdp.exe, then go back and paste the Unicode in the specified place.
 
-![Archive-9](/images/posts/malrar/06-advanced-icon.png)
+![Archive-9](/images/posts/00_malrar/06-advanced-icon.png)
 
-![Archive-10](/images/posts/malrar/10-archive-name.png)
+![Archive-10](/images/posts/00_malrar/10-archive-name.png)
 
 The file should change to Reflexe.pdf once you press paste. 
 
-![Archive-11](/images/posts/malrar/11-archive-name-after.png)
+![Archive-11](/images/posts/00_malrar/11-archive-name-after.png)
 
-![Archive-12](/images/posts/malrar/12-final-file.png)
+![Archive-12](/images/posts/00_malrar/12-final-file.png)
 
 ⚠️ However, since this is a known file type (.pdf) that initiates the execution of an executable file, Windows Defender will quickly flag it as malicious.
 
