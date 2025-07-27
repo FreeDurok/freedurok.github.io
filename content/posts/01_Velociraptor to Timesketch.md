@@ -26,7 +26,7 @@ To be precise, we will carry out two distinct procedures:
     2. Super-Timeline generation with plaso (via timesketch worker)
     3. Import and display on Timesketch
 
-## Lab Envionment
+## Lab Environment
 Il LAB che sto utilizzando per Test è composto da:
 
 - 2 Domain Controller - Windows Server 2025
