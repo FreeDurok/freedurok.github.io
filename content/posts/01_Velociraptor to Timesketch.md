@@ -98,7 +98,7 @@ sudo docker compose exec timesketch-web tsctl create-user user
 
 ![image.png](/images/posts/01_timesketch/image.png)
 
-Lo script già ha il comando per creare un’utente e di conseguenza dopo l’esecuzione dei docker verrà richiesta la password da impostare all’utente `user` in questo caso, ma potete usare il nome utente che volete. Per comodità inseriamo `user`::`user`
+The script already includes the command to create a user, and consequently, after the Docker containers start, you will be prompted to set a password for the `user` account (in this case). You may use any username you prefer. For convenience, we will use `user::user`.
 
 ![image.png](/images/posts/01_timesketch/image1.png)
 
