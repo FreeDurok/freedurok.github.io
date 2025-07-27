@@ -80,9 +80,7 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 sudo docker -v
 ```
 
-Una volta installato docker passiamo all’installazione di Timesketch:
-
-[Install - timesketch](https://timesketch.org/guides/admin/install/)
+### [Install Timesketch](https://timesketch.org/guides/admin/install/) via Docker:
 
 ```bash
 # install-timesketch.sh
