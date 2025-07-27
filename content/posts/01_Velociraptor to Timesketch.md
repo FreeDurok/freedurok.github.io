@@ -14,24 +14,21 @@ description: ""
 toc: 
 ---
 
-# Velociraptor → Timesketch
+## Description
 
-Questo write-up mostra come costruire delle timeline da alcune macchine da esaminare in Triage a seguito di una compromissione, dall’acquisizione di tutti gli artefatti alla generazione di una Super-Timeline e visualizzarla con Timesketch.
+This write-up shows how to build timelines from Windows machines to be examined in Triage following a compromise, from the acquisition of all artifacts to the generation of a Super-Timeline and its visualisation with Timesketch.
+To be precise, we will carry out two distinct procedures:
+1. Manual acquisition with Hayabusa
+    1. Acquisition and timeline generation with Hayabusa
+    2. Import and display on Timesketch
+2. Automatic acquisition with Velociraptor
+    1. Acquisition with KAPE Files module → SANS Triage
+    2. Super-Timeline generation with plaso (via timesketch worker)
+    3. Import and display on Timesketch
 
-Per la precisione andremo ad effettuare due procedure distinte:
+Translated with DeepL.com (free version)
 
-1. Acquisizione manuale con hayabusa
-    1. Acquisizione e generazione Timeline con Hayabusa
-    2. Import e Visualizzazione su Timesketch
-2. Acquisizione automatica con Velociraptor 
-    1. Acquisizione con modulo KAPE Files → SANS Triage
-    2. Generazione Super-Timeline con plaso (via timesketch worker)
-    3. Import e Visualizzazione su Timesketch
-
-Bonus:
-
-- Script per creare un servizio di automazione per la procedura 2.
-
+## Lab Envionment
 Il LAB che sto utilizzando per Test è composto da:
 
 - 2 Domain Controller - Windows Server 2025
