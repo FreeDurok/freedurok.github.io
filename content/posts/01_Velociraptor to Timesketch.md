@@ -1,5 +1,5 @@
 ---
-title: "MalRar - Compressing Initial Access"
+title: "Velociraptor -> Timesketch: How to build a SuperTimeline"
 date: 2025-07-27T08:12:29+01:00
 draft: false
 github_link: "https://github.com/gurusabarish/hugo-profile"
