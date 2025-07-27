@@ -28,29 +28,29 @@ To be precise, we will carry out two distinct procedures:
     3. Import and display on Timesketch
 
 ## Lab Environment
-Il LAB che sto utilizzando per il test è composto da:
-
-- 1 Domain Controller - Windows Server 2025
+The LAB environment used for this test consists of:
+- 1 Domain Controller – Windows Server 2025
     - Velociraptor Client
-- 1 Workstation - Windows 11 Pro
+
+- 1 Workstation – Windows 11 Pro
     - Hayabusa
     - Velociraptor Client
 - 1 Kali
-    - CobaltStrike
-- 1 Ubuntu 24.04 - CPU 1x4 - Ram 8GB - Disk 50GB
+    - Cobalt Strike
+- 1 Ubuntu 24.04 – CPU 1x4 – RAM 8GB – Disk 50GB
     - Velociraptor Server
-        - Docker Deploy
+        - Docker deployment
     - Timesketch
-        - Docker Deploy
+        - Docker deployment
 
-Salto lo step delle installazioni delle macchine e la configurazione della kali, ho usato cobaltstrike ed harriet per seminare degli IOC nell’ambiente ma si può usare qualsiasi cosa.
+The steps for installing the virtual machines and configuring Kali are skipped.
+Cobalt Strike and Harriet were used to seed IOCs in the environment, but any method can be used for this purpose.
 
-Non ho configurato gli audit sui DC, poichè il focus è la procedura di costruzione della timeline e la sua automazione lavorando su server singolo.
+Audit policies on the Domain Controller were not configured, as the focus is on the timeline creation procedure and its automation, working on a single server.
 
-Intanto iniziamo con la prima timeline, ovvero utilizzare hayabusa per generare una Timeline e poi caricarla su TimeSketch.
+We will start with the first timeline: using Hayabusa to generate a timeline and then import it into Timesketch.
 
-Per fare questo ci muoviamo sulla macchina Ubuntu e ci apprestiamo ad installare Timesketch tramite Docker.
-
+To do this, we move to the Ubuntu machine and proceed to install Timesketch via Docker.
 ### Install Docker on Ubuntu
 
 [Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
