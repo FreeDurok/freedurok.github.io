@@ -1,3 +1,19 @@
+---
+title: "MalRar - Compressing Initial Access"
+date: 2025-07-27T08:12:29+01:00
+draft: false
+github_link: "https://github.com/gurusabarish/hugo-profile"
+author: "Durok"
+tags:
+  - DFIR
+  - Timeline
+  - Velociraptor
+  - Timesketch
+image: /images/posts/malrar/00-malrar.webp
+description: ""
+toc: 
+---
+
 # Velociraptor → Timesketch
 
 Questo write-up mostra come costruire delle timeline da alcune macchine da esaminare in Triage a seguito di una compromissione, dall’acquisizione di tutti gli artefatti alla generazione di una Super-Timeline e visualizzarla con Timesketch.
@@ -95,17 +111,17 @@ sudo docker compose exec timesketch-web tsctl create-user user
 
 ```
 
-![image.png](image.png)
+![image.png](/images/posts/01_timesketch/image.png)
 
 Lo script già ha il comando per creare un’utente e di conseguenza dopo l’esecuzione dei docker verrà richiesta la password da impostare all’utente `user` in questo caso, ma potete usare il nome utente che volete. Per comodità inseriamo `user`::`user`
 
-![image.png](image%201.png)
+![image.png](/images/posts/01_timesketch/image%201.png)
 
 Qui ho ripetuto l’operazione manualmente, ovviamente il comando qui illustravo va eseguito dalla cartella contiene le variabili dell’ambiente docker, nel mio caso da `/opt/timesketch` , che è il path dove lo script installerà tutto il necessario per avviare il docker-compose.yaml di `timeskecth` 
 
 Ora verifichiamo che tutto sia Up & Running:
 
-![image.png](image%202.png)
+![image.png](/images/posts/01_timesketch/image%202.png)
 
 Se volete approfondire tutti i vari componenti ti TimeSketch, potete consultare la documentazione sul loro sito ed approfondire il `docker-compose.yaml`.
 
@@ -113,11 +129,11 @@ Uno dei componenti è un server nginx che fa da procy ed espone sulla porta `80`
 
 Proviamo ora a loggarci con il nostro browser sulla nostra localhost:
 
-![image.png](image%203.png)
+![image.png](/images/posts/01_timesketch/image%203.png)
 
 Utilizzando le credenziali dell’utente creato poco fa ecco che siamo all’interno della nostra Dashboard:
 
-![image.png](image%204.png)
+![image.png](/images/posts/01_timesketch/image%204.png)
 
 Io preferisco utilizzare il tema dark per riposare gli occhi!
 
@@ -154,37 +170,37 @@ Ecco il comando per creare la timeline:
 .\hayabusa-3.3.0-win-x64.exe csv-timeline -l -o ws01-hayabusa-timeline.csv -p timesketch-verbose --ISO-8601
 ```
 
-![image.png](image%205.png)
+![image.png](/images/posts/01_timesketch/image%205.png)
 
-![image.png](image%206.png)
+![image.png](/images/posts/01_timesketch/image%206.png)
 
 Utilizzo il set di regole `Core+` .
 
-![image.png](image%207.png)
+![image.png](/images/posts/01_timesketch/image%207.png)
 
 Includo le sysmon rules anche se non ho installato sysmon sulle macchine, giusto per simulare le impostazioni adeguate.
 
-![image.png](image%208.png)
+![image.png](/images/posts/01_timesketch/image%208.png)
 
 ed ecco i risultati.
 
-![image.png](image%209.png)
+![image.png](/images/posts/01_timesketch/image%209.png)
 
 Ora siamo pronti per importare il nostro file all’interno di `timesketch`.
 
 Torniamo all’interfaccia di timesketch e creaiamo una nuova investigazione:
 
-![image.png](image%2010.png)
+![image.png](/images/posts/01_timesketch/image%2010.png)
 
-![image.png](image%2011.png)
+![image.png](/images/posts/01_timesketch/image%2011.png)
 
-![image.png](image%2012.png)
+![image.png](/images/posts/01_timesketch/image%2012.png)
 
-![image.png](image%2013.png)
+![image.png](/images/posts/01_timesketch/image%2013.png)
 
-![image.png](image%2014.png)
+![image.png](/images/posts/01_timesketch/image%2014.png)
 
-![image.png](image%2015.png)
+![image.png](/images/posts/01_timesketch/image%2015.png)
 
 Ed ecco la nostra visualizzazione utilizzando `Timesketch` della nostra Timeline creata con `hayabusa`.
 
@@ -211,31 +227,31 @@ sudo docker compose up -d
 # sudo docker exec -it velociraptor ./velociraptor --config server.config.yaml user add user1 user1 --role administrator
 ```
 
-![image.png](image%2016.png)
+![image.png](/images/posts/01_timesketch/image%2016.png)
 
 Di default le credenziali sono `admin::admin` , queste credenziali come altre variabili d’ambiente possono essere modificate all’interno del file `.env`  della repository.
 
-![image.png](image%2017.png)
+![image.png](/images/posts/01_timesketch/image%2017.png)
 
-![image.png](image%2018.png)
+![image.png](/images/posts/01_timesketch/image%2018.png)
 
 Ecco il nostro `Velociraptor` server Up & Running.
 
 La prima cosa che faremo è creare una nuova organizzazione invece che usare l’organizzazione “`root`” di default:
 
-![image.png](image%2019.png)
+![image.png](/images/posts/01_timesketch/image%2019.png)
 
-![image.png](image%2020.png)
+![image.png](/images/posts/01_timesketch/image%2020.png)
 
-![image.png](image%2021.png)
+![image.png](/images/posts/01_timesketch/image%2021.png)
 
 Ora tornando alla Home troverò la nuova organizzazione appena creata:
 
-![image.png](image%2022.png)
+![image.png](/images/posts/01_timesketch/image%2022.png)
 
 Cliccando sull’icona utente e selezionando la nuova organizzazione, vedremo che il contesto si sposterà nella organizzazione selezionata, questo vale anche per altre operazioni che prenderanno come contesto di riferimento quello della nuova organizzazione e non quello root.
 
-![image.png](image%2023.png)
+![image.png](/images/posts/01_timesketch/image%2023.png)
 
 Ora che abbiamo terminato di configurare il server, dobbiamo installare Velociraptor Client sulle nostre macchina da acquisire, questo lo faremo con il file exe di velociraptor scaricabile dal sito ufficiale:
 
@@ -243,11 +259,11 @@ Ora che abbiamo terminato di configurare il server, dobbiamo installare Velocira
 
 L’eseguibile andrà lanciato passandogli la configurazione della nostra organizzazione:
 
-![image.png](image%2024.png)
+![image.png](/images/posts/01_timesketch/image%2024.png)
 
 Nel file di configurazione accertarsi che l’indirizzo o l’url del server sia corretto e successivamente portarlo sulla macchina da installare.
 
-![image.png](image%2025.png)
+![image.png](/images/posts/01_timesketch/image%2025.png)
 
 Il comando per installare velociraptor come servizio è il seguente:
 
@@ -255,9 +271,9 @@ Il comando per installare velociraptor come servizio è il seguente:
 .\velociraptor-v0.74.1-windows-amd64.exe --config .\client.OKVAG.config.yaml service install
 ```
 
-![image.png](image%2026.png)
+![image.png](/images/posts/01_timesketch/image%2026.png)
 
-![image.png](image%2027.png)
+![image.png](/images/posts/01_timesketch/image%2027.png)
 
 Ecco il nostro client attestato sul nostro server.
 
@@ -274,9 +290,9 @@ sudo docker compose restart
 sudo ./velociraptor --config server.config.yaml config api_client --name dfir --role administrator api.config.yaml
 ```
 
-![image.png](image%2028.png)
+![image.png](/images/posts/01_timesketch/image%2028.png)
 
-![image.png](image%2029.png)
+![image.png](/images/posts/01_timesketch/image%2029.png)
 
 ```powershell
 sudo ./velociraptor --api_config api.config.yaml query "SELECT *
@@ -310,21 +326,21 @@ Queste query potrebbero tornare utili successivamente per fare delle cacce o con
 
 Ora procediamo a fare una sul client in questione utilizzando `KAPE` files e il SANS_Triage.
 
-![image.png](image%2030.png)
+![image.png](/images/posts/01_timesketch/image%2030.png)
 
-![image.png](image%2031.png)
+![image.png](/images/posts/01_timesketch/image%2031.png)
 
-![image.png](image%2032.png)
+![image.png](/images/posts/01_timesketch/image%2032.png)
 
-![image.png](image%2033.png)
+![image.png](/images/posts/01_timesketch/image%2033.png)
 
-![image.png](image%2034.png)
+![image.png](/images/posts/01_timesketch/image%2034.png)
 
-![image.png](image%2035.png)
+![image.png](/images/posts/01_timesketch/image%2035.png)
 
-![image.png](image%2036.png)
+![image.png](/images/posts/01_timesketch/image%2036.png)
 
-![image.png](image%2037.png)
+![image.png](/images/posts/01_timesketch/image%2037.png)
 
 Ora che ho scaricato i files acquisiti con il Triage, posso generare la mia super timelime con plaso utilizzando lo stesso container di timesketch.
 
@@ -342,11 +358,11 @@ docker exec -i timesketch-worker /bin/bash -c "log2timeline.py --status_view win
 
 ```
 
-![image.png](image%2038.png)
+![image.png](/images/posts/01_timesketch/image%2038.png)
 
 Per processare 1216MB - 1944 Files , ci sono voluti 10’ e 58’’
 
-![image.png](image%2039.png)
+![image.png](/images/posts/01_timesketch/image%2039.png)
 
 Per analizzare i warning generati da plaso, si può usare `pinfo.py`
 
@@ -363,7 +379,7 @@ Usiamo il docker timesketch-web per listare gli sketch disponibili.
 sudo docker exec -i timesketch-web tsctl list-sketches
 ```
 
-![image.png](image%2040.png)
+![image.png](/images/posts/01_timesketch/image%2040.png)
 
 Vediamo al numero 1 la nostra investigazione chiamata “Red-Lab”.
 
@@ -376,7 +392,7 @@ Tuttavia scopriremo che l’importer non è installato nel `-worker` , per quest
 sudo docker exec -i timesketch-worker pip3 install timesketch-import-client
 ```
 
-![image.png](image%2041.png)
+![image.png](/images/posts/01_timesketch/image%2041.png)
 
 Ora possiamo importare la nostra super timeline su `timesketch`.
 
@@ -386,15 +402,15 @@ sudo docker exec -i timesketch-worker /bin/bash -c "timesketch_importer -u user 
 
 ```
 
-![image.png](image%2042.png)
+![image.png](/images/posts/01_timesketch/image%2042.png)
 
 Una volta lanciato l’upload possiamo vedere dall’interfaccia il processo in corso, ci metterà un pò di tempo prima di caricare tutto.
 
-![image.png](image%2043.png)
+![image.png](/images/posts/01_timesketch/image%2043.png)
 
 Ecco che l’importazione è in progress, con il mio setup per caricare 5.5M di eventi per la grandezza di 1.83GB , ci mette circa 2 ore.
 
-![image.png](image%2044.png)
+![image.png](/images/posts/01_timesketch/image%2044.png)
 
 Notes
 
