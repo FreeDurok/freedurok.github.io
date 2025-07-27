@@ -16,7 +16,8 @@ toc:
 
 ## Description
 
-This write-up shows how to build timelines from Windows machines to be examined in Triage following a compromise, from the acquisition of all artifacts to the generation of a Super-Timeline and its visualisation with Timesketch.
+This write-up shows how to build timelines from Windows machines to be examined in Triage following a compromise, from the acquisition of all artifacts to the generation of a Super-Timeline and its visualisation with [Timesketch](https://timesketch.org) using tools such as [Hayabusa](https://github.com/Yamato-Security/hayabusa), [Velociraptor](https://docs.velociraptor.app/docs/deployment/quickstart/) and [plaso](https://github.com/log2timeline/plaso).
+
 To be precise, we will carry out two distinct procedures:
 1. Manual acquisition with Hayabusa
     1. Acquisition and timeline generation with Hayabusa
@@ -27,14 +28,10 @@ To be precise, we will carry out two distinct procedures:
     3. Import and display on Timesketch
 
 ## Lab Environment
-Il LAB che sto utilizzando per Test è composto da:
+Il LAB che sto utilizzando per il test è composto da:
 
-- 2 Domain Controller - Windows Server 2025
+- 1 Domain Controller - Windows Server 2025
     - Velociraptor Client
-    - Gpo:
-        - Disable Defender
-        - Enable LanMan Server
-        - Enable WinRm
 - 1 Workstation - Windows 11 Pro
     - Hayabusa
     - Velociraptor Client
@@ -46,11 +43,11 @@ Il LAB che sto utilizzando per Test è composto da:
     - Timesketch
         - Docker Deploy
 
-Salto lo step delle installazioni delle macchine e la configurazione della kali, ho usato cobaltstrike per seminare degli IOC nell’ambiente ma si può usare qualsiasi cosa.
+Salto lo step delle installazioni delle macchine e la configurazione della kali, ho usato cobaltstrike ed harriet per seminare degli IOC nell’ambiente ma si può usare qualsiasi cosa.
 
 Non ho configurato gli audit sui DC, poichè il focus è la procedura di costruzione della timeline e la sua automazione lavorando su server singolo.
 
-Intanto iniziamo con la prima prova manuale, ovvero utilizzare hayabusa per generare una Timeline e poi caricarla su TimeSketch.
+Intanto iniziamo con la prima timeline, ovvero utilizzare hayabusa per generare una Timeline e poi caricarla su TimeSketch.
 
 Per fare questo ci muoviamo sulla macchina Ubuntu e ci apprestiamo ad installare Timesketch tramite Docker.
 
