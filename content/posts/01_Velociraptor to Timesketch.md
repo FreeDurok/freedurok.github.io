@@ -9,7 +9,7 @@ tags:
   - Timeline
   - Velociraptor
   - Timesketch
-image: /images/me.png
+image: /images/posts/01_timesketch/00_Cover.png
 description: ""
 toc: 
 ---
