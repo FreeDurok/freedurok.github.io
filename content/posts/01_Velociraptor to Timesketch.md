@@ -107,11 +107,11 @@ Now let's check that everything is up and running:
 
 ![image.png](/images/posts/01_timesketch/image2.png)
 
-Se volete approfondire tutti i vari componenti ti TimeSketch, potete consultare la documentazione sul loro sito ed approfondire il `docker-compose.yaml`.
+If you want to learn more about all the various components of TimeSketch, you can consult the documentation on their website and take a closer look at `docker-compose.yaml`.
 
-Uno dei componenti è un server nginx che fa da procy ed espone sulla porta `80` e `443`, non vedremo come configurare il protocollo `https` ma è possibile farlo ovviamente passandogli i certificati all’interno della configurazione.
+One of the components is an nginx server that acts as a proxy and exposes ports `80` and `443`. We will not look at how to configure the `https` protocol, but it is obviously possible to do so by passing the certificates within the configuration.
 
-Proviamo ora a loggarci con il nostro browser sulla nostra localhost:
+Let's now try to log in with our browser on our localhost:
 
 ![image.png](/images/posts/01_timesketch/image3.png)
 
