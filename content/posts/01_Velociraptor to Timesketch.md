@@ -137,7 +137,7 @@ Expand-Archive .\hayabusa.zip .\hayabusa
 cd .\hayabusa
 ```
 Now, following [Hayabusa's official documentation](https://github.com/Yamato-Security/hayabusa/blob/main/doc/TimesketchImport/TimesketchImport-English.md), which shows us exactly how to create the timeline and then analyse it on Timesketch.
-The arguments to pass to hayabusa are the folder (`-d`) containing the logs of a previous acquisition (e.g. with KAPE) or a live analysis by passing the option `-l`.
+The arguments to pass to hayabusa with option `-d` are the folder containing the logs of a previous acquisition (e.g. with KAPE) or a live analysis by passing the option `-l`.
 
 Here is the command to create the timeline:
 ```powershell
