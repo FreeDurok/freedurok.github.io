@@ -107,7 +107,7 @@ Now let's check that everything is up and running:
 
 ![image.png](/images/posts/01_timesketch/image2.png)
 
-If you want to learn more about all the various components of TimeSketch, you can consult the documentation on their website and take a closer look at `docker-compose.yaml`.
+If you want to learn more about all the various components of TimeSketch, you can consult the [documentation](https://timesketch.org/guides/admin/install/) on their website and take a closer look at `docker-compose.yaml`.
 
 One of the components is an nginx server that acts as a proxy and exposes ports `80` and `443`. We will not look at how to configure the `https` protocol, but it is obviously possible to do so by passing the certificates within the configuration.
 
@@ -115,15 +115,15 @@ Let's now try to log in with our browser on our localhost:
 
 ![image.png](/images/posts/01_timesketch/image3.png)
 
-Utilizzando le credenziali dell’utente creato poco fa ecco che siamo all’interno della nostra Dashboard:
+Using the credentials of the user created earlier, we are now inside our Dashboard:
 
 ![image.png](/images/posts/01_timesketch/image4.png)
 
-Io preferisco utilizzare il tema dark per riposare gli occhi!
+I prefer to use the dark theme to rest my eyes!
 
-Come notiamo siamo all’interno del nostro utente User, ma più utenti possono collaborare all’interno della piattaforma come vedremo più tardi.
+As we can see, we are inside our User account, but multiple users can collaborate within the platform, as we will see later.
 
-# Procedura 1 - Acquisizione Manuale con hayabusa
+## Procedure 1 - Manual acquisition with Hayabusa
 
 A questo punto ci spostiamo sulla prima Workstation windows per effettuare la nostra prima acquisizione con Hayabusa.
 
