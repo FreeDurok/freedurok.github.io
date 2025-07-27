@@ -26,8 +26,6 @@ To be precise, we will carry out two distinct procedures:
     2. Super-Timeline generation with plaso (via timesketch worker)
     3. Import and display on Timesketch
 
-Translated with DeepL.com (free version)
-
 ## Lab Envionment
 Il LAB che sto utilizzando per Test è composto da:
 
