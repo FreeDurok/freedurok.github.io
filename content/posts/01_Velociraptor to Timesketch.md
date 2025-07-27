@@ -102,9 +102,8 @@ The script already includes the command to create a user, and consequently, afte
 
 ![image.png](/images/posts/01_timesketch/image1.png)
 
-Qui ho ripetuto l’operazione manualmente, ovviamente il comando qui illustravo va eseguito dalla cartella contiene le variabili dell’ambiente docker, nel mio caso da `/opt/timesketch` , che è il path dove lo script installerà tutto il necessario per avviare il docker-compose.yaml di `timeskecth` 
-
-Ora verifichiamo che tutto sia Up & Running:
+Here I repeated the operation manually. Obviously, the command shown here must be executed from the folder containing the Docker environment variables, in my case from `/opt/timesketch`, which is the path where the script will install everything needed to start the `docker-compose.yaml` of `timeskecth`.
+Now let's check that everything is up and running:
 
 ![image.png](/images/posts/01_timesketch/image2.png)
 
