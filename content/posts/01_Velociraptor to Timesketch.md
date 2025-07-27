@@ -125,11 +125,10 @@ As we can see, we are inside our User account, but multiple users can collaborat
 
 ## Procedure 1 - Manual acquisition with Hayabusa
 
-A questo punto ci spostiamo sulla prima Workstation windows per effettuare la nostra prima acquisizione con Hayabusa.
+At this point, we move to the first Windows workstation to generate our first timeline using [Hayabusa](https://github.com/Yamato-Security/hayabusa/releases).
 
-https://github.com/Yamato-Security/hayabusa/releases
-
-Scaricare Hayabusa sulla macchina client, o direttamente dal sito oppure portandolo con una chiavetta autorizzata sulla macchina target, nel mio caso essendo uno scenario di test, lo scaricherò direttamente da internet.
+Download Hayabusa onto the client machine, either directly from the website or by transferring it via an authorized USB drive to the target machine.
+In this test scenario, I will download it directly from the Internet.
 
 ```powershell
 # Administrator Powershell
