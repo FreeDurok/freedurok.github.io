@@ -10,7 +10,7 @@ tags:
   - Red Teaming
 image: /images/posts/malrar/00-malrar.webp
 description: ""
-toc: 
+toc: false
 ---
 
 
