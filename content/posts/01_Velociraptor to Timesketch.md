@@ -47,10 +47,8 @@ Cobalt Strike and Harriet were used to seed IOCs in the environment, but any met
 Audit policies on the Domain Controller were not configured, as the focus is on the timeline creation procedure and its automation, working on a single server.
 We will start with the first timeline: using Hayabusa to generate a timeline and then import it into Timesketch.
 To do this, we move to the Ubuntu machine and proceed to install Timesketch via Docker.
-### Install Docker on Ubuntu
 
-[Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
-
+### Install Docker on [Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
 ```bash
 #!/bin/bash
 
