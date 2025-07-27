@@ -31,7 +31,6 @@ To be precise, we will carry out two distinct procedures:
 The LAB environment used for this test consists of:
 - 1 Domain Controller – Windows Server 2025
     - Velociraptor Client
-
 - 1 Workstation – Windows 11 Pro
     - Hayabusa
     - Velociraptor Client
