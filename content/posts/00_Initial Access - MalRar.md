@@ -4,14 +4,13 @@ date: 2023-03-09T16:20:29+05:30
 draft: false
 github_link: "https://github.com/gurusabarish/hugo-profile"
 author: "Durok"
-tags:
-  - Initial Access
-  - Execution
-  - Red Teaming
+tags: false
+  # - Initial Access
+  # - Execution
+  # - Red Teaming
 image: /images/posts/malrar/00-malrar.webp
 description: ""
 toc: false
-social: false
 ---
 
 
