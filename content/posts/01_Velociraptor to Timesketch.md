@@ -366,11 +366,11 @@ sudo docker exec -i timesketch-web tsctl list-sketches
 
 ![image.png](/images/posts/01_timesketch/image40.png)
 
-Vediamo al numero 1 la nostra investigazione chiamata “Red-Lab”.
+We can see our investigation named "Red-Lab" at number 1.
 
-Ora importiamo il file `.plaso` all’interno di `timesketch` , per farlo useremo sempre il docker `-worker` the userà l’importeri verso il docker `-web` utilizzando le credenziali dell’utente da noi creato all’inizio, nel nostro caso `user`:`user` .
+Now let's import the `.plaso` file into `Timesketch`. To do this, we'll use the `-worker` Docker container, which will run the importer and send data to the `-web` container using the credentials we created earlier—in our case, `user:user`.
 
-Tuttavia scopriremo che l’importer non è installato nel `-worker` , per questo basta installarlo con `pip3` all’interno del docker. Ovviamente questa operazione può essere fatta anche da una macchina a parte e non dal docker ma per comodità lasciamo tutti gli strumenti confinati nel loro ambiente.
+However, you'll notice that the importer is not installed in the `-worker` container by default. To resolve this, simply install it with `pip3` inside the container. Of course, this operation can also be performed from a separate machine, but for convenience, we'll keep all tools confined within their respective environments.
 
 ```bash
 # Install timesketch-import-client into -worker container
@@ -379,7 +379,7 @@ sudo docker exec -i timesketch-worker pip3 install timesketch-import-client
 
 ![image.png](/images/posts/01_timesketch/image41.png)
 
-Ora possiamo importare la nostra super timeline su `timesketch`.
+Now we can import our super timeline into `Timesketch`.
 
 ```bash
 # Import plaso file in timesketch
@@ -389,32 +389,44 @@ sudo docker exec -i timesketch-worker /bin/bash -c "timesketch_importer -u user 
 
 ![image.png](/images/posts/01_timesketch/image42.png)
 
-Una volta lanciato l’upload possiamo vedere dall’interfaccia il processo in corso, ci metterà un pò di tempo prima di caricare tutto.
+Once the upload has started, you can monitor the progress from the interface. It will take some time to complete the upload process.
 
 ![image.png](/images/posts/01_timesketch/image43.png)
 
-Ecco che l’importazione è in progress, con il mio setup per caricare 5.5M di eventi per la grandezza di 1.83GB , ci mette circa 2 ore.
+Here the import is in progress. With my setup, uploading 5.5 million events (1.83GB in size) takes about 2 hours.
 
 ![image.png](/images/posts/01_timesketch/image44.png)
 
-Notes
+### Recap: Importing Velociraptor triage into Timesketch
+
+Below is a summary of the commands to process the artifacts acquired via Velociraptor and import them into Timesketch:
 
 ```bash
-
-# unzip Haunt file
+# Extract the triage ZIP file into a working directory
 cd /tmp/
-unzip -q /home/user/Scaricati/H.D12QTAMHD5H4C.zip -d WS01-Raw 
+unzip -q <PATH_TO_HAUNT_ZIP> -d WS01-Raw 
 mkdir /tmp/WS01
-mv H.D124GB9SGJ12O/PC-WS01-C.c670b789871e759a-O8SE0/uploads/* /tmp/WS01
+mv WS01-Raw/<SUBDIR>/uploads/* /tmp/WS01
 
-# move all the files into timesketch upload binded folder 
+# Move files into Timesketch bind-mounted folder
 sudo mv /tmp/WS01 /opt/timesketch/upload/
-docker exec -i timesketch-worker /bin/bash -c "log2timeline.py --status_view window --storage-file /usr/share/timesketch/upload/WS01.plaso /usr/share/timesketch/upload/WS01/"
 
-# List sketches to GET Sketch ID
+# Generate the Plaso super timeline from the triage data
+docker exec -i timesketch-worker /bin/bash -c \
+"log2timeline.py --status_view window --storage-file /usr/share/timesketch/upload/WS01.plaso /usr/share/timesketch/upload/WS01/"
+
+# List available sketches to retrieve the Sketch ID
 docker exec -i timesketch-web tsctl list-sketches
 
-# Import plaso file in timesketch
-docker exec -i timesketch-worker /bin/bash -c "timesketch_importer -u dfir -p 'dfir' --host http://timesketch-web:5000 --timeline_name WS01-Raptor --sketch_id 1 '/usr/share/timesketch/upload/WS01.plaso'"
+# Install timesketch-import-client into timesketch-worker
+sudo docker exec -i timesketch-worker pip3 install timesketch-import-client
 
+# Import the Plaso file into Timesketch
+docker exec -i timesketch-worker /bin/bash -c \
+"timesketch_importer -u <USER> -p '<PASSWORD>' --host http://timesketch-web:5000 --timeline_name WS01-Raptor --sketch_id <SKETCH_ID> '/usr/share/timesketch/upload/WS01.plaso'"
 ```
+
+This process:
+- Extracts Velociraptor triage artifacts
+- Generates a Plaso timeline
+- Imports the timeline into Timesketch for interactive investigation.
