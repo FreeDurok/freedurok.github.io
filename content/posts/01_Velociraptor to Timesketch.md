@@ -123,7 +123,7 @@ I prefer to use the dark theme to rest my eyes!
 
 As we can see, we are inside our User account, but multiple users can collaborate within the platform, as we will see later.
 
-## Procedure 1 - Manual acquisition with Hayabusa
+## 1 - Manual acquisition with Hayabusa
 
 At this point, we move to the first Windows workstation to generate our first timeline using [Hayabusa](https://github.com/Yamato-Security/hayabusa/releases).
 
@@ -152,21 +152,21 @@ Here is the command to create the timeline:
 
 ![image.png](/images/posts/01_timesketch/image6.png)
 
-Utilizzo il set di regole `Core+` .
+I am using the `Core+` ruleset.
 
 ![image.png](/images/posts/01_timesketch/image7.png)
 
-Includo le sysmon rules anche se non ho installato sysmon sulle macchine, giusto per simulare le impostazioni adeguate.
+I am including the `Sysmon` rules.
 
 ![image.png](/images/posts/01_timesketch/image8.png)
 
-ed ecco i risultati.
+And here are the results: Hayabusa successfully generated a detailed timeline of events, which can now be imported and analyzed within Timesketch.
 
 ![image.png](/images/posts/01_timesketch/image9.png)
 
-Ora siamo pronti per importare il nostro file all’interno di `timesketch`.
+We are now ready to import our file into `Timesketch`.
 
-Torniamo all’interfaccia di timesketch e creaiamo una nuova investigazione:
+Let's return to the Timesketch interface and create a new investigation:
 
 ![image.png](/images/posts/01_timesketch/image10.png)
 
@@ -180,7 +180,7 @@ Torniamo all’interfaccia di timesketch e creaiamo una nuova investigazione:
 
 ![image.png](/images/posts/01_timesketch/image15.png)
 
-Ed ecco la nostra visualizzazione utilizzando `Timesketch` della nostra Timeline creata con `hayabusa`.
+Here is our visualization in `Timesketch` of the timeline generated with `Hayabusa`. In Timesketch, each imported timeline is referred to as a "sketch", one of the platform's core concepts. Multiple sketches can be created and managed together within a single case, allowing for collaborative analysis and correlation of different timelines.
 
 # Procedura 2 - Acquisizione con Velocirapto ed import in Timesketch
 
