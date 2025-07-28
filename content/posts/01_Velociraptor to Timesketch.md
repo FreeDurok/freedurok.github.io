@@ -155,7 +155,7 @@ Here is the command to create the timeline:
 
 > 💡 Tip 
 >
-> If your CSV file is too big to upload, you can split the file into multiple CSV files with Takajo's split-csv-timeline command.
+> If your CSV file is too big to upload, you can split the file into multiple CSV files with Takajo's `split-csv-timeline` command.
 
 ![image.png](/images/posts/01_timesketch/image5.png)
 
