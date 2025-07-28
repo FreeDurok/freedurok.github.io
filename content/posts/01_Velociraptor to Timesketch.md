@@ -397,9 +397,9 @@ Here the import is in progress. With my setup, uploading **<u>5.5 million events
 
 ![image.png](/images/posts/01_timesketch/image44.png)
 
-### Recap: Importing Velociraptor triage into Timesketch
+### Recap: Importing `Velociraptor` triage into `Timesketch`
 
-Below is a summary of the commands to process the artifacts acquired via Velociraptor and import them into Timesketch:
+Below is a summary of the commands to process the artifacts acquired via `Velociraptor` and import them into `Timesketch`:
 
 ```bash
 # Extract the triage ZIP file into a working directory
@@ -427,9 +427,9 @@ docker exec -i timesketch-worker /bin/bash -c \
 ```
 
 This process:
-- Extracts Velociraptor triage artifacts
-- Generates a Plaso timeline
-- Imports the timeline into Timesketch for interactive investigation.
+- Extracts `Velociraptor` triage artifacts
+- Generates a `Plaso` timeline
+- Imports the timeline into `Timesketch` for interactive investigation.
 
 ## Conclusions
 
@@ -449,4 +449,4 @@ In summary:
 
 Together, these tools transform raw forensic data into structured, searchable timelines, drastically reducing the time from evidence acquisition to incident reconstruction.
 
-> In modern DFIR workflows, the combination of **automated triage, structured timelines, and visual analysis** is no longer optional but an essential capability to respond quickly and accurately to complex threats.
+In modern DFIR workflows, the combination of **automated triage, structured timelines, and visual analysis** is no longer optional but an essential capability to respond quickly and accurately to complex threats.
