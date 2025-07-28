@@ -433,19 +433,19 @@ This process:
 
 ## Conclusions
 
-The two approaches explored—manual acquisition with **Hayabusa** and automated triage with **Velociraptor**, demonstrate two complementary methodologies for creating a super-timeline and analyzing it within **Timesketch**.
+The two approaches explored—manual acquisition with `Hayabusa` and automated triage with `Velociraptor`—demonstrate two complementary methodologies for creating a super-timeline and analyzing it within `Timesketch`.
 
-With **Hayabusa**, the process is quick and direct: logs are parsed locally, transformed into a timeline (CSV) and immediately imported into Timesketch. This method requires physical or remote access to the host and is ideal for **single-host, fast-response scenarios** or when dealing with a known, limited data set.
+With `Hayabusa`, the process is quick and direct: logs are parsed locally, transformed into a timeline (CSV), and immediately imported into `Timesketch`. This method requires physical or remote access to the host and is ideal for **single-host, fast-response scenarios** or when dealing with a known, limited data set.
 
-In contrast, **Velociraptor** integrates **endpoint collection, orchestration, and automation** into a scalable solution. The client-server architecture allows large environments to be covered, using **KAPE/SANS\_Triage** artifacts as a data source. The integration with **plaso** introduces a crucial advantage: the ability to generate a **high-fidelity super-timeline** covering thousands of files, which can then be imported into Timesketch for deep, collaborative investigations. This second method requires **greater setup and operational maturity**, but it offers **repeatability, automation, and scalability**, which are fundamental in enterprise or SOC/CSIRT contexts. Furthermore, the entire **Velociraptor → Plaso → Timesketch** workflow can also be fully automated, from artifact acquisition to timeline generation and import.
+In contrast, `Velociraptor` integrates **endpoint collection, orchestration, and automation** into a scalable solution. The client-server architecture allows large environments to be covered, using `KAPE`/`SANS_Triage` artifacts as a data source. The integration with `plaso` introduces a crucial advantage: the ability to generate a **high-fidelity super-timeline** covering thousands of files, which can then be imported into `Timesketch` for deep, collaborative investigations. This second method requires **greater setup and operational maturity**, but it offers **repeatability, automation, and scalability**, which are fundamental in enterprise or SOC/CSIRT contexts. Furthermore, the entire `Velociraptor` → `plaso` → `Timesketch` workflow can also be fully automated, from artifact acquisition to timeline generation and import.
 
-The **Timesketch platform** emerges as the focal point for analysis, correlation, and visualization, regardless of how data is acquired. Its collaborative model allows analysts to correlate different sources of evidence, enrich them with annotations, and pivot across events with speed and precision.
+The `Timesketch` platform emerges as the focal point for analysis, correlation, and visualization, regardless of how data is acquired. Its collaborative model allows analysts to correlate different sources of evidence, enrich them with annotations, and pivot across events with speed and precision.
 
 In summary:
 
-* **Hayabusa**: fast, lightweight, excellent for live-response or isolated hosts.
-* **Velociraptor + Plaso**: structured, scalable, suited to enterprise environments and systematic digital forensics, with potential for **full automation**.
-* **Timesketch**: a centralized, collaborative analysis hub.
+* `Hayabusa`: fast, lightweight, excellent for live-response or isolated hosts.
+* `Velociraptor` + `plaso`: structured, scalable, suited to enterprise environments and systematic digital forensics, with potential for **full automation**.
+* `Timesketch`: a centralized, collaborative analysis hub.
 
 Together, these tools transform raw forensic data into structured, searchable timelines, drastically reducing the time from evidence acquisition to incident reconstruction.
 
