@@ -149,8 +149,9 @@ Here is the command to create the timeline:
 ```
 
 > ✏️ Note
-> Note: It is necessary to choose a timesketch* profile and specify the timestamp as --ISO-8601 for UTC or --RFC-3339 for local time. You may add other Hayabusa options if you desire, however, do not add the -M, --multiline option as the newline characters will corrupt the import.
-> 
+>
+> It is necessary to choose a _timesketch_ profile and specify the timestamp as `--ISO-8601` for UTC or `--RFC-3339` for local time. You may add other Hayabusa options if you desire, however, do not add the `-M`, `--multiline` option as the newline characters will corrupt the import.
+ 
 
 > 💡 Tip 
 >
