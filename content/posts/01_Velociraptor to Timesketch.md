@@ -309,7 +309,7 @@ FROM query(
 
 These queries may be useful later for hunting, checking statuses, or retrieving files. You can also use them to automate processes by integrating them into scripts or workflows.
 
-Now let's proceed to perform a triage on the client in question using `KAPE` files and the SANS_Triage module.
+Now let's proceed to perform a triage on the client in question using `KAPE` files and the `SANS_Triage` module.
 
 ![image.png](/images/posts/01_timesketch/image30.png)
 
