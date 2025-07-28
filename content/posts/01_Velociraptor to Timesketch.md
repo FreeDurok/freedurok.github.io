@@ -345,7 +345,7 @@ docker exec -i timesketch-worker /bin/bash -c "log2timeline.py --status_view win
 
 ![image.png](/images/posts/01_timesketch/image38.png)
 
-To process 1216MB across 1944 files, it took 10 minutes and 58 seconds.
+To process 1216MB across 1944 files, it took **10 minutes and 58 seconds**.
 
 ![image.png](/images/posts/01_timesketch/image39.png)
 
@@ -393,7 +393,7 @@ Once the upload has started, you can monitor the progress from the interface. It
 
 ![image.png](/images/posts/01_timesketch/image43.png)
 
-Here the import is in progress. With my setup, uploading 5.5 million events (1.83GB in size) takes about 2 hours.
+Here the import is in progress. With my setup, uploading **<u>5.5 million events (1.83GB in size) takes about 2 hours</u>**.
 
 ![image.png](/images/posts/01_timesketch/image44.png)
 
