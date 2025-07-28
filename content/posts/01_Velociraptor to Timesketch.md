@@ -6,11 +6,12 @@ github_link: "https://github.com/gurusabarish/hugo-profile"
 author: "Durok"
 tags:
   - DFIR
+  - KAPE
   - Timeline
   - Velociraptor
   - Timesketch
 image: /images/posts/01_timesketch/00_Cover.png
-description: ""
+description: "A practical guide to building forensic timelines from Windows systems using Hayabusa, Velociraptor, and Timesketch. Learn how to acquire artifacts, generate super-timelines, and visualize evidence for incident response and analysis."
 toc: 
 ---
 
