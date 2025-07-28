@@ -188,7 +188,7 @@ Let's return to the Timesketch interface and create a new investigation:
 
 ![image.png](/images/posts/01_timesketch/image15.png)
 
-Here is our visualization in `Timesketch` of the timeline generated with `Hayabusa`. In Timesketch, each imported timeline is referred to as a "sketch", one of the platform's core concepts. Multiple sketches can be created and managed together within a single case, allowing for collaborative analysis and correlation of different timelines.
+Here is our visualization in `Timesketch` of the timeline generated with `Hayabusa`. In Timesketch, each imported timeline is referred to as a ***sketch***, one of the platform's core concepts. Multiple sketches can be created and managed together within a single case, allowing for collaborative analysis and correlation of different timelines.
 
 ## 2 - Acquisition with Velociraptor and Import into Timesketch
 
