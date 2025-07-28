@@ -49,12 +49,12 @@ Audit policies on the Domain Controller were not configured, as the focus is on 
 We will start with the first timeline: using Hayabusa to generate a timeline and then import it into Timesketch.
 To do this, we move to the Ubuntu machine and proceed to install Timesketch via Docker.
 
-### [Install Docker](https://docs.docker.com/engine/install/ubuntu/) on Ubuntu
+### Install Docker on Ubuntu
+
+[Reference](https://docs.docker.com/engine/install/ubuntu/)
+
 ```bash
 #!/bin/bash
-
-# Reference
-# https://docs.docker.com/engine/install/ubuntu/
 
 # Remove old packages
 for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done
@@ -81,7 +81,9 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 sudo docker -v
 ```
 
-### [Install Timesketch](https://timesketch.org/guides/admin/install/) via Docker:
+### Install Timesketch via Docker:
+
+[Reference](https://timesketch.org/guides/admin/install/)
 
 ```bash
 # install-timesketch.sh
