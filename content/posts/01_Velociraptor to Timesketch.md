@@ -112,7 +112,7 @@ If you want to learn more about all the various components of TimeSketch, you ca
 
 One of the components is an nginx server that acts as a proxy and exposes ports `80` and `443`. We will not look at how to configure the `https` protocol, but it is obviously possible to do so by passing the certificates within the configuration.
 
-Let's now try to log in with our browser on our localhost:
+Let's now try to log in with our browser on our [localhost](http://localhost):
 
 ![image.png](/images/posts/01_timesketch/image3.png)
 
