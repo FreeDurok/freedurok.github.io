@@ -124,11 +124,11 @@ I prefer to use the dark theme to rest my eyes!
 
 As we can see, we are inside our User account, but multiple users can collaborate within the platform, as we will see later.
 
-## 1 - Manual acquisition with Hayabusa
+## 1 - Manual acquisition with `Hayabusa`
 
 At this point, we move to the first Windows workstation to generate our first timeline using [Hayabusa](https://github.com/Yamato-Security/hayabusa/releases).
 
-Download Hayabusa onto the client machine, either directly from the website or by transferring it via an authorized USB drive to the target machine.
+Download `Hayabusa` onto the client machine, either directly from the website or by transferring it via an authorized USB drive to the target machine.
 In this test scenario, I will download it directly from the Internet.
 
 ```powershell
@@ -138,7 +138,7 @@ Expand-Archive .\hayabusa.zip .\hayabusa
 cd .\hayabusa
 ```
 Now, following [Hayabusa's official documentation](https://github.com/Yamato-Security/hayabusa/blob/main/doc/TimesketchImport/TimesketchImport-English.md), which shows us exactly how to create the timeline and then analyse it on `Timesketch`.
-The arguments to pass to hayabusa with option `-d` are the folder containing the logs of a previous acquisition (e.g. with KAPE) or a live analysis by passing the option `-l`.
+The arguments to pass to `Hayabusa` with option `-d` are the folder containing the logs of a previous acquisition (e.g. with KAPE) or a live analysis by passing the option `-l`.
 
 Here is the command to create the timeline:
 ```powershell
