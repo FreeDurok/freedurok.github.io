@@ -137,7 +137,7 @@ wget https://github.com/Yamato-Security/hayabusa/releases/download/v3.3.0/hayabu
 Expand-Archive .\hayabusa.zip .\hayabusa
 cd .\hayabusa
 ```
-Now, following [Hayabusa's official documentation](https://github.com/Yamato-Security/hayabusa/blob/main/doc/TimesketchImport/TimesketchImport-English.md), which shows us exactly how to create the timeline and then analyse it on Timesketch.
+Now, following [Hayabusa's official documentation](https://github.com/Yamato-Security/hayabusa/blob/main/doc/TimesketchImport/TimesketchImport-English.md), which shows us exactly how to create the timeline and then analyse it on `Timesketch`.
 The arguments to pass to hayabusa with option `-d` are the folder containing the logs of a previous acquisition (e.g. with KAPE) or a live analysis by passing the option `-l`.
 
 Here is the command to create the timeline:
@@ -151,7 +151,7 @@ Here is the command to create the timeline:
 
 > ✏️ Note
 >
-> It is necessary to choose a _timesketch_ profile and specify the timestamp as `--ISO-8601` for UTC or `--RFC-3339` for local time. You may add other Hayabusa options if you desire, however, do not add the `-M`, `--multiline` option as the newline characters will corrupt the import.
+> It is necessary to choose a **_timesketch_** profile and specify the timestamp as `--ISO-8601` for UTC or `--RFC-3339` for local time. You may add other Hayabusa options if you desire, however, do not add the `-M`, `--multiline` option as the newline characters will corrupt the import.
  
 
 > 💡 Tip 
@@ -170,13 +170,13 @@ I am including the `Sysmon` rules.
 
 ![image.png](/images/posts/01_timesketch/image8.png)
 
-And here are the results: Hayabusa successfully generated a detailed timeline of events, which can now be imported and analyzed within Timesketch.
+And here are the results: `Hayabusa` successfully generated a detailed timeline of events, which can now be imported and analyzed within `Timesketch`.
 
 ![image.png](/images/posts/01_timesketch/image9.png)
 
 We are now ready to import our file into `Timesketch`.
 
-Let's return to the Timesketch interface and create a new investigation:
+Let's return to the `Timesketch` interface and create a new investigation:
 
 ![image.png](/images/posts/01_timesketch/image10.png)
 
@@ -190,15 +190,15 @@ Let's return to the Timesketch interface and create a new investigation:
 
 ![image.png](/images/posts/01_timesketch/image15.png)
 
-Here is our visualization in `Timesketch` of the timeline generated with `Hayabusa`. In Timesketch, each imported timeline is referred to as a ***sketch***, one of the platform's core concepts. Multiple sketches can be created and managed together within a single case, allowing for collaborative analysis and correlation of different timelines.
+Here is our visualization in `Timesketch` of the timeline generated with `Hayabusa`. In `Timesketch`, each imported timeline is referred to as a ***sketch***, one of the platform's core concepts. Multiple sketches can be created and managed together within a single case, allowing for collaborative analysis and correlation of different timelines.
 
-## 2 - Acquisition with Velociraptor and Import into Timesketch
+## 2 - Acquisition with `Velociraptor` and Import into `Timesketch`
 
-Ora passeremo alla fase successiva ovvero la procedura 2, utilizzando Velociraptor, ricordiamo che anche questo task potrebbe essere automatizzato via GPO oppure creando un artefatto di velociraptor.
+Let's now move on to the other approach: we will use `Velociraptor` to acquire the necessary artifacts for triage and then generate the timeline using `plaso` before importing it into `Timesketch`.
 
-Partiamo facendo il deploy di `Velocirator` Server sempre tramite docker sulla nosta macchina Ubuntu:
+Let's start by deploying the `Velociraptor` Server using Docker on our Ubuntu machine:
 
-```powershell
+```bash
 user@ubuntu-pc:~$ cat install-velociraptor.sh 
 
 #!/bin/bash
@@ -217,15 +217,15 @@ sudo docker compose up -d
 
 ![image.png](/images/posts/01_timesketch/image16.png)
 
-Di default le credenziali sono `admin::admin` , queste credenziali come altre variabili d’ambiente possono essere modificate all’interno del file `.env`  della repository.
+By default, the credentials are `admin::admin`. These credentials, as well as other environment variables, can be changed in the `.env` file of the repository.
 
 ![image.png](/images/posts/01_timesketch/image17.png)
 
 ![image.png](/images/posts/01_timesketch/image18.png)
 
-Ecco il nostro `Velociraptor` server Up & Running.
+Here is our `Velociraptor` server up and running.
 
-La prima cosa che faremo è creare una nuova organizzazione invece che usare l’organizzazione “`root`” di default:
+The first thing we will do is create a new organization instead of using the default "root" organization:
 
 ![image.png](/images/posts/01_timesketch/image19.png)
 
@@ -233,27 +233,25 @@ La prima cosa che faremo è creare una nuova organizzazione invece che usare l�
 
 ![image.png](/images/posts/01_timesketch/image21.png)
 
-Ora tornando alla Home troverò la nuova organizzazione appena creata:
+Now, returning to the Home page, you will find the newly created organization:
 
 ![image.png](/images/posts/01_timesketch/image22.png)
 
-Cliccando sull’icona utente e selezionando la nuova organizzazione, vedremo che il contesto si sposterà nella organizzazione selezionata, questo vale anche per altre operazioni che prenderanno come contesto di riferimento quello della nuova organizzazione e non quello root.
+By clicking on the user icon and selecting the new organization, you will see that the context switches to the selected organization. This applies to other operations as well, which will now use the new organization as their reference context instead of the root organization.
 
 ![image.png](/images/posts/01_timesketch/image23.png)
 
-Ora che abbiamo terminato di configurare il server, dobbiamo installare Velociraptor Client sulle nostre macchina da acquisire, questo lo faremo con il file exe di velociraptor scaricabile dal sito ufficiale:
+Now that we have finished configuring the server, we need to install the Velociraptor Client on the machines we want to acquire. This can be done using the Velociraptor executable, which can be downloaded from the [official website](https://docs.velociraptor.app/downloads/)
 
-- https://docs.velociraptor.app/downloads/
-
-L’eseguibile andrà lanciato passandogli la configurazione della nostra organizzazione:
+The executable must be launched by providing it with the configuration file for your organization:
 
 ![image.png](/images/posts/01_timesketch/image24.png)
 
-Nel file di configurazione accertarsi che l’indirizzo o l’url del server sia corretto e successivamente portarlo sulla macchina da installare.
+In the configuration file, make sure that the server address or URL is correct, and then transfer it to the machine where the installation will take place.
 
 ![image.png](/images/posts/01_timesketch/image25.png)
 
-Il comando per installare velociraptor come servizio è il seguente:
+The command to install Velociraptor as a service is as follows:
 
 ```powershell
 .\velociraptor-v0.74.1-windows-amd64.exe --config .\client.OKVAG.config.yaml service install
@@ -262,10 +260,9 @@ Il comando per installare velociraptor come servizio è il seguente:
 ![image.png](/images/posts/01_timesketch/image26.png)
 
 ![image.png](/images/posts/01_timesketch/image27.png)
+Here is our client successfully connected to our server.
 
-Ecco il nostro client attestato sul nostro server.
-
-Creaiamo ora una configurazione per le nostre chiamate API, poichè velociraptor utilizza chiamate gRPC e non delle classiche HTTP REST, dobbiamo creare un profilo che ci consenta di fare delle chiamate successive.
+Now let's create a configuration for our API calls. Since Velociraptor uses gRPC calls instead of classic HTTP REST, we need to create a profile that will allow us to make subsequent API requests.
 
 ```powershell
 cd /opt/velociraptor-docker/velociraptor
@@ -310,9 +307,9 @@ FROM query(
 
 ```
 
-Queste query potrebbero tornare utili successivamente per fare delle cacce o controllare gli stati e riprendere files.
+These queries may be useful later for hunting, checking statuses, or retrieving files. You can also use them to automate processes by integrating them into scripts or workflows.
 
-Ora procediamo a fare una sul client in questione utilizzando `KAPE` files e il SANS_Triage.
+Now let's proceed to perform a triage on the client in question using `KAPE` files and the SANS_Triage module.
 
 ![image.png](/images/posts/01_timesketch/image30.png)
 
