@@ -32,3 +32,7 @@ toc:
 > ❗ Caution
 > 
 > Negative potential consequences of an action.
+
+> ✏️ Note
+>
+> Optional information to help a user be more successful.

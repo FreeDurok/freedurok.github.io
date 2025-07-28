@@ -148,6 +148,14 @@ Here is the command to create the timeline:
 .\hayabusa-3.3.0-win-x64.exe csv-timeline -l -o ws01-hayabusa-timeline.csv -p timesketch-verbose --ISO-8601
 ```
 
+> ✏️ Note
+> Note: It is necessary to choose a timesketch* profile and specify the timestamp as --ISO-8601 for UTC or --RFC-3339 for local time. You may add other Hayabusa options if you desire, however, do not add the -M, --multiline option as the newline characters will corrupt the import.
+> 
+
+> 💡 Tip 
+>
+> If your CSV file is too big to upload, you can split the file into multiple CSV files with Takajo's split-csv-timeline command.
+
 ![image.png](/images/posts/01_timesketch/image5.png)
 
 ![image.png](/images/posts/01_timesketch/image6.png)
@@ -182,7 +190,7 @@ Let's return to the Timesketch interface and create a new investigation:
 
 Here is our visualization in `Timesketch` of the timeline generated with `Hayabusa`. In Timesketch, each imported timeline is referred to as a "sketch", one of the platform's core concepts. Multiple sketches can be created and managed together within a single case, allowing for collaborative analysis and correlation of different timelines.
 
-# Procedura 2 - Acquisizione con Velocirapto ed import in Timesketch
+## 2 - Acquisition with Velociraptor and Import into Timesketch
 
 Ora passeremo alla fase successiva ovvero la procedura 2, utilizzando Velociraptor, ricordiamo che anche questo task potrebbe essere automatizzato via GPO oppure creando un artefatto di velociraptor.
 
