@@ -45,10 +45,10 @@ The LAB environment used for this test consists of:
         - Docker deployment
 
 The steps for installing the virtual machines and configuring Kali are skipped.
-Cobalt Strike and Harriet were used to seed IOCs in the environment, but any method can be used for this purpose.
+[CobaltStrike](https://www.cobaltstrike.com/) and [Harriet](https://github.com/assume-breach/Home-Grown-Red-Team/tree/main/Harriet) were used to seed IOCs in the environment, but any method can be used for this purpose.
 Audit policies on the Domain Controller were not configured, as the focus is on the timeline creation procedure and its automation, working on a single server.
-We will start with the first timeline: using Hayabusa to generate a timeline and then import it into Timesketch.
-To do this, we move to the Ubuntu machine and proceed to install Timesketch via Docker.
+We will start with the first timeline: using Hayabusa to generate a timeline and then import it into `Timesketch`.
+To do this, we move to the Ubuntu machine and proceed to install `Timesketch` via Docker.
 
 ### Install Docker on Ubuntu
 
