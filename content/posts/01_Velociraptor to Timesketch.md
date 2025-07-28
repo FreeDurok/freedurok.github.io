@@ -433,7 +433,7 @@ This process:
 
 ## Conclusions
 
-The two approaches explored—manual acquisition with **Hayabusa** and automated triage with **Velociraptor**—demonstrate two complementary methodologies for creating a super-timeline and analyzing it within **Timesketch**.
+The two approaches explored—manual acquisition with **Hayabusa** and automated triage with **Velociraptor**, demonstrate two complementary methodologies for creating a super-timeline and analyzing it within **Timesketch**.
 
 With **Hayabusa**, the process is quick and direct: logs are parsed locally, transformed into a timeline (CSV) and immediately imported into Timesketch. This method requires physical or remote access to the host and is ideal for **single-host, fast-response scenarios** or when dealing with a known, limited data set.
 
