@@ -90,20 +90,18 @@ If your PoC involves **live kernel debugging** (recommended for DKOM analysis):
 
 #### 4. Verification
 
-After attaching `WinDbg` to the live kernel or memory dump:
-
-1. Verify the debugger connection:
+After attaching `WinDbg` to the live kernel or memory dump verify the debugger connection:
 
 ```
 !process 0 0
 ```
 
 This should list all active processes.
-2. Identify the `EPROCESS` entry for your test process (`notepad.exe`).
+
 
 ---
 
 With the environment ready, you will be able to **inspect, modify and unlink `EPROCESS` structures m
 Using `WinDbg` connected to a live system or a memory dump, it is possible to:
 
-1. Locate the `EPROCESS` structure of the target process:
+1. 2. Identify the `EPROCESS` entry for your test process (`notepad.exe`).
