@@ -26,7 +26,26 @@ In this post we will explore the **DKOM (Direct Kernel Object Manipulation)** te
 It is a technique that operates **directly on kernel data structures in memory**. Instead of hooking APIs or patching the kernel, DKOM modifies kernel objects in place, leaving no hooks that can be detected with integrity checks.
 
 One common use case:  
-- **Hiding a process** by manipulating the linked list of `EPROCESS` structures.
+- **Hiding a process** by directly altering the kernel’s doubly-linked list of `EPROCESS` structures.
+
+When a process is created in Windows, the kernel allocates an `EPROCESS` structure that describes it.  
+Each `EPROCESS` contains a member called `ActiveProcessLinks`, which is a **doubly-linked list (FLINK/BLINK)** pointing to the previous and next process.  
+The Windows API functions and tools like `Task Manager`, `Process Explorer` or `pslist` traverse this list to enumerate active processes.
+
+By **manipulating these pointers**, an attacker can:
+
+1. **Unlink the target process** from the `ActiveProcessLinks` list:
+   - Adjust `Flink` and `Blink` pointers of the neighboring nodes so they skip the target.
+   - The `EPROCESS` object itself remains allocated in memory, but is no longer part of the list.
+2. As a result:
+   - Standard enumeration APIs (`NtQuerySystemInformation`, WMI, etc.) will not report the hidden process.
+   - Security tools relying only on this list will not see the process, although it continues to execute.
+3. The hidden process can still be detected by:
+   - **Direct memory scanning** (e.g., `Volatility psscan`) because the structure still exists in RAM.
+   - **Kernel callbacks or ETW events** that do not depend on list walking.
+
+This **unlinking technique** is the essence of DKOM-based process hiding:  
+no hooks, no patching, just **surgical manipulation of in-memory linked lists** inside the kernel.
 
 ---
 
@@ -85,7 +104,34 @@ This should list all active processes.
 
 ![image.png](/images/posts/02_DKOM/Windbg1.png)
 
-With the environment ready, you will be able to **inspect, modify and unlink `EPROCESS` structures m
-Using `WinDbg` connected to a live system or a memory dump, it is possible to:
+With the environment ready, you will be able to **inspect, modify and unlink `EPROCESS` structures manually**
 
-1. Identify the `EPROCESS` entry for your test process (`notepad.exe`).
+### Procedure
+
+Follow these steps to hide a process using DKOM in a controlled lab environment:
+
+1. **Identify the Target Process**
+    - Use the `!process 0 0` command in WinDbg to list all active processes.
+    - Find the entry for your target process (e.g., `notepad.exe`) and note its `EPROCESS` address.
+
+2. **Locate the ActiveProcessLinks Field**
+    - Display the structure of the `EPROCESS` object using:
+      ```
+      dt _EPROCESS <EPROCESS_address>
+      ```
+    - Locate the `ActiveProcessLinks` field, which is part of the doubly linked list connecting all processes.
+
+3. **Unlink the Process**
+    - Read the `Flink` and `Blink` pointers from the `ActiveProcessLinks` field.
+    - Update the `Flink` of the previous entry and the `Blink` of the next entry to bypass the target process.
+    - Use WinDbg commands like `eb`, `ed`, or `eq` to modify memory directly.
+
+4. **Verify the Process is Hidden**
+    - Run `!process 0 0` again. The target process should no longer appear in the list, even though it is still running.
+
+> ⚠️ **Warning:**  
+> Modifying kernel memory can destabilize or crash the system. Always work in a disposable test environment and take snapshots before making changes.
+
+This procedure demonstrates how DKOM can be used to hide a process by manipulating kernel data structures directly.
+
+Identify the `EPROCESS` entry for the test process (`notepad.exe`). Locate the line corresponding to `notepad.exe` and note the address of its `EPROCESS` structure. This address will be used in the next steps to directly manipulate the structure in memory.
