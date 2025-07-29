@@ -16,7 +16,7 @@ description: "A practical guide to building forensic timelines from Windows syst
 toc: 
 ---
 
-## Description
+## A practical guide to building forensic timelines
 
 This write-up shows how to build timelines from Windows machines to be examined in Triage following a compromise, from the acquisition of all artifacts to the generation of a Super-Timeline and its visualisation with [Timesketch](https://timesketch.org) using tools such as [Hayabusa](https://github.com/Yamato-Security/hayabusa), [Velociraptor](https://docs.velociraptor.app/docs/deployment/quickstart/) and [plaso](https://github.com/log2timeline/plaso).
 
