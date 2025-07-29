@@ -34,6 +34,76 @@ The most common use case:
 
 ## 2. Hiding a Process Manually with `WinDbg`
 
+### Preparing the Environment for `WinDbg`
+
+Before experimenting with **DKOM** on Windows, it is crucial to work in a **controlled lab environment** to avoid damaging a production system.  
+For this PoC you will need:
+
+---
+
+#### 1. Test Environment
+
+- A **Windows test machine (physical or virtual)** dedicated to research and malware analysis.
+  - A VM (e.g., Hyper-V, VMware, VirtualBox) is recommended for snapshot/rollback capabilities.
+  - **Kernel debugging must be enabled** on the target machine if you plan to attach remotely.
+
+---
+
+#### 2. Tools Required
+
+1. **`WinDbg`** (Preview or Classic)
+   - Obtain from the [Microsoft Store](https://apps.microsoft.com/store/detail/windbg-preview/9PGJGD53TN86)  
+     or the [Windows SDK](https://developer.microsoft.com/windows/downloads/windows-sdk/).
+
+2. **Symbols Configuration**
+   - Correct symbols are **mandatory** for inspecting kernel structures like `EPROCESS`.
+   - Inside `WinDbg`, set the symbol path and reload:
+     ```
+     .sympath srv*C:\Symbols*https://msdl.microsoft.com/download/symbols
+     .reload
+     ```
+     Replace `C:\Symbols` with your local cache directory.
+
+3. **Administrator Privileges**
+   - Run `WinDbg` with elevated privileges to access live kernel memory.
+
+4. **Target Process**
+   - Launch a simple process (e.g., `notepad.exe`) that will be used as a target to demonstrate hiding.
+
+---
+
+#### 3. Kernel Debugging Setup
+
+If your PoC involves **live kernel debugging** (recommended for DKOM analysis):
+
+- Configure debugging transport (COM, TCP, or local):
+  - For VMs, **named pipe (COM)** or **network KD** is most convenient.
+  - Enable kernel debugging on the target:
+    ```
+    bcdedit /debug on
+    ```
+- Reboot the machine with debugging enabled.
+
+> **Tip:** For local debugging, use `WinDbg (Open Kernel Object)` and select `Local`.
+
+---
+
+#### 4. Verification
+
+After attaching `WinDbg` to the live kernel or memory dump:
+
+1. Verify the debugger connection:
+
+```
+!process 0 0
+```
+
+This should list all active processes.
+2. Identify the `EPROCESS` entry for your test process (`notepad.exe`).
+
+---
+
+With the environment ready, you will be able to **inspect, modify and unlink `EPROCESS` structures m
 Using `WinDbg` connected to a live system or a memory dump, it is possible to:
 
 1. Locate the `EPROCESS` structure of the target process:
