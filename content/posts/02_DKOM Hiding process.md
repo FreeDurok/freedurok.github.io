@@ -16,7 +16,7 @@ description: "**DKOM (Direct Kernel Object Manipulation)** technique, a well-kno
 toc: 
 ---
 
-## Description
+## Exploring DKOM for Process Hiding on Windows
 
 In this post we will explore the **DKOM (Direct Kernel Object Manipulation)** technique, a well-known stealth method used by advanced malware and rootkits on Windows systems to hide processes from standard system monitoring tools.
 
