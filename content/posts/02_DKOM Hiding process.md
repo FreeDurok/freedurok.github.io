@@ -59,8 +59,6 @@ For this PoC you will need:
 >     Recent versions of `WinDbg` (Preview) automatically configure and download symbols from the Microsoft symbol server. 
 > Manual configuration is usually not required unless you need a custom symbol path or offline cache.
 
----
-
 #### Kernel Debugging Setup
 
 If your PoC involves **live kernel debugging** (recommended for DKOM analysis):
@@ -76,8 +74,6 @@ If your PoC involves **live kernel debugging** (recommended for DKOM analysis):
 > 💡 **Tip:** 
 >     For local debugging, use `WinDbg (Open Kernel Object)` and select `Local`.
 
----
-
 #### Verification
 
 After attaching `WinDbg` to the live kernel or memory dump verify the debugger connection:
@@ -89,9 +85,7 @@ After attaching `WinDbg` to the live kernel or memory dump verify the debugger c
 This should list all active processes.
 
 
----
-
 With the environment ready, you will be able to **inspect, modify and unlink `EPROCESS` structures m
 Using `WinDbg` connected to a live system or a memory dump, it is possible to:
 
-1. 2. Identify the `EPROCESS` entry for your test process (`notepad.exe`).
+1. Identify the `EPROCESS` entry for your test process (`notepad.exe`).
