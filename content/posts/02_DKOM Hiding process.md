@@ -25,7 +25,7 @@ In this post we will explore the **DKOM (Direct Kernel Object Manipulation)** te
 **`DKOM`** stands for **Direct Kernel Object Manipulation**.  
 It is a technique that operates **directly on kernel data structures in memory**. Instead of hooking APIs or patching the kernel, DKOM modifies kernel objects in place, leaving no hooks that can be detected with integrity checks.
 
-The most common use case:  
+One common use case:  
 - **Hiding a process** by manipulating the linked list of `EPROCESS` structures.
 
 ---
