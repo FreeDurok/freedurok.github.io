@@ -37,19 +37,14 @@ The most common use case:
 ### Preparing the Environment for `WinDbg`
 
 Before experimenting with **DKOM** on Windows, it is crucial to work in a **controlled lab environment** to avoid damaging a production system.  
+
 For this PoC you will need:
-
----
-
-#### 1. Test Environment
 
 - A **Windows test machine (physical or virtual)** dedicated to research and malware analysis.
   - A VM (e.g., Hyper-V, VMware, VirtualBox) is recommended for snapshot/rollback capabilities.
   - **Kernel debugging must be enabled** on the target machine if you plan to attach remotely.
 
----
-
-#### 2. Tools Required
+#### Tools Required
 
 1. **`WinDbg`** (Preview or Classic)
    - Obtain from the [Microsoft Store](https://apps.microsoft.com/store/detail/windbg-preview/9PGJGD53TN86)  
