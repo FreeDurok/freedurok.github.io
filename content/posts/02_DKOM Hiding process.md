@@ -61,7 +61,7 @@ For this PoC you will need:
 
 ---
 
-#### 3. Kernel Debugging Setup
+#### Kernel Debugging Setup
 
 If your PoC involves **live kernel debugging** (recommended for DKOM analysis):
 
@@ -78,7 +78,7 @@ If your PoC involves **live kernel debugging** (recommended for DKOM analysis):
 
 ---
 
-#### 4. Verification
+#### Verification
 
 After attaching `WinDbg` to the live kernel or memory dump verify the debugger connection:
 
