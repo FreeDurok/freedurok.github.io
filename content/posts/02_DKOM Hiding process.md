@@ -30,9 +30,9 @@ One common use case:
 
 ---
 
-## Hiding a Process Manually with `WinDbg`
+## Hiding a Process with `WinDbg`
 
-### Preparing the Environment for `WinDbg`
+### Preparing the Environment
 
 Before experimenting with **DKOM** on Windows, it is crucial to work in a **controlled lab environment** to avoid damaging a production system.  
 
@@ -64,7 +64,8 @@ If your PoC involves **live kernel debugging** (recommended for DKOM analysis):
 - Configure debugging transport (COM, TCP, or local):
   - For VMs, **named pipe (COM)** or **network KD** is most convenient.
   - Enable kernel debugging on the target:
-    ```
+    ```powershell
+    # Administrator
     bcdedit /debug on
     ```
 - Reboot the machine with debugging enabled.
