@@ -50,14 +50,9 @@ For this PoC you will need:
    - Obtain from the [Microsoft Store](https://apps.microsoft.com/store/detail/windbg-preview/9PGJGD53TN86)  
      or the [Windows SDK](https://developer.microsoft.com/windows/downloads/windows-sdk/).
 
-2. **Symbols Configuration**
-   - Correct symbols are **mandatory** for inspecting kernel structures like `EPROCESS`.
-   - Inside `WinDbg`, set the symbol path and reload:
-     ```
-     .sympath srv*C:\Symbols*https://msdl.microsoft.com/download/symbols
-     .reload
-     ```
-     Replace `C:\Symbols` with your local cache directory.
+> ✏️ **Note:** 
+>     Recent versions of `WinDbg` (Preview) automatically configure and download symbols from the Microsoft symbol server. 
+> Manual configuration is usually not required unless you need a custom symbol path or offline cache.
 
 3. **Administrator Privileges**
    - Run `WinDbg` with elevated privileges to access live kernel memory.
