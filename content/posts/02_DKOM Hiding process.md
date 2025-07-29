@@ -84,7 +84,7 @@ If your PoC involves **live kernel debugging** (recommended for DKOM analysis):
     ```
 - Reboot the machine with debugging enabled.
 
-> **Tip:** For local debugging, use `WinDbg (Open Kernel Object)` and select `Local`.
+> 💡 **Tip:** For local debugging, use `WinDbg (Open Kernel Object)` and select `Local`.
 
 ---
 
