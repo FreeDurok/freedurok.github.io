@@ -82,6 +82,7 @@ After attaching `WinDbg` to the live kernel or memory dump verify the debugger c
 
 This should list all active processes.
 
+![image.png](/images/posts/02_DKOM/Windbg1.png)
 
 With the environment ready, you will be able to **inspect, modify and unlink `EPROCESS` structures m
 Using `WinDbg` connected to a live system or a memory dump, it is possible to:
