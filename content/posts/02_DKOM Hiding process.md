@@ -44,8 +44,7 @@ By **manipulating these pointers**, an attacker can:
    - **Direct memory scanning** (e.g., `Volatility psscan`) because the structure still exists in RAM.
    - **Kernel callbacks or ETW events** that do not depend on list walking.
 
-This **unlinking technique** is the essence of DKOM-based process hiding:  
-no hooks, no patching, just **surgical manipulation of in-memory linked lists** inside the kernel.
+This **unlinking technique** is the essence of DKOM-based process hiding. No hooks, no patching, just **surgical manipulation of in-memory linked lists** inside the kernel.
 
 ![image.png](/images/posts/02_DKOM/01_DKOM1.png)
 
