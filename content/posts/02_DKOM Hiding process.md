@@ -32,6 +32,8 @@ When a process is created in Windows, the kernel allocates an `EPROCESS` structu
 Each `EPROCESS` contains a member called `ActiveProcessLinks`, which is a **doubly-linked list (FLINK/BLINK)** pointing to the previous and next process.  
 The Windows API functions and tools like `Task Manager`, `Process Explorer` or `pslist` traverse this list to enumerate active processes.
 
+![image.png](/images/posts/02_DKOM/01_Eprocesses.png)
+
 By **manipulating these pointers**, an attacker can:
 
 1. **Unlink the target process** from the `ActiveProcessLinks` list:
@@ -44,7 +46,7 @@ By **manipulating these pointers**, an attacker can:
    - **Direct memory scanning** (e.g., `Volatility psscan`) because the structure still exists in RAM.
    - **Kernel callbacks or ETW events** that do not depend on list walking.
 
-![image.png](/images/posts/02_DKOM/01_DKOM1.png)
+![image.png](/images/posts/02_DKOM/02_DKOM1.png)
 
 This **unlinking technique** is the essence of DKOM-based process hiding. No hooks, no patching, just **surgical manipulation of in-memory linked lists** inside the kernel.
 
