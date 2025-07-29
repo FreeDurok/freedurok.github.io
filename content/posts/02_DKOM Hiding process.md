@@ -44,19 +44,20 @@ For this PoC you will need:
 
 #### Tools Required
 
-1. **`WinDbg`** (Preview or Classic)
+- **`WinDbg`** (Preview or Classic)
    - Obtain from the [Microsoft Store](https://apps.microsoft.com/store/detail/windbg-preview/9PGJGD53TN86)  
      or the [Windows SDK](https://developer.microsoft.com/windows/downloads/windows-sdk/).
+
+
+- **Administrator Privileges**
+   - Run `WinDbg` with elevated privileges to access live kernel memory.
+
+- **Target Process**
+   - Launch a simple process (e.g., `notepad.exe`) that will be used as a target to demonstrate hiding.
 
 > ✏️ **Note:** 
 >     Recent versions of `WinDbg` (Preview) automatically configure and download symbols from the Microsoft symbol server. 
 > Manual configuration is usually not required unless you need a custom symbol path or offline cache.
-
-3. **Administrator Privileges**
-   - Run `WinDbg` with elevated privileges to access live kernel memory.
-
-4. **Target Process**
-   - Launch a simple process (e.g., `notepad.exe`) that will be used as a target to demonstrate hiding.
 
 ---
 
