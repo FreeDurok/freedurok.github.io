@@ -47,6 +47,8 @@ By **manipulating these pointers**, an attacker can:
 This **unlinking technique** is the essence of DKOM-based process hiding:  
 no hooks, no patching, just **surgical manipulation of in-memory linked lists** inside the kernel.
 
+![image.png](/images/posts/02_DKOM/01_DKOM1.png)
+
 ---
 
 ## Hiding a Process with `WinDbg`
