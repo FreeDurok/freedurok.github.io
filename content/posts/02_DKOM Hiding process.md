@@ -22,7 +22,7 @@ In this post we will explore the **DKOM (Direct Kernel Object Manipulation)** te
 
 ### What is `DKOM`?
 
-`DKOM` stands for **Direct Kernel Object Manipulation**.  
+**`DKOM`** stands for **Direct Kernel Object Manipulation**.  
 It is a technique that operates **directly on kernel data structures in memory**. Instead of hooking APIs or patching the kernel, DKOM modifies kernel objects in place, leaving no hooks that can be detected with integrity checks.
 
 The most common use case:  
@@ -45,9 +45,7 @@ For this PoC you will need:
 #### Tools Required
 
 - **`WinDbg`** (Preview or Classic)
-   - Obtain from the [Microsoft Store](https://apps.microsoft.com/store/detail/windbg-preview/9PGJGD53TN86)  
-     or the [Windows SDK](https://developer.microsoft.com/windows/downloads/windows-sdk/).
-
+   - Obtain from the [Microsoft Store](https://apps.microsoft.com/store/detail/windbg-preview/9PGJGD53TN86) or the [Windows SDK](https://developer.microsoft.com/windows/downloads/windows-sdk/).
 
 - **Administrator Privileges**
    - Run `WinDbg` with elevated privileges to access live kernel memory.
