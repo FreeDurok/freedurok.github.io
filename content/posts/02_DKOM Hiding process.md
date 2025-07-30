@@ -77,8 +77,7 @@ For this PoC you will need:
    - Launch a simple process (e.g., `notepad.exe`) that will be used as a target to demonstrate hiding.
 
 > ✏️ **Note:** 
->     Recent versions of `WinDbg` (Preview) automatically configure and download symbols from the Microsoft symbol server. 
-> Manual configuration is usually not required unless you need a custom symbol path or offline cache.
+>     Recent versions of `WinDbg` (Preview) automatically configure and download symbols from the Microsoft symbol server. Manual configuration is usually not required unless you need a custom symbol path or offline cache.
 
 #### Kernel Debugging Setup
 
@@ -106,7 +105,6 @@ After attaching `WinDbg` to the live kernel or memory dump verify the debugger c
 
 This should list all active processes.
 
-![image.png](/images/posts/02_DKOM/Windbg1.png)
 
 With the environment ready, you will be able to **inspect, modify and unlink `EPROCESS` structures manually**
 
@@ -115,23 +113,25 @@ With the environment ready, you will be able to **inspect, modify and unlink `EP
 Follow these steps to hide a process using DKOM in a controlled lab environment:
 
 1. **Identify the Target Process**
-    - Use the `!process 0 0` command in WinDbg to list all active processes.
-    - Find the entry for your target process (e.g., `notepad.exe`) and note its `EPROCESS` address.
+   - Use the `!process 0 0` command in WinDbg to list all active processes.
+   - Find the entry for your target process (e.g., `notepad.exe`) and note its `EPROCESS` address.
+
+![image.png](/images/posts/02_DKOM/Windbg1.png)
 
 2. **Locate the ActiveProcessLinks Field**
-    - Display the structure of the `EPROCESS` object using:
-      ```
-      dt _EPROCESS <EPROCESS_address>
-      ```
-    - Locate the `ActiveProcessLinks` field, which is part of the doubly linked list connecting all processes.
+   - Display the structure of the `EPROCESS` object using:
+   ```
+   dt _EPROCESS <EPROCESS_address>
+   ```
+   - Locate the `ActiveProcessLinks` field, which is part of the doubly linked list connecting all processes.
 
 3. **Unlink the Process**
-    - Read the `Flink` and `Blink` pointers from the `ActiveProcessLinks` field.
-    - Update the `Flink` of the previous entry and the `Blink` of the next entry to bypass the target process.
-    - Use WinDbg commands like `eb`, `ed`, or `eq` to modify memory directly.
+   - Read the `Flink` and `Blink` pointers from the `ActiveProcessLinks` field.
+   - Update the `Flink` of the previous entry and the `Blink` of the next entry to bypass the target process.
+   - Use WinDbg commands like `eb`, `ed`, or `eq` to modify memory directly.
 
 4. **Verify the Process is Hidden**
-    - Run `!process 0 0` again. The target process should no longer appear in the list, even though it is still running.
+   - Run `!process 0 0` again. The target process should no longer appear in the list, even though it is still running.
 
 > ⚠️ **Warning:**  
 > Modifying kernel memory can destabilize or crash the system. Always work in a disposable test environment and take snapshots before making changes.
