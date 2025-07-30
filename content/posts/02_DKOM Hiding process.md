@@ -95,6 +95,8 @@ If your PoC involves **live kernel debugging** (recommended for DKOM analysis):
 > 💡 **Tip:** 
 >     For local debugging, use `WinDbg (Open Kernel Object)` and select `Local`.
 
+![image.png](/images/posts/02_DKOM/03_Windbg0.png)
+
 #### Verification
 
 After attaching `WinDbg` to the live kernel or memory dump verify the debugger connection:
