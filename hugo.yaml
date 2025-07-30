@@ -341,6 +341,19 @@ params:
         links:
           - icon: fab fa-github
             url: https://github.com/FreeDurok/Filefix-Hunter
+      - title: OCRacle
+        content: |
+          OCRacle is a portable Python tool that recursively scans directories, extracts text from PDFs and images (using native parsing and OCR), 
+          and searches for sensitive keywords or regex patterns. 
+          It can export results to JSON and CSV, and is designed to work even in offline/air-gapped environments.
+        image: /images/projects/ocracle/OCRacle_Logo.png
+        badges:
+          - "OCR"
+          - "DLP"
+          - "Python"
+        links:
+          - icon: fab fa-github
+            url: https://github.com/FreeDurok/OCRacle
       - title: Bitcoin Power Law
         content: |
           A web app that calculates and displays the Bitcoin Power Law in real-time. 
