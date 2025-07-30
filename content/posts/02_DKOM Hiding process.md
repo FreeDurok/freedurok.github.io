@@ -130,7 +130,8 @@ Follow these steps to hide a process using DKOM in a controlled lab environment:
       dt _EPROCESS <EPROCESS_address>
       ```
       ![image.png](/images/posts/02_DKOM/06_Windbg3.png)
-   - Locate the `ActiveProcessLinks` field, which is part of the doubly linked list connecting all processes.
+   - Locate the `ActiveProcessLinks` field, which is part of the doubly linked list connecting all processes, in `Windows 11 24h2` the offset is `+0x18d`.
+      ![image.png](/images/posts/02_DKOM/07_Windbg4.png)
 
 3. **Unlink the Process**
    - Read the `Flink` and `Blink` pointers from the `ActiveProcessLinks` field.
