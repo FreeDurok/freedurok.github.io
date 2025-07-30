@@ -122,9 +122,9 @@ Follow these steps to hide a process using DKOM in a controlled lab environment:
 
 2. **Locate the ActiveProcessLinks Field**
    - Display the structure of the `EPROCESS` object using:
-   ```
-   dt _EPROCESS <EPROCESS_address>
-   ```
+   -  ```
+      dt _EPROCESS <EPROCESS_address>
+      ```
    - Locate the `ActiveProcessLinks` field, which is part of the doubly linked list connecting all processes.
 
 3. **Unlink the Process**
