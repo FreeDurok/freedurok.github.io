@@ -93,7 +93,7 @@ If your PoC involves **live kernel debugging** (recommended for DKOM analysis):
 - Reboot the machine with debugging enabled.
 
 > 💡 **Tip:** 
->     For local debugging, use `WinDbg (Open Kernel Object)` and select `Local`.
+>     For local debugging, use `WinDbg` -> `File` -> `Start Debugging` -> `Attach to kernel` -> `Local`.
 
 ![image.png](/images/posts/02_DKOM/03_Windbg0.png)
 
@@ -106,7 +106,6 @@ After attaching `WinDbg` to the live kernel or memory dump verify the debugger c
 ```
 
 This should list all active processes.
-
 
 With the environment ready, you will be able to **inspect, modify and unlink `EPROCESS` structures manually**
 
