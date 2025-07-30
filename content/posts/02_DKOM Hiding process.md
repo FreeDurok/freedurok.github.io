@@ -136,9 +136,9 @@ Follow these steps to hide a process using DKOM in a controlled lab environment:
       ```
       ![image.png](/images/posts/02_DKOM/07_Windbg4.png)
       <br><br>
-      | Process Name |   PID   | EPROCESS Address     | FLINK Address           | BLINK Address           |
-      |--------------|---------|----------------------|-------------------------|-------------------------|
-      | Notepad.exe  | 0x08bc  | ffff8e091cf5a080     | <Flink_pointer_value>   | <Blink_pointer_value>   |
+      | Process Name | PID    | EPROCESS Address | FLINK Address     | BLINK Address     |
+      |--------------|--------|------------------|-------------------|-------------------|
+      | Notepad.exe  | 0x08bc | ffff8e091cf5a080 | ffff8e09`1cb1b258 | ffff8e09`1cd97258 |
 
 
 3. **Unlink the Process**
