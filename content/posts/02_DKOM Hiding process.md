@@ -118,18 +118,18 @@ Follow these steps to hide a process using DKOM in a controlled lab environment:
 1. **Identify the Target Process**
    - Use the `!process 0 0` command in WinDbg to list all active processes.
    - Find the entry for your target process (e.g., `notepad.exe`) and note its `EPROCESS` address.
-   ![image.png](/images/posts/02_DKOM/05_Windbg2.png)
-   <br><br>
+      ![image.png](/images/posts/02_DKOM/05_Windbg2.png)
+      <br><br>
       | Process Name |   PID   | EPROCESS Address |
       |--------------|---------|------------------|
       | Notepad.exe  |  0x08bc | ffff8e091cf5a080 |
 
 2. **Locate the ActiveProcessLinks Field**
    - Display the structure of the `EPROCESS` object using:
-   ```
-   dt _EPROCESS <EPROCESS_address>
-   ```
-   ![image.png](/images/posts/02_DKOM/06_Windbg3.png)
+      ```
+      dt _EPROCESS <EPROCESS_address>
+      ```
+      ![image.png](/images/posts/02_DKOM/06_Windbg3.png)
    - Locate the `ActiveProcessLinks` field, which is part of the doubly linked list connecting all processes.
 
 3. **Unlink the Process**
