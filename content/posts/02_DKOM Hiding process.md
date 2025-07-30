@@ -107,9 +107,11 @@ After attaching `WinDbg` to the live kernel or memory dump verify the debugger c
 
 This should list all active processes.
 
+![image.png](/images/posts/02_DKOM/04_Windbg1.png)
+
 With the environment ready, you will be able to **inspect, modify and unlink `EPROCESS` structures manually**
 
-### Procedure
+### Identify addresses to manipulate
 
 Follow these steps to hide a process using DKOM in a controlled lab environment:
 
@@ -117,7 +119,7 @@ Follow these steps to hide a process using DKOM in a controlled lab environment:
    - Use the `!process 0 0` command in WinDbg to list all active processes.
    - Find the entry for your target process (e.g., `notepad.exe`) and note its `EPROCESS` address.
 
-![image.png](/images/posts/02_DKOM/Windbg1.png)
+![image.png](/images/posts/02_DKOM/05_Windbg2.png)
 
 2. **Locate the ActiveProcessLinks Field**
    - Display the structure of the `EPROCESS` object using:
