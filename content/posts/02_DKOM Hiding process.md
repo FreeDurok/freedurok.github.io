@@ -84,12 +84,12 @@ For this PoC you will need:
 If your PoC involves **live kernel debugging** (recommended for DKOM analysis):
 
 - Configure debugging transport (COM, TCP, or local):
-  - For VMs, **named pipe (COM)** or **network KD** is most convenient.
-  - Enable kernel debugging on the target:
-    ```powershell
-    # Administrator
-    bcdedit /debug on
-    ```
+   - For VMs, **named pipe (COM)** or **network KD** is most convenient.
+   - Enable kernel debugging on the target:
+   ```powershell
+   # Administrator
+   bcdedit /debug on
+   ```
 - Reboot the machine with debugging enabled.
 
 > 💡 **Tip:** 
