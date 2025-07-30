@@ -131,7 +131,15 @@ Follow these steps to hide a process using DKOM in a controlled lab environment:
       ```
       ![image.png](/images/posts/02_DKOM/06_Windbg3.png)
    - Locate the `ActiveProcessLinks` field, which is part of the doubly linked list connecting all processes, in `Windows 11 24h2` the offset is `+0x18d`.
+      ```
+      dq <EPROCESS_address> + <ActiveProcessLinks_offset> L2
+      ```
       ![image.png](/images/posts/02_DKOM/07_Windbg4.png)
+      <br><br>
+      | Process Name |   PID   | EPROCESS Address     | FLINK Address           | BLINK Address           |
+      |--------------|---------|----------------------|-------------------------|-------------------------|
+      | Notepad.exe  | 0x08bc  | ffff8e091cf5a080     | <Flink_pointer_value>   | <Blink_pointer_value>   |
+
 
 3. **Unlink the Process**
    - Read the `Flink` and `Blink` pointers from the `ActiveProcessLinks` field.
