@@ -131,8 +131,13 @@ Follow these steps to hide a process using DKOM in a controlled lab environment:
       ```
       ![image.png](/images/posts/02_DKOM/06_Windbg3.png)
    - Locate the `ActiveProcessLinks` field, which is part of the doubly linked list connecting all processes, in `Windows 11 24h2` the offset is `+0x18d`.
+   - Read the `Flink` and `Blink` pointers from the `ActiveProcessLinks` field.
       ```
+      # Abstract
       dq <EPROCESS_address> + <ActiveProcessLinks_offset> L2
+      
+      # Our case
+      dq ffff8e091cf5a080 + 0x18d L2
       ```
       ![image.png](/images/posts/02_DKOM/07_Windbg4.png)
       <br><br>
@@ -142,7 +147,6 @@ Follow these steps to hide a process using DKOM in a controlled lab environment:
 
 
 3. **Unlink the Process**
-   - Read the `Flink` and `Blink` pointers from the `ActiveProcessLinks` field.
    - Update the `Flink` of the previous entry and the `Blink` of the next entry to bypass the target process.
    - Use WinDbg commands like `eb`, `ed`, or `eq` to modify memory directly.
 
