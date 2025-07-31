@@ -174,17 +174,26 @@ Follow these steps to hide a process using DKOM in a controlled lab environment:
       ```
 
       ![image.png](/images/posts/02_DKOM/09_Windbg6.png)
-   - For each neighboring process, use their respective `EPROCESS` addresses (from the `Flink` and `Blink` values) to inspect their details:
+   - For each neighboring process, use their respective `EPROCESS` addresses to inspect their details:
       ```
-      dt _EPROCESS <Neighbor_EPROCESS_address>
+      # vcpkgsrv.exe
+      dt _EPROCESS ffff8e091cb1b080
+
+      # EngHost.exe
+      dt _EPROCESS ffff8e091cd97080
       ```
-   - Note the **Process ID (PID)** and **ImageFileName** for both neighboring processes. This ensures you are correctly identifying the links you need to update when unlinking the target process.
-      | Process Name   |   PID   | EPROCESS Address      |
-      |--------------- |---------|----------------------|
-      | prev_process   | 0xXXXX  | <BLINK address - offset> |
-      | Notepad.exe    | 0x08bc  | ffff8e091cf5a080      |
-      | next_process   | 0xYYYY  | <FLINK address - offset> |
-   
+      ![image.png](/images/posts/02_DKOM/10_Windbg7.png)
+      <br><br>
+      ![image.png](/images/posts/02_DKOM/11_Windbg8.png)
+
+
+   - Note the `Process ID (PID)`,`ImageFileName` and `EPROCESS` address for both neighboring processes. This ensures you are correctly identifying the links you need to update when unlinking the target process.
+      | Position | Process Name | PID    | EPROCESS Address   | BLINK Address        | FLINK Address        |
+      |----------|--------------|--------|--------------------|----------------------|----------------------|
+      | Back     | EngHost.exe  | 0x1c3c | ffff8e091cd97080   | (prev)               | ffff8e091cf5a080     |
+      | -        | Notepad.exe  | 0x08bc | ffff8e091cf5a080   | ffff8e091cd97080     | ffff8e091cb1b080     |
+      | Forward  | vcpkgsrv.exe | 0x2e10 | ffff8e091cb1b080   | ffff8e091cf5a080     | (next)               |
+
 
 4. **Unlink the Process**
    - Update the `Flink` of the previous entry and the `Blink` of the next entry to bypass the target process.
