@@ -186,13 +186,12 @@ Follow these steps to hide a process using DKOM in a controlled lab environment:
       <br><br>
       ![image.png](/images/posts/02_DKOM/11_Windbg8.png)
 
-
    - Note the `Process ID (PID)`,`ImageFileName` and `EPROCESS` address for both neighboring processes. This ensures you are correctly identifying the links you need to update when unlinking the target process.
-      | Position | Process Name | PID    | EPROCESS Address   | BLINK Address        | FLINK Address        |
-      |----------|--------------|--------|--------------------|----------------------|----------------------|
-      | Back     | EngHost.exe  | 0x1c3c | ffff8e091cd97080   | (prev)               | ffff8e091cf5a080     |
-      | -        | Notepad.exe  | 0x08bc | ffff8e091cf5a080   | ffff8e091cd97080     | ffff8e091cb1b080     |
-      | Forward  | vcpkgsrv.exe | 0x2e10 | ffff8e091cb1b080   | ffff8e091cf5a080     | (next)               |
+      | Position | Process Name | PID    | EPROCESS Address | FLINK Address     | BLINK Address     |
+      |----------|--------------|--------|------------------|-------------------|-------------------|
+      | Back     | EngHost.exe  | 0x1c3c | ffff8e091cd97080 | ffff8e09`1cf5a258 | ffff8e09`1ed60258 |
+      | -        | Notepad.exe  | 0x08bc | ffff8e091cf5a080 | ffff8e09`1cb1b258 | ffff8e09`1cd97258 |
+      | Forward  | vcpkgsrv.exe | 0x2e10 | ffff8e091cb1b080 | ffff8e09`1ed8a258 | ffff8e09`1cf5a258 |
 
 
 4. **Unlink the Process**
