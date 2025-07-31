@@ -154,10 +154,26 @@ Follow these steps to hide a process using DKOM in a controlled lab environment:
       | Notepad.exe  | 0x08bc | ffff8e091cf5a080 | ffff8e09`1cb1b258 | ffff8e09`1cd97258 |
 
 3. **Gather Information on Neighboring Processes (PID and ImageFileName)**
-   - Identify the processes immediately before and after your target in the linked list by examining the `Flink` and `Blink` pointers.
-      
+   - Identify the processes `ImageFileName` immediately before and after your target in the linked list by examining the `Flink` and `Blink` pointers.
+      ```
+      # +0x338 is the `ImageFileName` offset
+      da  ffff8e09`1cb1b258 - 0x1d8 + 0x338
+      da  ffff8e09`1cd97258 - 0x1d8 + 0x338
+      ```
+
       ![image.png](/images/posts/02_DKOM/08_Windbg5.png)
    
+   - Identify the `UniqueProcessId` and `EPROCESS` addresses of the neighboring processes.
+      ```
+      # vcpkgsrv.exe
+      dd  ffff8e09`1cb1b258 - 0x1d8 + 0x1d0 L1
+      !process 2e10 0
+      # EngHost.exe
+      dd  ffff8e09`1cd97258 - 0x1d8 + 0x1d0 L1
+      !process 1c3c 0
+      ```
+
+      ![image.png](/images/posts/02_DKOM/09_Windbg6.png)
    - For each neighboring process, use their respective `EPROCESS` addresses (from the `Flink` and `Blink` values) to inspect their details:
       ```
       dt _EPROCESS <Neighbor_EPROCESS_address>
