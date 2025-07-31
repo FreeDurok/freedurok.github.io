@@ -145,7 +145,7 @@ Follow these steps to hide a process using DKOM in a controlled lab environment:
       dq <EPROCESS_address> + <ActiveProcessLinks_offset> L2
       
       # Our case
-      dq ffff8e091cf5a080 + 0x18d L2
+      dq ffff8e091cf5a080 + 0x1d8 L2
       ```
       ![image.png](/images/posts/02_DKOM/07_Windbg4.png)
       <br><br>
@@ -153,12 +153,26 @@ Follow these steps to hide a process using DKOM in a controlled lab environment:
       |--------------|--------|------------------|-------------------|-------------------|
       | Notepad.exe  | 0x08bc | ffff8e091cf5a080 | ffff8e09`1cb1b258 | ffff8e09`1cd97258 |
 
+3. **Gather Information on Neighboring Processes (PID and ImageFileName)**
+   - Identify the processes immediately before and after your target in the linked list by examining the `Flink` and `Blink` pointers.
+      ![image.png](/images/posts/02_DKOM/07_Windbg4.png)
+   - For each neighboring process, use their respective `EPROCESS` addresses (from the `Flink` and `Blink` values) to inspect their details:
+      ```
+      dt _EPROCESS <Neighbor_EPROCESS_address>
+      ```
+   - Note the **Process ID (PID)** and **ImageFileName** for both neighboring processes. This ensures you are correctly identifying the links you need to update when unlinking the target process.
+      | Process Name   |   PID   | EPROCESS Address      |
+      |--------------- |---------|----------------------|
+      | prev_process   | 0xXXXX  | <BLINK address - offset> |
+      | Notepad.exe    | 0x08bc  | ffff8e091cf5a080      |
+      | next_process   | 0xYYYY  | <FLINK address - offset> |
+   
 
-3. **Unlink the Process**
+4. **Unlink the Process**
    - Update the `Flink` of the previous entry and the `Blink` of the next entry to bypass the target process.
    - Use WinDbg commands like `eb`, `ed`, or `eq` to modify memory directly.
 
-4. **Verify the Process is Hidden**
+5. **Verify the Process is Hidden**
    - Run `!process 0 0` again. The target process should no longer appear in the list, even though it is still running.
 
 > ⚠️ **Warning:**  
