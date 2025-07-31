@@ -155,7 +155,9 @@ Follow these steps to hide a process using DKOM in a controlled lab environment:
 
 3. **Gather Information on Neighboring Processes (PID and ImageFileName)**
    - Identify the processes immediately before and after your target in the linked list by examining the `Flink` and `Blink` pointers.
-      ![image.png](/images/posts/02_DKOM/07_Windbg4.png)
+      
+      ![image.png](/images/posts/02_DKOM/08_Windbg5.png)
+   
    - For each neighboring process, use their respective `EPROCESS` addresses (from the `Flink` and `Blink` values) to inspect their details:
       ```
       dt _EPROCESS <Neighbor_EPROCESS_address>
