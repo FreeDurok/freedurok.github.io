@@ -348,8 +348,8 @@ params:
           It can export results to JSON and CSV, and is designed to work even in offline/air-gapped environments.
         image: /images/projects/ocracle/OCRacle_Logo.png
         badges:
-          - "OCR"
           - "DLP"
+          - "OCR"
           - "Python"
         links:
           - icon: fab fa-github
