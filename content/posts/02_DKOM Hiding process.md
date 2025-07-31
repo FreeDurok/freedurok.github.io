@@ -189,21 +189,24 @@ Follow these steps to hide a process using DKOM in a controlled lab environment:
       ![image.png](/images/posts/02_DKOM/12_Windbg9.png)
 
    - Note the `Process ID (PID)`, `ImageFileName`, `EPROCESS`, `ActiveProcessLinks`, `FLINK`, `BLINK` for both neighboring processes. This ensures you are correctly identifying the links you need to update when unlinking the target process.
-      | Position | Process Name | PID    | EPROCESS Address | ActiveProcessLinks | FLINK Address     | BLINK Address     |
-      |----------|--------------|--------|------------------|--------------------|-------------------|-------------------|
-      | Forward  | vcpkgsrv.exe | 0x2e10 | ffff8e091cb1b080 | ffff8e09`1cb1b258  | ffff8e09`1ed8a258 | ffff8e09`1cf5a258 |
-      | -        | Notepad.exe  | 0x08bc | ffff8e091cf5a080 | ffff8e09`1cf5a258  | ffff8e09`1cb1b258 | ffff8e09`1cd97258 |
-      | Back     | EngHost.exe  | 0x1c3c | ffff8e091cd97080 | ffff8e09`1cd97258  | ffff8e09`1cf5a258 | ffff8e09`1ed60258 |
+      | Position | Process Name | PID    | EPROCESS Address | ActiveProcessLinks | FLINK Address    | BLINK Address    |
+      |----------|--------------|--------|------------------|--------------------|------------------|------------------|
+      | Forward  | vcpkgsrv.exe | 0x2e10 | ffff8e091cb1b080 | ffff8e091cb1b258   | ffff8e091ed8a258 | ffff8e091cf5a258 |
+      | -        | Notepad.exe  | 0x08bc | ffff8e091cf5a080 | ffff8e091cf5a258   | ffff8e091cb1b258 | ffff8e091cd97258 |
+      | Back     | EngHost.exe  | 0x1c3c | ffff8e091cd97080 | ffff8e091cd97258   | ffff8e091cf5a258 | ffff8e091ed60258 |
 
 
 4. **Unlink the Process**
 To manipulate these links and remove the `Notepad.exe` process from the active list, update the following pointers:
-   - Change the value of `FLINK` `vcpkgsrv.exe` in `ffff8e091cb1b258` to `FLINK` `ApplicationFrameHost.exe` in `ffff8e091cd97258`
+   - Change the value of `FLINK` `vcpkgsrv.exe` in `ffff8e091cb1b258` to `FLINK` `EngHost.exe` in `ffff8e091cd97258`
       ```
       eq ffff8e091cb1b258 ffff8e091cd97258
       ```
-   - Change the value of BLINK ApplicationFrameHost.exe at ffff958f`8e4b3748+8 to FLINK svchost.exe at ffff958f`8b9c2708.
-
+   - Change the value of `BLINK` `EngHost.exe` at `ffff8e091cd97258 + 8` to `FLINK` `vcpkgsrv.exe` at `ffff8e091cb1b258`.
+      ```
+      # +8 because LIST_ENTRY has two FLINK/BLINK fields and each is 8 bytes
+      eq ffff8e091cd97258+8 ffff8e091cb1b258
+      ```
 
 5. **Verify the Process is Hidden**
    - Run `!process 0 0` again. The target process should no longer appear in the list, even though it is still running.
