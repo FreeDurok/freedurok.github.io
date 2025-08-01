@@ -237,14 +237,16 @@ To manipulate these links and remove the `Notepad.exe` process from the active l
    - Point `WidgetBoard.exe` `BLINK`  at  `ffffa00df7ecc258 + 8` to `FLINK` `EngHost.exe` at `ffffa00dfa0e2258`.
       ```
       # ActiveProcessLinks+8 because LIST_ENTRY has two FLINK/BLINK fields and each is 8 bytes
-      eq ffffa00df7ecc258+8 ffffa00dfa0e2258
+      eq ffffa00df7ecc258 + 8 ffffa00dfa0e2258
       ```
    
-   ![image.png](/images/posts/02_DKOM/10_Windbg7.png)
+   ![image.png](/images/posts/02_DKOM/11_Windbg8.png)
 
 
 5. **Verify the Process is Hidden**
-   - Run `!process 0 0` again. The target process should no longer appear in the list, even though it is still running.
+   - Run `ps | findstr -i notepad` in teminal or using `TaskManager`, the target process (`Notepad.exe`) should no longer appear in the list, even though it is still running.
+
+![image.png](/images/posts/02_DKOM/12_Windbg9.png)
 
 > ⚠️ **Warning:**  
 > Modifying kernel memory can destabilize or crash the system. Always work in a disposable test environment and take snapshots before making changes.
