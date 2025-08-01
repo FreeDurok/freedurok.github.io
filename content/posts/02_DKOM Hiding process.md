@@ -1,6 +1,6 @@
 ---
 title: "Exploring DKOM (Direct Kernel Object Manipulation) for Process Hiding on Windows"
-date: 2025-07-29T00:12:29+01:00
+date: 2025-08-01T00:12:29+01:00
 draft: false
 github_link: "https://github.com/gurusabarish/hugo-profile"
 author: "Durok"
