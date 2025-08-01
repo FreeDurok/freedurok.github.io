@@ -140,9 +140,9 @@ dt _EPROCESS <EPROCESS_address>
 
 | Field              | Offset (Windows 11 24h2) | Description                                    |
 |--------------------|--------------------------|------------------------------------------------|
-| UniqueProcessId    | EPRROCESS + 0x1d0        | Unique identifier for the process              |
-| ActiveProcessLinks | EPRROCESS + 0x1d8        | Pointer to the doubly-linked list of processes |
-| ImageFileName      | EPRROCESS + 0x338        | Executable file name of the process            |
+| UniqueProcessId    | EPROCESS + 0x1d0        | Unique identifier for the process              |
+| ActiveProcessLinks | EPROCESS + 0x1d8        | Pointer to the doubly-linked list of processes |
+| ImageFileName      | EPROCESS + 0x338        | Executable file name of the process            |
 
    - Read the `Flink` and `Blink` pointers from the `ActiveProcessLinks` field.
 ```
