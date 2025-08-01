@@ -210,17 +210,16 @@ Follow these steps to hide a process using DKOM in a controlled lab environment:
       # +0x1d8 ActiveProcessLinks : _LIST_ENTRY [ 0xffffa00d`f22e6298 - 0xffffa00d`f3ea2258 ]
 
       dq ffffa00dfa0e2080 + 0x1d8 L2
-      # ffffa00d`fa0e2258  ffffa00d`f22e6298 ffffa00d`f3ea2258# EngHost.exe
+      # ffffa00d`fa0e2258  ffffa00d`f22e6298 ffffa00d`f3ea2258
       ```
       ![image.png](/images/posts/02_DKOM/10_Windbg7.png)      
 
    - Note the `Process ID (PID)`, `ImageFileName`, `EPROCESS`, `ActiveProcessLinks`, `FLINK`, `BLINK` for both neighboring processes. This ensures you are correctly identifying the links you need to update when unlinking the target process.
-      | Position    | Process Name | PID              | EPROCESS Address  | ActiveProcessLinks | FLINK             | BLINK +8        
-      + |
-      |-------------|--------------|------------------|-------------------|--------------------|-------------------|------------------|
-      | Backward    | EngHost.exe  | 3660             | ffff8e091cd97080  | ffff8e091cd97258   | ffff8e091cf5a258  | ffff8e091ed60258 |
-      | Notepad.exe | 0x358c       | ffffa00df22e60c0 | ffffa00d`f22e6298 | ffffa00d`f7ecc258  | ffffa00d`fa0e2258 |                  |
-      | Forward     | vcpkgsrv.exe | 0x2e10           | ffff8e091cb1b080  | ffff8e091cb1b258   | ffff8e091ed8a258  | ffff8e091cf5a258 |
+      | Position | Process Name    | PID    | EPROCESS Address | ActiveProcessLinks | FLINK              | BLINK              |
+      |----------|-----------------|--------|------------------|--------------------|--------------------|--------------------|
+      | Backward | EngHost.exe     | 3660   | ffffa00dfa0e2080 | ffffa00d`fa0e2258` | ffffa00d`f22e6298  | ffffa00df3ea2258   |
+      |          | Notepad.exe     | 0x358c | ffffa00df22e60c0 | ffffa00df`22e6298` | ffffa00d`f7ecc258` | ffffa00d`fa0e2258` |
+      | Forward  | WidgetBoard.exe | 0x2ba0 | ffffa00df7ecc080 | ffffa00d`f7ecc258` | ffffa00df1aad258   | ffffa00d`f22e6298` |
 
 
 
