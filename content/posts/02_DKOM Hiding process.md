@@ -118,8 +118,10 @@ Follow these steps to hide a process using DKOM in a controlled lab environment:
 1. **Identify the Target Process**
    - Use the `!process 0 0` command in WinDbg to list all active processes.
    - Find the entry for your target process (e.g., `notepad.exe`) and note its `EPROCESS` address.
+
    ![image.png](/images/posts/02_DKOM/05_Windbg2.png)
-      <br><br>
+   <br><br>
+
 | Process Name | PID    | EPROCESS Address |
 |--------------|--------|------------------|
 | Notepad.exe  | 0x358c | ffffa00df22e60c0 |
@@ -129,10 +131,13 @@ Follow these steps to hide a process using DKOM in a controlled lab environment:
       ```
       dt _EPROCESS <EPROCESS_address>
       ```
+
    ![image.png](/images/posts/02_DKOM/06_Windbg3.png)
+   <br><br>
    - Locate the `UniqueProcessId` field, in `Windows 11 24h2` offset is `+0x1d0`
    - Locate the `ActiveProcessLinks` field, which is part of the doubly linked list connecting all processes, in `Windows 11 24h2` the offset is `+0x1d8`.
    - Locate the `ImgageFileName` field, in `Windows 11 24h2` offset is `+0x338`
+
 | Field              | Offset (Windows 11 24h2) | Description                                    |
 |--------------------|--------------------------|------------------------------------------------|
 | UniqueProcessId    | 0x1d0                    | Unique identifier for the process              |
@@ -150,7 +155,8 @@ Follow these steps to hide a process using DKOM in a controlled lab environment:
       dq ffffa00df22e60c0 + 0x1d8 L2
       ```
    ![image.png](/images/posts/02_DKOM/07_Windbg4.png)
-      <br><br>
+   <br><br>
+
 | Process Name | PID    | EPROCESS Address | ActiveProcessLinks | FLINK             | BLINK             |
 |--------------|--------|------------------|--------------------|-------------------|-------------------|
 | Notepad.exe  | 0x358c | ffffa00df22e60c0 | ffffa00d`f22e6298  | ffffa00d`f7ecc258 | ffffa00d`fa0e2258 |   
@@ -215,6 +221,7 @@ Follow these steps to hide a process using DKOM in a controlled lab environment:
    ![image.png](/images/posts/02_DKOM/10_Windbg7.png)      
 
    - Note the `Process ID (PID)`, `ImageFileName`, `EPROCESS`, `ActiveProcessLinks`, `FLINK`, `BLINK` for both neighboring processes. This ensures you are correctly identifying the links you need to update when unlinking the target process.
+
 | Position | Process Name    | PID    | EPROCESS Address | ActiveProcessLinks | FLINK Value +0     | BLINK Value +8     |
 |----------|-----------------|--------|------------------|--------------------|--------------------|--------------------|
 | Backward | EngHost.exe     | 3660   | ffffa00dfa0e2080 | ffffa00d`fa0e2258` | ffffa00d`f22e6298` | ffffa00df3ea2258   |
