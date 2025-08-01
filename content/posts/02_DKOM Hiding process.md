@@ -128,12 +128,12 @@ Follow these steps to hide a process using DKOM in a controlled lab environment:
 
 2. **Locate the ActiveProcessLinks Field**
    - Display the structure of the `EPROCESS` object using:
-      ```
-      dt _EPROCESS <EPROCESS_address>
-      ```
+```
+dt _EPROCESS <EPROCESS_address>
+```
 
-   ![image.png](/images/posts/02_DKOM/06_Windbg3.png)
-   <br><br>
+![image.png](/images/posts/02_DKOM/06_Windbg3.png)
+<br><br>
    - Locate the `UniqueProcessId` field, in `Windows 11 24h2` offset is `+0x1d0`
    - Locate the `ActiveProcessLinks` field, which is part of the doubly linked list connecting all processes, in `Windows 11 24h2` the offset is `+0x1d8`.
    - Locate the `ImgageFileName` field, in `Windows 11 24h2` offset is `+0x338`
@@ -145,17 +145,17 @@ Follow these steps to hide a process using DKOM in a controlled lab environment:
 | ImageFileName      | 0x338                    | Executable file name of the process            |
 
    - Read the `Flink` and `Blink` pointers from the `ActiveProcessLinks` field.
-      ```
-      # Abstract
-      dt nt!_EPROCESS <EPROCESS_address> ActiveProcessLinks
-      dq <EPROCESS_address> + <ActiveProcessLinks_offset> L2
-      
-      # Our case
-      dt nt!_EPROCESS ffffa00df22e60c0 ActiveProcessLinks
-      dq ffffa00df22e60c0 + 0x1d8 L2
-      ```
-   ![image.png](/images/posts/02_DKOM/07_Windbg4.png)
-   <br><br>
+```
+# Abstract
+dt nt!_EPROCESS <EPROCESS_address> ActiveProcessLinks
+dq <EPROCESS_address> + <ActiveProcessLinks_offset> L2
+
+# Our case
+dt nt!_EPROCESS ffffa00df22e60c0 ActiveProcessLinks
+dq ffffa00df22e60c0 + 0x1d8 L2
+```
+![image.png](/images/posts/02_DKOM/07_Windbg4.png)
+<br><br>
 
 | Process Name | PID    | EPROCESS Address | ActiveProcessLinks | FLINK             | BLINK             |
 |--------------|--------|------------------|--------------------|-------------------|-------------------|
@@ -163,46 +163,46 @@ Follow these steps to hide a process using DKOM in a controlled lab environment:
 
 3. **Gather Information on Neighboring Processes (PID and ImageFileName)**
    - Identify the processes `ImageFileName` immediately before and after your target in the linked list by examining the `Flink` and `Blink` pointers.
-      ```
-      # +0x338 is the `ImageFileName` offset
-      da  ffffa00d`f7ecc258 - 0x1d8 + 0x338
-      da  ffffa00d`fa0e2258 - 0x1d8 + 0x338
-      ```
+```
+# +0x338 is the `ImageFileName` offset
+da  ffffa00d`f7ecc258 - 0x1d8 + 0x338
+da  ffffa00d`fa0e2258 - 0x1d8 + 0x338
+```
 
    ![image.png](/images/posts/02_DKOM/08_Windbg5.png)
    
    - Identify the `UniqueProcessId` and `EPROCESS` addresses of the neighboring processes.
    - For each neighboring process, use their respective `ActiveProcessLinks` +/- offsets (see the above table) to inspect their details:
 
-   ```
-   # --- Get forward process Pid - WidgetBoard.exe
-   dd ffffa00df7ecc258 - 0x1d8 + 0x1d0 L1
+```
+# --- Get forward process Pid - WidgetBoard.exe
+dd ffffa00df7ecc258 - 0x1d8 + 0x1d0 L1
 
-   # --- Get forward EPROCESS Address - WidgetBoard.exe
-   !process 2ba0 0
+# --- Get forward EPROCESS Address - WidgetBoard.exe
+!process 2ba0 0
 
-   # --- Get forward ActiveProcessLinks, FLINK, BLINK - WidgetBoard.exe
-   dt nt!_EPROCESS ffffa00df7ecc080 ActiveProcessLinks      
-   dq ffffa00df7ecc080 + 0x1d8 L2      
-   ```
-   ![image.png](/images/posts/02_DKOM/09_Windbg6.png)
+# --- Get forward ActiveProcessLinks, FLINK, BLINK - WidgetBoard.exe
+dt nt!_EPROCESS ffffa00df7ecc080 ActiveProcessLinks      
+dq ffffa00df7ecc080 + 0x1d8 L2      
+```
+![image.png](/images/posts/02_DKOM/09_Windbg6.png)
 
 | Position | Process Name    | PID  | EPROCESS Address | ActiveProcessLinks | FLINK Value +0     | BLINK Value +8     |
 |----------|-----------------|------|------------------|--------------------|--------------------|--------------------|
 | Forward  | WidgetBoard.exe | 2ba0 | ffffa00df7ecc080 | ffffa00d`f7ecc258` | ffffa00df1aad258   | ffffa00d`f22e6298` |
    
-      ```
-      # --- Get backward process Pid - EngHost.exe
-      dd ffffa00d`fa0e2258 - 0x1d8 + 0x1d0 L1
+```
+# --- Get backward process Pid - EngHost.exe
+dd ffffa00d`fa0e2258 - 0x1d8 + 0x1d0 L1
+
+# --- Get backward EPROCESS Address - EngHost.exe
+!process 3660 0
       
-      # --- Get backward EPROCESS Address - EngHost.exe
-      !process 3660 0
-            
-      # --- Get backward ActiveProcessLinks, FLINK, BLINK - EngHost.exe
-      dt nt!_EPROCESS ffffa00dfa0e2080 ActiveProcessLinks
-      dq ffffa00dfa0e2080 + 0x1d8 L2      
-      ```
-      ![image.png](/images/posts/02_DKOM/10_Windbg7.png)      
+# --- Get backward ActiveProcessLinks, FLINK, BLINK - EngHost.exe
+dt nt!_EPROCESS ffffa00dfa0e2080 ActiveProcessLinks
+dq ffffa00dfa0e2080 + 0x1d8 L2      
+```
+![image.png](/images/posts/02_DKOM/10_Windbg7.png)      
 
 | Position | Process Name    | PID  | EPROCESS Address | ActiveProcessLinks | FLINK Value +0     | BLINK Value +8     |
 |----------|-----------------|------|------------------|--------------------|--------------------|--------------------|
