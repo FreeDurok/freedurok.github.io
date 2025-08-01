@@ -179,10 +179,10 @@ da  ffffa00d`fa0e2258 - 0x1d8 + 0x338
 # --- Get forward process Pid - WidgetBoard.exe
 dd ffffa00df7ecc258 - 0x1d8 + 0x1d0 L1
 
-# --- Get forward EPROCESS Address - WidgetBoard.exe
+# --- Get forward process EPROCESS Address - WidgetBoard.exe
 !process 2ba0 0
 
-# --- Get forward ActiveProcessLinks, FLINK, BLINK - WidgetBoard.exe
+# --- Get forward process ActiveProcessLinks, FLINK, BLINK - WidgetBoard.exe
 dt nt!_EPROCESS ffffa00df7ecc080 ActiveProcessLinks      
 dq ffffa00df7ecc080 + 0x1d8 L2      
 ```
@@ -196,10 +196,10 @@ dq ffffa00df7ecc080 + 0x1d8 L2
 # --- Get backward process Pid - EngHost.exe
 dd ffffa00d`fa0e2258 - 0x1d8 + 0x1d0 L1
 
-# --- Get backward EPROCESS Address - EngHost.exe
+# --- Get backward process EPROCESS Address - EngHost.exe
 !process 3660 0
       
-# --- Get backward ActiveProcessLinks, FLINK, BLINK - EngHost.exe
+# --- Get backward process ActiveProcessLinks, FLINK, BLINK - EngHost.exe
 dt nt!_EPROCESS ffffa00dfa0e2080 ActiveProcessLinks
 dq ffffa00dfa0e2080 + 0x1d8 L2      
 ```
