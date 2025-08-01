@@ -187,6 +187,11 @@ Follow these steps to hide a process using DKOM in a controlled lab environment:
 
    ![image.png](/images/posts/02_DKOM/09_Windbg6.png)
    <br><br>
+
+| Position | Process Name    | PID  | EPROCESS Address | ActiveProcessLinks | FLINK Value +0     | BLINK Value +8     |
+|----------|-----------------|------|------------------|--------------------|--------------------|--------------------|
+| Forward  | WidgetBoard.exe | 2ba0 | ffffa00df7ecc080 | ffffa00d`f7ecc258` | ffffa00df1aad258   | ffffa00d`f22e6298` |
+   
       ```
       # --- Get backward process Pid - EngHost.exe
       dd ffffa00d`fa0e2258 - 0x1d8 + 0x1d0 L1
@@ -199,6 +204,11 @@ Follow these steps to hide a process using DKOM in a controlled lab environment:
       dq ffffa00dfa0e2080 + 0x1d8 L2      
       ```
    ![image.png](/images/posts/02_DKOM/10_Windbg7.png)      
+   <br><br>
+
+| Position | Process Name    | PID  | EPROCESS Address | ActiveProcessLinks | FLINK Value +0     | BLINK Value +8     |
+|----------|-----------------|------|------------------|--------------------|--------------------|--------------------|
+| Backward | EngHost.exe     | 3660 | ffffa00dfa0e2080 | ffffa00d`fa0e2258` | ffffa00d`f22e6298` | ffffa00df3ea2258   |
 
    - Note the `Process ID (PID)`, `ImageFileName`, `EPROCESS`, `ActiveProcessLinks`, `FLINK`, `BLINK` for both neighboring processes. This ensures you are correctly identifying the links you need to update when unlinking the target process.
 
