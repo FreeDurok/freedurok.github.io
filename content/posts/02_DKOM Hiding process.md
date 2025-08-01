@@ -156,9 +156,9 @@ dq ffffa00df22e60c0 + 0x1d8 L2
 ![image.png](/images/posts/02_DKOM/07_Windbg4.png)
 <br><br>
 
-| Process Name | PID    | EPROCESS Address | ActiveProcessLinks | FLINK             | BLINK             |
-|--------------|--------|------------------|--------------------|-------------------|-------------------|
-| Notepad.exe  | 0x358c | ffffa00df22e60c0 | ffffa00d`f22e6298  | ffffa00d`f7ecc258 | ffffa00d`fa0e2258 |
+| Process Name | PID    | EPROCESS Address | ActiveProcessLinks | FLINK            | BLINK            |
+|--------------|--------|------------------|--------------------|------------------|------------------|
+| Notepad.exe  | 0x358c | ffffa00df22e60c0 | ffffa00df22e6298   | ffffa00df7ecc258 | ffffa00dfa0e2258 |
 
 3. **Gather Information on Neighboring Processes (PID and ImageFileName)**
    - Identify the processes `ImageFileName` immediately before and after your target in the linked list by examining the `Flink` and `Blink` pointers, use their respective +/- offsets (see the above table) to inspect their details:
