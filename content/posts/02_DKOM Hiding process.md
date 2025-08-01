@@ -7,7 +7,6 @@ author: "Durok"
 tags:
   - DKOM
   - Kernel
-  - Driver
   - Rootkit
   - Windbg
   - Volatility
