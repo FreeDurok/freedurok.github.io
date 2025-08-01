@@ -186,7 +186,6 @@ Follow these steps to hide a process using DKOM in a controlled lab environment:
       ```
 
    ![image.png](/images/posts/02_DKOM/09_Windbg6.png)
-   <br><br>
 
 | Position | Process Name    | PID  | EPROCESS Address | ActiveProcessLinks | FLINK Value +0     | BLINK Value +8     |
 |----------|-----------------|------|------------------|--------------------|--------------------|--------------------|
@@ -204,7 +203,6 @@ Follow these steps to hide a process using DKOM in a controlled lab environment:
       dq ffffa00dfa0e2080 + 0x1d8 L2      
       ```
    ![image.png](/images/posts/02_DKOM/10_Windbg7.png)      
-   <br><br>
 
 | Position | Process Name    | PID  | EPROCESS Address | ActiveProcessLinks | FLINK Value +0     | BLINK Value +8     |
 |----------|-----------------|------|------------------|--------------------|--------------------|--------------------|
