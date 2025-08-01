@@ -241,6 +241,4 @@ To manipulate these links and remove the `Notepad.exe` process from the active l
 > ⚠️ **Warning:**  
 > Modifying kernel memory can destabilize or crash the system. Always work in a disposable test environment and take snapshots before making changes.
 
-This procedure demonstrates how DKOM can be used to hide a process by manipulating kernel data structures directly.
-
-Identify the `EPROCESS` entry for the test process (`notepad.exe`). Locate the line corresponding to `notepad.exe` and note the address of its `EPROCESS` structure. This address will be used in the next steps to directly manipulate the structure in memory.
+This procedure demonstrates how **`DKOM`** can be used to hide a process by manipulating kernel data structures directly.
