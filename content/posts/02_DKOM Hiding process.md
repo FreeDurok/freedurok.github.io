@@ -249,14 +249,14 @@ In order to detect unlinked processes exhibited by malware on systems without Pa
 
 You need to acquire a memory image. One of the most popular tools for this on Windows is [`winpmem`](https://github.com/Velocidex/WinPmem).
 
-1. **Download `winpmem`**  
-   Get the latest release from the [official GitHub repository](https://github.com/Velocidex/WinPmem/releases).
+#### **Download `winpmem`**  
+Get the latest release from the [official GitHub repository](https://github.com/Velocidex/WinPmem/releases).
 
-2. **Run as Administrator**  
-   Open a command prompt with administrative privileges.
+#### **Run as Administrator**  
+Open a command prompt with administrative privileges.
 
-3. **Acquire the Memory Dump**  
-   Use the following command to dump memory from the target host to a file:
+#### **Acquire the Memory Dump**  
+Use the following command to dump memory from the target host to a file:
 
 ```cmd
 .\winpmem_mini_x64_rc2.exe dump.raw
@@ -264,8 +264,8 @@ You need to acquire a memory image. One of the most popular tools for this on Wi
 
 ![image.png](/images/posts/02_DKOM/Volatility.png)
 
-4. **Check the Image**
-   Install [`Volatility`](https://github.com/volatilityfoundation/volatility3) on linux forensic machine and use `windows.info` module 
+#### **Check the Image**
+Install [`Volatility`](https://github.com/volatilityfoundation/volatility3) on linux forensic machine and use `windows.info` module 
 
 ```bash
 python vol.py -f ../dump.raw windows.info
@@ -273,8 +273,8 @@ python vol.py -f ../dump.raw windows.info
 
 ![image.png](/images/posts/02_DKOM/Volatility0.png)
 
-5. **Analyze with `Volatility`**  
-   As we can see, running the `windows.pslist` module and filtering for the process name `notepad` returns no results, meaning the process is not visible to standard enumeration:
+#### **Analyze with `Volatility`**  
+As we can see, running the `windows.pslist` module and filtering for the process name `notepad` returns no results, meaning the process is not visible to standard enumeration:
 
 ```bash
 python vol.py -f ../dump.raw windows.pslist | grep -i notepad
@@ -282,29 +282,29 @@ python vol.py -f ../dump.raw windows.pslist | grep -i notepad
 
 ![image.png](/images/posts/02_DKOM/Volatility1.png)
 
-   No output is produced, confirming that `notepad.exe` is hidden from `pslist` due to DKOM unlinking. However, by using `psscan` or `psxview`, you can still detect the hidden process because these modules scan memory for `EPROCESS` structures directly, rather than relying on the linked list.
+No output is produced, confirming that `notepad.exe` is hidden from `pslist` due to DKOM unlinking. However, by using `psscan` or `psxview`, you can still detect the hidden process because these modules scan memory for `EPROCESS` structures directly, rather than relying on the linked list.
 
-   To detect hidden processes using `psscan` in Volatility and redirect the output to a file, run:
+To detect hidden processes using `psscan` in Volatility and redirect the output to a file, run:
 
 ```bash
 python vol.py -f ../dump.raw windows.psscan > psscan.txt
 cat psscan.txt | grep -i notepad
 ```
 
-   This command scans memory for `EPROCESS` structures, revealing processes that have been unlinked from the active process list.
+This command scans memory for `EPROCESS` structures, revealing processes that have been unlinked from the active process list.
 
 ![image.png](/images/posts/02_DKOM/Volatility2.png)
 
-   Here, `notepad.exe` is found in memory with PID `10188` (different test from the previous with `Windbg`), confirming that the process exists even though it was hidden from standard process listings.
-  
-   You can also use the `psxview` module in Volatility to compare multiple process enumeration techniques in a single output. This module shows which processes are visible to each method, making `DKOM`-based hiding immediately apparent.
+Here, `notepad.exe` is found in memory with PID `10188` (different test from the previous with `Windbg`), confirming that the process exists even though it was hidden from standard process listings.
+
+You can also use the `psxview` module in Volatility to compare multiple process enumeration techniques in a single output. This module shows which processes are visible to each method, making `DKOM`-based hiding immediately apparent.
 
 ```bash
 python vol.py -f ../dump.raw windows.psxview > psxview.txt
 cat psxview.txt | grep -i notepad
 ```
 
-   The output will display columns for each enumeration method (such as `pslist`, `psscan`, `thrdproc`, etc.). If a process is hidden via `DKOM`, you will see `False` under `pslist` but `True` under `psscan`, confirming the discrepancy:
+The output will display columns for each enumeration method (such as `pslist`, `psscan`, `thrdproc`, etc.). If a process is hidden via `DKOM`, you will see `False` under `pslist` but `True` under `psscan`, confirming the discrepancy:
 
 ![image.png](/images/posts/02_DKOM/Volatility3.png)
 
