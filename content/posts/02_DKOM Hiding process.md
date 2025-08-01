@@ -222,12 +222,12 @@ dq ffffa00dfa0e2080 + 0x1d8 L2
 To manipulate these links and remove the `Notepad.exe` process from the active list, update the following pointers using `ActiveProcessLinks` address:
    - Point `EngHost.exe`->`FLINK` in ffffa00d`fa0e2258` to `WidgetBoard.exe`->`FLINK` in ffffa00d`f7ecc258`
    ```
-   eq ffffa00dfa0e2258 ffffa00d`f7ecc258
+   eq ffffa00d`fa0e2258 ffffa00d`f7ecc258
    ```
    - Point `WidgetBoard.exe`->`BLINK`  at  ffffa00d`f7ecc258 + 8` to `EngHost.exe`->`FLINK` at ffffa00d`fa0e2258`.
    ```
    # ActiveProcessLinks+8 because LIST_ENTRY has two FLINK/BLINK fields and each is 8 bytes
-   eq ffffa00df7ecc258 + 8 ffffa00dfa0e2258
+   eq ffffa00d`f7ecc258 + 8 ffffa00d`fa0e2258
    ```
    
    ![image.png](/images/posts/02_DKOM/11_Windbg8.png)
