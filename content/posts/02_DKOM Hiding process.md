@@ -242,3 +242,77 @@ To manipulate these links and remove the `Notepad.exe` process from the active l
 > Modifying kernel memory can destabilize or crash the system. Always work in a disposable test environment and take snapshots before making changes.
 
 This procedure demonstrates how **`DKOM`** can be used to hide a process by manipulating kernel data structures directly.
+
+## How to detect DKOM for Process Hiding on Windows
+
+In order to detect unlinked processes exhibited by malware on systems without PatchGuard, explore [`psscan`](https://github.com/volatilityfoundation/volatility/wiki/Command-Reference#psscan) and [`psxview`](https://github.com/volatilityfoundation/volatility/wiki/Command-Reference-Mal#psxview) from `Volatility`.
+
+You need to acquire a memory image. One of the most popular tools for this on Windows is [`winpmem`](https://github.com/Velocidex/WinPmem).
+
+1. **Download `winpmem`**  
+   Get the latest release from the [official GitHub repository](https://github.com/Velocidex/WinPmem/releases).
+
+2. **Run as Administrator**  
+   Open a command prompt with administrative privileges.
+
+3. **Acquire the Memory Dump**  
+   Use the following command to dump memory from the target host to a file:
+
+```cmd
+.\winpmem_mini_x64_rc2.exe dump.raw
+```
+
+![image.png](/images/posts/02_DKOM/Volatility.png)
+
+4. **Check the Image**
+   Install [`Volatility`](https://github.com/volatilityfoundation/volatility3) on linux forensic machine and use `windows.info` module 
+
+```bash
+python vol.py -f ../dump.raw windows.info
+```   
+
+![image.png](/images/posts/02_DKOM/Volatility0.png)
+
+5. **Analyze with `Volatility`**  
+   As we can see, running the `windows.pslist` module and filtering for the process name `notepad` returns no results, meaning the process is not visible to standard enumeration:
+
+   ```bash
+   python vol.py -f ../dump.raw windows.pslist | grep -i notepad
+   ```
+
+![image.png](/images/posts/02_DKOM/Volatility1.png)
+
+   No output is produced, confirming that `notepad.exe` is hidden from `pslist` due to DKOM unlinking. However, by using `psscan` or `psxview`, you can still detect the hidden process because these modules scan memory for `EPROCESS` structures directly, rather than relying on the linked list.
+
+   To detect hidden processes using `psscan` in Volatility and redirect the output to a file, run:
+
+```bash
+python vol.py -f ../dump.raw windows.psscan > psscan.txt
+cat psscan.txt | grep -i notepad
+```
+
+   This command scans memory for `EPROCESS` structures, revealing processes that have been unlinked from the active process list.
+
+![image.png](/images/posts/02_DKOM/Volatility2.png)
+
+   Here, `notepad.exe` is found in memory with PID `10188` (different test from the previous with `Windbg`), confirming that the process exists even though it was hidden from standard process listings.
+  
+   You can also use the `psxview` module in Volatility to compare multiple process enumeration techniques in a single output. This module shows which processes are visible to each method, making `DKOM`-based hiding immediately apparent.
+
+```bash
+python vol.py -f ../dump.raw windows.psxview > psxview.txt
+cat psxview.txt | grep -i notepad
+```
+
+   The output will display columns for each enumeration method (such as `pslist`, `psscan`, `thrdproc`, etc.). If a process is hidden via `DKOM`, you will see `False` under `pslist` but `True` under `psscan`, confirming the discrepancy:
+
+![image.png](/images/posts/02_DKOM/Volatility3.png)
+
+This makes `psxview` a powerful module for quickly identifying processes hidden by `DKOM`, as it highlights inconsistencies across different detection techniques in a single table.
+
+## Conclusion
+
+In this post, we explored the fundamentals of `DKOM (Direct Kernel Object Manipulation)` for `process hiding` on Windows, including a practical walkthrough using `WinDbg` and detection strategies with `Volatility`. `DKOM` remains a powerful and stealthy technique for evading standard process enumeration, but it is not foolproof—memory forensics and advanced detection tools can still reveal hidden processes. By learning how DKOM works and how to detect it, you can better protect systems against sophisticated threats.
+
+Thank you for your attention! 😊  
+If you have questions or want to share your experience with `DKOM` or process hiding techniques, feel free to leave a comment or reach out on GitHub.
