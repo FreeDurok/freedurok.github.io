@@ -166,23 +166,49 @@ Follow these steps to hide a process using DKOM in a controlled lab environment:
       ![image.png](/images/posts/02_DKOM/08_Windbg5.png)
    
    - Identify the `UniqueProcessId` and `EPROCESS` addresses of the neighboring processes.
+   - For each neighboring process, use their respective `EPROCESS` addresses to inspect their details:
       ```
-      # WidgetBoard.exe
-      dd  ffff8e09`1cb1b258 - 0x1d8 + 0x1d0 L1
-      !process 2e10 0
-      # EngHost.exe
-      dd  ffff8e09`1cd97258 - 0x1d8 + 0x1d0 L1
-      !process 1c3c 0
+      # Get forward process Pid - WidgetBoard.exe
+      dd ffffa00df7ecc258 - 0x1d8 + 0x1d0 L1
+      # 00002ba0
+
+      !process 2ba0 0
+      # Searching for Process with Cid == 2ba0
+      # PROCESS ffffa00df7ecc080
+      #     SessionId: none  Cid: 2ba0    Peb: 2cf2d6000  ParentCid: 0238
+      #     DirBase: 4b9b8000  ObjectTable: ffffe589e1773b40  HandleCount: 795.
+      #     Image: WidgetBoard.exe
+
+
+      # Get forward ActiveProcessLinks, FLINK, BLINK - WidgetBoard.exe
+      dt nt!_EPROCESS ffffa00df7ecc080 ActiveProcessLinks
+      # +0x1d8 ActiveProcessLinks : _LIST_ENTRY [ 0xffffa00d`f1aad258 - 0xffffa00d`f22e6298 ]
+
+      dq ffffa00df7ecc080 + 0x1d8 L2
+      # ffffa00d`f7ecc258  ffffa00d`f1aad258 ffffa00d`f22e6298
       ```
 
       ![image.png](/images/posts/02_DKOM/09_Windbg6.png)
-   - For each neighboring process, use their respective `EPROCESS` addresses to inspect their details:
+      <br><br>
       ```
-      # vcpkgsrv.exe
-      dt _EPROCESS ffff8e091cb1b080
+      # --- Get backward process Pid - EngHost.exe
+      dd ffffa00d`fa0e2258 - 0x1d8 + 0x1d0 L1
+      # 00003660
 
-      # EngHost.exe
-      dt _EPROCESS ffff8e091cd97080
+      !process 3660 0
+      # Searching for Process with Cid == 3660
+      # PROCESS ffffa00dfa0e2080
+      #    SessionId: none  Cid: 3660    Peb: df40b7c000  ParentCid: 23e0
+      #    DirBase: 0050c000  ObjectTable: ffffe589e17aa580  HandleCount: 261.
+      #    Image: EngHost.exe
+
+
+      # --- Get backward ActiveProcessLinks, FLINK, BLINK - EngHost.exe
+      dt nt!_EPROCESS ffffa00dfa0e2080 ActiveProcessLinks
+      # +0x1d8 ActiveProcessLinks : _LIST_ENTRY [ 0xffffa00d`f22e6298 - 0xffffa00d`f3ea2258 ]
+
+      dq ffffa00dfa0e2080 + 0x1d8 L2
+      # ffffa00d`fa0e2258  ffffa00d`f22e6298 ffffa00d`f3ea2258# EngHost.exe
       ```
       ![image.png](/images/posts/02_DKOM/10_Windbg7.png)
       <br><br>
