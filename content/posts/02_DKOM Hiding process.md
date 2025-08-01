@@ -120,9 +120,9 @@ Follow these steps to hide a process using DKOM in a controlled lab environment:
    - Find the entry for your target process (e.g., `notepad.exe`) and note its `EPROCESS` address.
       ![image.png](/images/posts/02_DKOM/05_Windbg2.png)
       <br><br>
-      | Process Name | PID    | EPROCESS Address |
-      |--------------|--------|------------------|
-      | Notepad.exe  | 0x358c | ffffa00df22e60c0 |
+| Process Name | PID    | EPROCESS Address |
+|--------------|--------|------------------|
+| Notepad.exe  | 0x358c | ffffa00df22e60c0 |
 
 2. **Locate the ActiveProcessLinks Field**
    - Display the structure of the `EPROCESS` object using:
@@ -133,11 +133,11 @@ Follow these steps to hide a process using DKOM in a controlled lab environment:
    - Locate the `UniqueProcessId` field, in `Windows 11 24h2` offset is `+0x1d0`
    - Locate the `ActiveProcessLinks` field, which is part of the doubly linked list connecting all processes, in `Windows 11 24h2` the offset is `+0x1d8`.
    - Locate the `ImgageFileName` field, in `Windows 11 24h2` offset is `+0x338`
-      | Field              | Offset (Windows 11 24h2) | Description                                    |
-      |--------------------|--------------------------|------------------------------------------------|
-      | UniqueProcessId    | 0x1d0                    | Unique identifier for the process              |
-      | ActiveProcessLinks | 0x1d8                    | Pointer to the doubly-linked list of processes |
-      | ImageFileName      | 0x338                    | Executable file name of the process            |
+| Field              | Offset (Windows 11 24h2) | Description                                    |
+|--------------------|--------------------------|------------------------------------------------|
+| UniqueProcessId    | 0x1d0                    | Unique identifier for the process              |
+| ActiveProcessLinks | 0x1d8                    | Pointer to the doubly-linked list of processes |
+| ImageFileName      | 0x338                    | Executable file name of the process            |
 
    - Read the `Flink` and `Blink` pointers from the `ActiveProcessLinks` field.
       ```
@@ -151,9 +151,9 @@ Follow these steps to hide a process using DKOM in a controlled lab environment:
       ```
       ![image.png](/images/posts/02_DKOM/07_Windbg4.png)
       <br><br>
-      | Process Name | PID    | EPROCESS Address | ActiveProcessLinks | FLINK             | BLINK             |
-      |--------------|--------|------------------|--------------------|-------------------|-------------------|
-      | Notepad.exe  | 0x358c | ffffa00df22e60c0 | ffffa00d`f22e6298  | ffffa00d`f7ecc258 | ffffa00d`fa0e2258 |
+| Process Name | PID    | EPROCESS Address | ActiveProcessLinks | FLINK             | BLINK             |
+|--------------|--------|------------------|--------------------|-------------------|-------------------|
+| Notepad.exe  | 0x358c | ffffa00df22e60c0 | ffffa00d`f22e6298  | ffffa00d`f7ecc258 | ffffa00d`fa0e2258 |   
 
 3. **Gather Information on Neighboring Processes (PID and ImageFileName)**
    - Identify the processes `ImageFileName` immediately before and after your target in the linked list by examining the `Flink` and `Blink` pointers.
@@ -215,11 +215,11 @@ Follow these steps to hide a process using DKOM in a controlled lab environment:
    ![image.png](/images/posts/02_DKOM/10_Windbg7.png)      
 
    - Note the `Process ID (PID)`, `ImageFileName`, `EPROCESS`, `ActiveProcessLinks`, `FLINK`, `BLINK` for both neighboring processes. This ensures you are correctly identifying the links you need to update when unlinking the target process.
-      | Position | Process Name    | PID    | EPROCESS Address | ActiveProcessLinks | FLINK Value +0     | BLINK Value +8     |
-      |----------|-----------------|--------|------------------|--------------------|--------------------|--------------------|
-      | Backward | EngHost.exe     | 3660   | ffffa00dfa0e2080 | ffffa00d`fa0e2258` | ffffa00d`f22e6298` | ffffa00df3ea2258   |
-      |          | Notepad.exe     | 0x358c | ffffa00df22e60c0 | ffffa00d`f22e6298` | ffffa00d`f7ecc258` | ffffa00d`fa0e2258` |
-      | Forward  | WidgetBoard.exe | 0x2ba0 | ffffa00df7ecc080 | ffffa00d`f7ecc258` | ffffa00df1aad258   | ffffa00d`f22e6298` |
+| Position | Process Name    | PID    | EPROCESS Address | ActiveProcessLinks | FLINK Value +0     | BLINK Value +8     |
+|----------|-----------------|--------|------------------|--------------------|--------------------|--------------------|
+| Backward | EngHost.exe     | 3660   | ffffa00dfa0e2080 | ffffa00d`fa0e2258` | ffffa00d`f22e6298` | ffffa00df3ea2258   |
+|          | Notepad.exe     | 0x358c | ffffa00df22e60c0 | ffffa00d`f22e6298` | ffffa00d`f7ecc258` | ffffa00d`fa0e2258` |
+| Forward  | WidgetBoard.exe | 0x2ba0 | ffffa00df7ecc080 | ffffa00d`f7ecc258` | ffffa00df1aad258   | ffffa00d`f22e6298` |
 
 4. **Unlink the Process**
 To manipulate these links and remove the `Notepad.exe` process from the active list, update the following pointers using `ActiveProcessLinks` address:
@@ -233,7 +233,7 @@ To manipulate these links and remove the `Notepad.exe` process from the active l
       eq ffffa00df7ecc258+8 ffffa00dfa0e2258
       ```
    
-      ![image.png](/images/posts/02_DKOM/10_Windbg7.png)
+   ![image.png](/images/posts/02_DKOM/10_Windbg7.png)
 
 
 5. **Verify the Process is Hidden**
