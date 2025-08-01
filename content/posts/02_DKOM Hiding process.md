@@ -173,35 +173,35 @@ Follow these steps to hide a process using DKOM in a controlled lab environment:
    
    - Identify the `UniqueProcessId` and `EPROCESS` addresses of the neighboring processes.
    - For each neighboring process, use their respective `ActiveProcessLinks` +/- offsets (see the above table) to inspect their details:
-      ```
-      # --- Get forward process Pid - WidgetBoard.exe
-      dd ffffa00df7ecc258 - 0x1d8 + 0x1d0 L1
 
-      # --- Get forward EPROCESS Address - WidgetBoard.exe
-      !process 2ba0 0
+   ```
+   # --- Get forward process Pid - WidgetBoard.exe
+   dd ffffa00df7ecc258 - 0x1d8 + 0x1d0 L1
 
-      # --- Get forward ActiveProcessLinks, FLINK, BLINK - WidgetBoard.exe
-      dt nt!_EPROCESS ffffa00df7ecc080 ActiveProcessLinks      
-      dq ffffa00df7ecc080 + 0x1d8 L2      
-      ```
+   # --- Get forward EPROCESS Address - WidgetBoard.exe
+   !process 2ba0 0
 
+   # --- Get forward ActiveProcessLinks, FLINK, BLINK - WidgetBoard.exe
+   dt nt!_EPROCESS ffffa00df7ecc080 ActiveProcessLinks      
+   dq ffffa00df7ecc080 + 0x1d8 L2      
+   ```
    ![image.png](/images/posts/02_DKOM/09_Windbg6.png)
 
 | Position | Process Name    | PID  | EPROCESS Address | ActiveProcessLinks | FLINK Value +0     | BLINK Value +8     |
 |----------|-----------------|------|------------------|--------------------|--------------------|--------------------|
 | Forward  | WidgetBoard.exe | 2ba0 | ffffa00df7ecc080 | ffffa00d`f7ecc258` | ffffa00df1aad258   | ffffa00d`f22e6298` |
    
-      ```
-      # --- Get backward process Pid - EngHost.exe
-      dd ffffa00d`fa0e2258 - 0x1d8 + 0x1d0 L1
-      
-      # --- Get backward EPROCESS Address - EngHost.exe
-      !process 3660 0
-            
-      # --- Get backward ActiveProcessLinks, FLINK, BLINK - EngHost.exe
-      dt nt!_EPROCESS ffffa00dfa0e2080 ActiveProcessLinks
-      dq ffffa00dfa0e2080 + 0x1d8 L2      
-      ```
+   ```
+   # --- Get backward process Pid - EngHost.exe
+   dd ffffa00d`fa0e2258 - 0x1d8 + 0x1d0 L1
+   
+   # --- Get backward EPROCESS Address - EngHost.exe
+   !process 3660 0
+         
+   # --- Get backward ActiveProcessLinks, FLINK, BLINK - EngHost.exe
+   dt nt!_EPROCESS ffffa00dfa0e2080 ActiveProcessLinks
+   dq ffffa00dfa0e2080 + 0x1d8 L2      
+   ```
    ![image.png](/images/posts/02_DKOM/10_Windbg7.png)      
 
 | Position | Process Name    | PID  | EPROCESS Address | ActiveProcessLinks | FLINK Value +0     | BLINK Value +8     |
@@ -219,14 +219,14 @@ Follow these steps to hide a process using DKOM in a controlled lab environment:
 4. **Unlink the Process**
 To manipulate these links and remove the `Notepad.exe` process from the active list, update the following pointers using `ActiveProcessLinks` address:
    - Point `EngHost.exe` `FLINK` in `ffffa00dfa0e2258` to `FLINK` `WidgetBoard.exe` in `ffffa00df7ecc258`
-      ```
-      eq ffffa00dfa0e2258 ffffa00d`f7ecc258
-      ```
+   ```
+   eq ffffa00dfa0e2258 ffffa00d`f7ecc258
+   ```
    - Point `WidgetBoard.exe` `BLINK`  at  `ffffa00df7ecc258 + 8` to `FLINK` `EngHost.exe` at `ffffa00dfa0e2258`.
-      ```
-      # ActiveProcessLinks+8 because LIST_ENTRY has two FLINK/BLINK fields and each is 8 bytes
-      eq ffffa00df7ecc258 + 8 ffffa00dfa0e2258
-      ```
+   ```
+   # ActiveProcessLinks+8 because LIST_ENTRY has two FLINK/BLINK fields and each is 8 bytes
+   eq ffffa00df7ecc258 + 8 ffffa00dfa0e2258
+   ```
    
    ![image.png](/images/posts/02_DKOM/11_Windbg8.png)
 
