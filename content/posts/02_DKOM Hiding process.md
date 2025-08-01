@@ -234,7 +234,7 @@ To manipulate these links and remove the `Notepad.exe` process from the active l
 
 
 5. **Verify the Process is Hidden**
-   - Run `ps | findstr -i notepad` in teminal or using `TaskManager`, the target process (`Notepad.exe`) should no longer appear in the list, even though it is still running.
+   - Run `ps | findstr -i notepad` in teminal or using `TaskManager`. The target process (`Notepad.exe`) should no longer appear in the list, even though it is still running.
 
 ![image.png](/images/posts/02_DKOM/12_Windbg9.png)
 
