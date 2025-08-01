@@ -172,7 +172,7 @@ Follow these steps to hide a process using DKOM in a controlled lab environment:
    ![image.png](/images/posts/02_DKOM/08_Windbg5.png)
    
    - Identify the `UniqueProcessId` and `EPROCESS` addresses of the neighboring processes.
-   - For each neighboring process, use their respective `ActiveProcessLinks` +/- offsets addresses to inspect their details:
+   - For each neighboring process, use their respective `ActiveProcessLinks` +/- offsets to inspect their details:
       ```
       # --- Get forward process Pid - WidgetBoard.exe
       dd ffffa00df7ecc258 - 0x1d8 + 0x1d0 L1
