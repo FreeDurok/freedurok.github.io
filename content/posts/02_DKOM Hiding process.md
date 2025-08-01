@@ -164,8 +164,8 @@ dq ffffa00df22e60c0 + 0x1d8 L2
 3. **Gather Information on Neighboring Processes (PID and ImageFileName)**
    - Identify the processes `ImageFileName` immediately before and after your target in the linked list by examining the `Flink` and `Blink` pointers, use their respective +/- offsets (see the above table) to inspect their details:
 ```
-# -0x1d8 is EPROCESS base address from ActiveProcessLinks
-# +0x338 is the `ImageFileName` offset
+# -0x1d8 is EPROCESS base address offset from ActiveProcessLinks member
+# +0x338 is the `ImageFileName` member offset from EPROCESS base address
 
 da  ffffa00d`f7ecc258 - 0x1d8 + 0x338
 da  ffffa00d`fa0e2258 - 0x1d8 + 0x338
