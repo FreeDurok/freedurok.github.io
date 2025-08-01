@@ -86,10 +86,10 @@ If your PoC involves **live kernel debugging** (recommended for DKOM analysis):
 - Configure debugging transport (COM, TCP, or local):
    - For VMs, **named pipe (COM)** or **network KD** is most convenient.
    - Enable kernel debugging on the target:
-   ```powershell
-   # Administrator
-   bcdedit /debug on
-   ```
+```powershell
+# Administrator
+bcdedit /debug on
+```
 - Reboot the machine with debugging enabled.
 
 > 💡 **Tip:** 
@@ -119,8 +119,8 @@ Follow these steps to hide a process using DKOM in a controlled lab environment:
    - Use the `!process 0 0` command in WinDbg to list all active processes.
    - Find the entry for your target process (e.g., `notepad.exe`) and note its `EPROCESS` address.
 
-   ![image.png](/images/posts/02_DKOM/05_Windbg2.png)
-   <br><br>
+![image.png](/images/posts/02_DKOM/05_Windbg2.png)
+<br><br>
 
 | Process Name | PID    | EPROCESS Address |
 |--------------|--------|------------------|
