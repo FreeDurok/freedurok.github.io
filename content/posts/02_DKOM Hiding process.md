@@ -176,23 +176,13 @@ Follow these steps to hide a process using DKOM in a controlled lab environment:
       ```
       # --- Get forward process Pid - WidgetBoard.exe
       dd ffffa00df7ecc258 - 0x1d8 + 0x1d0 L1
-      # 00002ba0
 
       # --- Get forward EPROCESS Address - WidgetBoard.exe
       !process 2ba0 0
-      # Searching for Process with Cid == 2ba0
-      # PROCESS ffffa00df7ecc080
-      #     SessionId: none  Cid: 2ba0    Peb: 2cf2d6000  ParentCid: 0238
-      #     DirBase: 4b9b8000  ObjectTable: ffffe589e1773b40  HandleCount: 795.
-      #     Image: WidgetBoard.exe
-
 
       # --- Get forward ActiveProcessLinks, FLINK, BLINK - WidgetBoard.exe
-      dt nt!_EPROCESS ffffa00df7ecc080 ActiveProcessLinks
-      # +0x1d8 ActiveProcessLinks : _LIST_ENTRY [ 0xffffa00d`f1aad258 - 0xffffa00d`f22e6298 ]
-
-      dq ffffa00df7ecc080 + 0x1d8 L2
-      # ffffa00d`f7ecc258  ffffa00d`f1aad258 ffffa00d`f22e6298
+      dt nt!_EPROCESS ffffa00df7ecc080 ActiveProcessLinks      
+      dq ffffa00df7ecc080 + 0x1d8 L2      
       ```
 
    ![image.png](/images/posts/02_DKOM/09_Windbg6.png)
@@ -200,23 +190,13 @@ Follow these steps to hide a process using DKOM in a controlled lab environment:
       ```
       # --- Get backward process Pid - EngHost.exe
       dd ffffa00d`fa0e2258 - 0x1d8 + 0x1d0 L1
-      # 00003660
-
-      # Get backward EPROCESS Address - EngHost.exe
+      
+      # --- Get backward EPROCESS Address - EngHost.exe
       !process 3660 0
-      # Searching for Process with Cid == 3660
-      # PROCESS ffffa00dfa0e2080
-      #    SessionId: none  Cid: 3660    Peb: df40b7c000  ParentCid: 23e0
-      #    DirBase: 0050c000  ObjectTable: ffffe589e17aa580  HandleCount: 261.
-      #    Image: EngHost.exe
-
-
+            
       # --- Get backward ActiveProcessLinks, FLINK, BLINK - EngHost.exe
       dt nt!_EPROCESS ffffa00dfa0e2080 ActiveProcessLinks
-      # +0x1d8 ActiveProcessLinks : _LIST_ENTRY [ 0xffffa00d`f22e6298 - 0xffffa00d`f3ea2258 ]
-
-      dq ffffa00dfa0e2080 + 0x1d8 L2
-      # ffffa00d`fa0e2258  ffffa00d`f22e6298 ffffa00d`f3ea2258
+      dq ffffa00dfa0e2080 + 0x1d8 L2      
       ```
    ![image.png](/images/posts/02_DKOM/10_Windbg7.png)      
 
