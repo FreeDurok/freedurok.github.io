@@ -276,9 +276,9 @@ python vol.py -f ../dump.raw windows.info
 5. **Analyze with `Volatility`**  
    As we can see, running the `windows.pslist` module and filtering for the process name `notepad` returns no results, meaning the process is not visible to standard enumeration:
 
-   ```bash
-   python vol.py -f ../dump.raw windows.pslist | grep -i notepad
-   ```
+```bash
+python vol.py -f ../dump.raw windows.pslist | grep -i notepad
+```
 
 ![image.png](/images/posts/02_DKOM/Volatility1.png)
 
