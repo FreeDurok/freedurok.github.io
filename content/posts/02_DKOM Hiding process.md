@@ -234,9 +234,9 @@ To manipulate these links and remove the `Notepad.exe` process from the active l
       ```
       eq ffffa00dfa0e2258 ffffa00d`f7ecc258
       ```
-   - Point `WidgetBoard.exe` `BLINK` (using `ActiveProcessLinks + 8` address)  at  `ffffa00df7ecc258 + 8` to `FLINK` (using `ActiveProcessLinks` address) `EngHost.exe` at `ffffa00dfa0e2258`.
+   - Point `WidgetBoard.exe` `BLINK`  at  `ffffa00df7ecc258 + 8` to `FLINK` `EngHost.exe` at `ffffa00dfa0e2258`.
       ```
-      # +8 because LIST_ENTRY has two FLINK/BLINK fields and each is 8 bytes
+      # ActiveProcessLinks+8 because LIST_ENTRY has two FLINK/BLINK fields and each is 8 bytes
       eq ffffa00df7ecc258+8 ffffa00dfa0e2258
       ```
    
