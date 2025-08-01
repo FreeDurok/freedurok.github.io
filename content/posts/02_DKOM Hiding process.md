@@ -218,11 +218,11 @@ Follow these steps to hide a process using DKOM in a controlled lab environment:
 
 4. **Unlink the Process**
 To manipulate these links and remove the `Notepad.exe` process from the active list, update the following pointers using `ActiveProcessLinks` address:
-   - Point `EngHost.exe` `FLINK` in `ffffa00dfa0e2258` to `FLINK` `WidgetBoard.exe` in `ffffa00df7ecc258`
+   - Point `EngHost.exe` -> `FLINK` in `ffffa00dfa0e2258` to `WidgetBoard.exe` -> `FLINK` in `ffffa00df7ecc258`
    ```
    eq ffffa00dfa0e2258 ffffa00d`f7ecc258
    ```
-   - Point `WidgetBoard.exe` `BLINK`  at  `ffffa00df7ecc258 + 8` to `FLINK` `EngHost.exe` at `ffffa00dfa0e2258`.
+   - Point `WidgetBoard.exe` -> `BLINK`  at  `ffffa00df7ecc258 + 8` to `EngHost.exe` -> `FLINK` at `ffffa00dfa0e2258`.
    ```
    # ActiveProcessLinks+8 because LIST_ENTRY has two FLINK/BLINK fields and each is 8 bytes
    eq ffffa00df7ecc258 + 8 ffffa00dfa0e2258
