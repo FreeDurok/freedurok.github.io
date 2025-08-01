@@ -215,19 +215,19 @@ Follow these steps to hide a process using DKOM in a controlled lab environment:
       ![image.png](/images/posts/02_DKOM/10_Windbg7.png)      
 
    - Note the `Process ID (PID)`, `ImageFileName`, `EPROCESS`, `ActiveProcessLinks`, `FLINK`, `BLINK` for both neighboring processes. This ensures you are correctly identifying the links you need to update when unlinking the target process.
-      | Position | Process Name    | PID    | EPROCESS Address | ActiveProcessLinks | FLINK              | BLINK              |
+      | Position | Process Name    | PID    | EPROCESS Address | ActiveProcessLinks | FLINK Value +0     | BLINK Value +8     |
       |----------|-----------------|--------|------------------|--------------------|--------------------|--------------------|
-      | Backward | EngHost.exe     | 3660   | ffffa00dfa0e2080 | ffffa00d`fa0e2258` | ffffa00d`f22e6298  | ffffa00df3ea2258   |
-      |          | Notepad.exe     | 0x358c | ffffa00df22e60c0 | ffffa00df`22e6298` | ffffa00d`f7ecc258` | ffffa00d`fa0e2258` |
+      | Backward | EngHost.exe     | 3660   | ffffa00dfa0e2080 | ffffa00d`fa0e2258` | ffffa00d`f22e6298` | ffffa00df3ea2258   |
+      |          | Notepad.exe     | 0x358c | ffffa00df22e60c0 | ffffa00d`f22e6298` | ffffa00d`f7ecc258` | ffffa00d`fa0e2258` |
       | Forward  | WidgetBoard.exe | 0x2ba0 | ffffa00df7ecc080 | ffffa00d`f7ecc258` | ffffa00df1aad258   | ffffa00d`f22e6298` |
 
 
 
 4. **Unlink the Process**
 To manipulate these links and remove the `Notepad.exe` process from the active list, update the following pointers:
-   - Point `EngHost.exe` `FLINK` in `ffff8e091cd97258` to `FLINK` `vcpkgsrv.exe` in `ffff8e091cb1b258`
+   - Point `EngHost.exe` `FLINK` (using `ActiveProcessLinks` address) in `ffff8e091cd97258` to `FLINK` (using `ActiveProcessLinks` address) `WidgetBoard.exe` in `ffffa00df7ecc258`
       ```
-      eq ffff8e091cd97258 ffff8e091cb1b258
+      eq ffffa00dfa0e2258 ffffa00d`f7ecc258
       ```
    - Point `BLINK` `vcpkgsrv.exe` at `ffff8e091cb1b258 + 8` to `FLINK` `EngHost.exe` at `ffff8e091cd97258`.
       ```
