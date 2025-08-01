@@ -118,7 +118,7 @@ Follow these steps to hide a process using DKOM in a controlled lab environment:
 1. **Identify the Target Process**
    - Use the `!process 0 0` command in WinDbg to list all active processes.
    - Find the entry for your target process (e.g., `notepad.exe`) and note its `EPROCESS` address.
-      ![image.png](/images/posts/02_DKOM/05_Windbg2.png)
+   ![image.png](/images/posts/02_DKOM/05_Windbg2.png)
       <br><br>
 | Process Name | PID    | EPROCESS Address |
 |--------------|--------|------------------|
@@ -129,7 +129,7 @@ Follow these steps to hide a process using DKOM in a controlled lab environment:
       ```
       dt _EPROCESS <EPROCESS_address>
       ```
-      ![image.png](/images/posts/02_DKOM/06_Windbg3.png)
+   ![image.png](/images/posts/02_DKOM/06_Windbg3.png)
    - Locate the `UniqueProcessId` field, in `Windows 11 24h2` offset is `+0x1d0`
    - Locate the `ActiveProcessLinks` field, which is part of the doubly linked list connecting all processes, in `Windows 11 24h2` the offset is `+0x1d8`.
    - Locate the `ImgageFileName` field, in `Windows 11 24h2` offset is `+0x338`
@@ -149,7 +149,7 @@ Follow these steps to hide a process using DKOM in a controlled lab environment:
       dt nt!_EPROCESS ffffa00df22e60c0 ActiveProcessLinks
       dq ffffa00df22e60c0 + 0x1d8 L2
       ```
-      ![image.png](/images/posts/02_DKOM/07_Windbg4.png)
+   ![image.png](/images/posts/02_DKOM/07_Windbg4.png)
       <br><br>
 | Process Name | PID    | EPROCESS Address | ActiveProcessLinks | FLINK             | BLINK             |
 |--------------|--------|------------------|--------------------|-------------------|-------------------|
